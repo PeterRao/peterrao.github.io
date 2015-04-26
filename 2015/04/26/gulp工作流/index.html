@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="1.01^365," />
+  <meta name="keywords" content="gulp," />
 
 
 
@@ -43,7 +43,7 @@
   </script>
 
 
-  <title> 每日进步一点-20150422 // Undefined Coder </title>
+  <title> gulp工作流 // Undefined Coder </title>
 </head>
 
 <body>
@@ -122,7 +122,7 @@
           
           
             
-              每日进步一点-20150422
+              gulp工作流
             
           
         </h1>
@@ -130,7 +130,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-04-22
+          发表于 2015-04-26
         </span>
 
         
@@ -139,8 +139,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/04/22/每日进步一点-20150422/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/22/每日进步一点-20150422/"></span>
+            <a href="/2015/04/26/gulp工作流/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/26/gulp工作流/"></span>
             </a>
           </span>
           
@@ -154,7 +154,17 @@
       
 
       
-        <h3 id="碎碎念">碎碎念</h3><p>今天准备用<a href="https://github.com/alvarotrigo/fullPage.js" target="_blank" rel="external">fullPage</a>来实现新产品的宣传页面，仿照了<a href="http://www.mi.com/shouhuan" target="_blank" rel="external">小米手环页面</a>中两排导航的处理。历史原因，页面要在 Wordpress 中生成，又捣鼓了半天的 Wordpress，越来越不喜欢 Wordpress 和 PHP。。。<br>顺便看了下小米前端的代码，居然很多的选择器变量不缓存下，上次在 w3ctech 上，也感觉到了，小米的前端还不是很规范，不过还是很佩服小米页面的设计，甩大部分公司几条街！<br>之前都是用 FTP 往服务器上上传文件，今天学习了 iTerm2 的 SSH，工具果然是第一生产力。</p>
+        <h2 id="前言">前言</h2><p>专职前端一年多了，经历了项目结构的一次一次升级，也逐渐加深了对前端工程化的认识。从最初的jQuery + grunt 的<code>1.0</code>版本，到<code>2.0</code> 引入 MVVM 框架 avalon，CSS 预处理工具 Less，html模板引擎 jade 以及前端模块化框架 seajs ，再到 gulp + browserify 和 静态资源的 md5 命名以加强缓存机制。在不断改进项目的同时，也形成了自己的一套前端工程化流程。</p>
+<p>下面接介绍下今天的主角—gulp</p>
+<h2 id="为什么要用_gulp">为什么要用 gulp</h2><p>之前项目用的是 grunt，为什么要改成 gulp？随着项目越来越复杂，前端构建脚本会越来越复杂，grunt 这种通过配置的方式会变得越来越难维护，而 gulp 这种基于 stream  的方式，更像是编程，更容易维护。软件开发有条定律 <code>约定优于配置</code>，维护 100 行有逻辑的代码和 维护 300 行类似 JSON 那样无逻辑的代码，必然前者占优。当然 gulp 这种基于 stream 不会频繁的读写文件，效率也会比 grunt 好。</p>
+<p>当然，现在用些更先进的构建工具，比如 webpack，将前端模块化做的更加彻底，配合 React 很可能是未来德尔发展方向，不过这里不做介绍。</p>
+<h2 id="My_Tasks">My Tasks</h2><p>gulp 出来也很久了，目前版本 3.X（坑爹的 4.X 都憋了一年多了），官方文档很完善，各种教程也数不胜数，这里我就介绍 gulp 使用中稍微深入的地方，供大家参考。有不对的地方，欢迎指正。</p>
+<h3 id="构建脚本的目录结构以及插件的加载">构建脚本的目录结构以及插件的加载</h3><p>由于目前项目构建代码比较多，做了拆分，这里我的构建脚本的目录结构式这样的<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> build_config</span><br><span class="line"></span>    -<span class="ruby"> config.js</span><br><span class="line"></span>    -<span class="ruby"> my_config.js</span><br><span class="line"></span>-<span class="ruby"> gulpfile.js</span></span><br></pre></td></tr></table></figure></p>
+<p>config.js 中主要是一些路径的配置，插件的加载和工具函数：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 基本的 src 和 dest 路径</span></span><br><span class="line"><span class="keyword">var</span> srcPath = <span class="string">'src'</span>,</span><br><span class="line">    destPath = <span class="string">'dist'</span>,</span><br><span class="line">    buid = destPath + <span class="string">'/build'</span>,</span><br><span class="line">    deployPath = destPath + <span class="string">'/deploy'</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="keyword">require</span>(<span class="string">'gulp'</span>)，</span><br><span class="line">    del: <span class="keyword">require</span>(<span class="string">'del'</span>),</span><br><span class="line">    fs: <span class="keyword">require</span>(<span class="string">'fs'</span>),</span><br><span class="line">    <span class="string">'$'</span>: <span class="keyword">require</span>(<span class="string">'gulp-load-plugins'</span>)()；</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主要是 glup.src 和 gulp.dest 中的参数的路径配置</span></span><br><span class="line"><span class="comment">// var config = &#123;</span></span><br><span class="line">    less: &#123;</span><br><span class="line">        src: srcPath + <span class="string">'/less/*.less'</span>,</span><br><span class="line">        dest: buildPath + /css</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line"><span class="comment">// 一些辅助函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">modify</span><span class="params">(modifier)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> through2.obj(<span class="function"><span class="keyword">function</span><span class="params">(file, encoding, done)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> content = modifier(String(file.contents), file.path);</span><br><span class="line">        file.contents = <span class="keyword">new</span> Buffer(content);</span><br><span class="line">        this.push(file);</span><br><span class="line">        done();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>因为该项目有些针对不同企业有定制构建的部分，我放入了 my_config.js 中，项目的所有 task 都放在 gulpfile.js 中。<br>当然，我们自己在可以根据实际的项目需要自己判断构建脚本是否需要拆分以及如何拆分（因为我目前的项目构建代码有近千行，因而进行了拆分），拆分后各模块只需以 node 的方式 <code>exports</code> 出去，并 <code>require</code> 进 gulpfile.js 即可。<br>这里用了一个 <a href="https://www.npmjs.com/package/gulp-load-plugins" target="_blank" rel="external">gulp-load-plugins</a>来加载 gulp 插件， 省去了写还多 require 的麻烦。</p>
+<h3 id="一些公共使用的插件">一些公共使用的插件</h3><p><a href="https://www.npmjs.com/package/gulp-changed" target="_blank" rel="external">gulp-changed</a>：用来实现增量构建必不可少的插件，试想如果每次运行 task 时，那些完全没更改的文件还需重新构建一遍，<code>时间就是金钱，我的朋友</code>，我们要尽量来减少带薪编译的时间。这里判断文件是否更改，主要有两张方式，一种是判断文件的最后修改时间(changed.compareLastModifiedTime)，这种方式对一些单独的静态文件非常有用，比如图片，字体等等，可以只需要处理一次，后续完全不用再次处理，极大的节省了时间；另一张是判断文件的 md5 (changed.compareSha1Digest)，这种对 jade，less，js 处理有用，因为这些文件大多数时候需要 include 其他文件，最好生成一个入口文件，因而不能单纯的判断文件修改时间，需要判断文件的 md5，不过这种方式还是需要编译，只是节省了写文件的时间，实际效果不明显。当然官方还建议了一些插件<a href="https://github.com/wearefractal/gulp-cached" target="_blank" rel="external">gulp-cached</a>，<a href="https://github.com/ahaurw01/gulp-remember" target="_blank" rel="external">gulp-remember</a>和<a href="https://github.com/tschaub/gulp-newer" target="_blank" rel="external">gulp-newer</a>，来实现 incremental builds ，读者可以自行研究，并加入到自己的 task 中去。</p>
+<p><a href="https://github.com/robrich/gulp-if" target="_blank" rel="external">gulp-if</a>：来实现 stream 的三元操作，比如我本地开发的时候，需要调试，不需要压缩代码，而上线时需要压缩就能通过这个插件来实现。</p>
+<p>To Be Continue</p>
 
       
     </div>
@@ -163,7 +173,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/1-01-365/"> #1.01^365 </a>
+            <a href="/tags/gulp/"> #gulp </a>
           
         </div>
       
@@ -176,7 +186,7 @@
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/04/21/每日进步一点-20150421/">每日进步一点-20150421</a>
+              <a href="/2015/04/21/每日进步一点点/">每日进步一点点</a>
             
           </div>
         </div>
@@ -192,8 +202,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/04/22/每日进步一点-20150422/"
-               data-title="每日进步一点-20150422" data-url="http://yoursite.com/2015/04/22/每日进步一点-20150422/">
+          <div class="ds-thread" data-thread-key="2015/04/26/gulp工作流/"
+               data-title="gulp工作流" data-url="http://yoursite.com/2015/04/26/gulp工作流/">
           </div>
         
       </div>
@@ -251,7 +261,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -299,7 +309,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#碎碎念"><span class="nav-number">1.</span> <span class="nav-text">碎碎念</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么要用_gulp"><span class="nav-number">2.</span> <span class="nav-text">为什么要用 gulp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#My_Tasks"><span class="nav-number">3.</span> <span class="nav-text">My Tasks</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建脚本的目录结构以及插件的加载"><span class="nav-number">3.1.</span> <span class="nav-text">构建脚本的目录结构以及插件的加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一些公共使用的插件"><span class="nav-number">3.2.</span> <span class="nav-text">一些公共使用的插件</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
