@@ -124,6 +124,78 @@
           
           
             
+              <a class="post-title-link" href="/2015/05/04/每日进步一点点-201505/">
+                每日进步一点点-201505
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-04
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/04/每日进步一点点-201505/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/04/每日进步一点点-201505/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="5-4">5.4</h2><p>css 动画暂停</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/1-01-365/"> #1.01^365 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/04/26/gulp工作流/">
                 gulp工作流
               </a>
@@ -159,7 +231,7 @@
 
       
         
-          <h2 id="前言">前言</h2><p>专职前端一年半了，经历了项目结构的一次一次升级，也逐渐加深了对前端工程化的认识。从最初的jQuery + grunt 的<code>1.0</code>版本，到<code>2.0</code> 引入 MVVM 框架 avalon，CSS 预处理工具 less，html模板引擎 jade 以及前端模块化框架 seajs ，再到 gulp + browserify 和 静态资源的 md5 命名以加强缓存机制。在不断改进项目的同时，也形成了自己的一套前端工程化流程。</p>
+          <h2 id="前言">前言</h2><p>专职前端一年半了，经历了项目结构的一次一次升级，也逐渐加深了对前端工程化的认识。从最初的jQuery + grunt 的<code>1.0</code>版本，到<code>2.0</code> 引入 MVVM 框架 avalon，CSS 预处理工具 less，html模板引擎 jade 以及前端模块化框架 seajs ，再到 gulp + browserify 和 静态资源的 md5 后缀以加强缓存机制。通过不断的改进项目结构，建立一个完善的多页面多模块的 Web 应用，形成了自己的一套前端工程化流程。</p>
 <p>当然这套工作流离不开一个强大的构建工具—gulp</p>
 <h2 id="为什么要用_gulp">为什么要用 gulp</h2><p>之前项目用的是 grunt，为什么要改成 gulp？随着项目越来越复杂，前端构建脚本会越来越复杂，grunt 这种通过配置的方式会变得越来越难维护，而 gulp 这种基于 stream  的方式，更像是编程，更容易维护。软件开发有条定律 <code>约定优于配置</code>，维护 100 行有逻辑的代码和 维护 300 行类似 JSON 那样无逻辑的代码，必然前者占优。同时 gulp 不会频繁的读写文件，效率也会比 grunt 好一些。</p>
 <p>当然，现在用些更先进的构建工具，比如 webpack，将前端模块化做的更加彻底，配合 React 很可能是未来的发展方向，不过这里不做介绍。</p>
@@ -176,9 +248,15 @@
 <h3 id="image_压缩">image 压缩</h3><p>使用 <a href="https://github.com/sindresorhus/gulp-imagemin" target="_blank" rel="external">gulp-imagemin</a> 来完成 png，jpg，gif的压缩。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'imgmin'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src([config.imgmin.src])</span><br><span class="line">        .pipe($.changed(config.imgmin.dest))</span><br><span class="line">        .pipe($.imagemin())</span><br><span class="line">        .pipe(gulp.dest(config.imgmin.dest));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <h3 id="HTML_处理">HTML 处理</h3><p>项目使用 Jade 来实现 HTML 的复用。主要 <a href="https://github.com/phated/gulp-jade" target="_blank" rel="external">gulp-jade</a> 插件来完成，<br>gulp.task(‘jade’, function() {<br>    gulp.src(config.jade[name].src)<br>        .pipe($.jade())<br>        .pipe(gulp.dest(config.jade[name].dest))<br>        .pipe(!RESEASE, $.livereload());<br>});</p>
 <h3 id="JavaScript_处理">JavaScript 处理</h3><p>这块是最复杂的地方，之前项目是使用的 seajs 做 JS 的模块化加载，但是其实所有 JS 在构建时已经做了 bundle 操作，只有一个语言文件是异步加载进的，对比 browserify, seajs 对我们失去了其本来的意义，而且其生态并不好，只有阿里前端在维护，我们自己还写了一个 gulp-seajs 来满足我们自己的构建需要。因此考虑了下换成了 browserify，使用 commonjs 方式来进行模块化的开发。</p>
-<p>由于 browserify 并没有像 seajs 或者 requirejs 一样，提供一个还好的异步解决方案，因此，我们需要把根据环境，将语言文件写到 script 标签中，供入口文件使用。</p>
+<p>由于 browserify 并没有像 seajs 或者 requirejs 一样，提供一个还好的异步解决方案，因此，我们需要把根据环境，将不同语言文件写到 script 标签中，供入口文件使用。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'locale'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> browserified = through2.obj(<span class="function"><span class="keyword">function</span><span class="params">(file, encoding, done)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> b = browserify();</span><br><span class="line">        <span class="keyword">if</span> (!RELEASE) &#123;</span><br><span class="line">            b = watchify(b);</span><br><span class="line">        &#125;</span><br><span class="line">        b.require(file.path, &#123;expose: <span class="string">'locale'</span>&#125;);</span><br><span class="line">        b.bundle(<span class="function"><span class="keyword">function</span><span class="params">(err, res)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                <span class="keyword">return</span> done(err);</span><br><span class="line">            &#125;</span><br><span class="line">            file.contents = res;</span><br><span class="line">            done(<span class="literal">null</span>, file);</span><br><span class="line">        &#125;);</span><br><span class="line">        b.on(<span class="string">'update'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> filename = path.basename(file.path);</span><br><span class="line">            <span class="keyword">var</span> destPath = path.dirname(file.path)</span><br><span class="line">            <span class="built_in">console</span>.log(file.path + <span class="string">' changed!!!'</span>);</span><br><span class="line">            b.bundle()</span><br><span class="line">                .pipe(source(filename))</span><br><span class="line">                .pipe(buffer())</span><br><span class="line">                .pipe(gulp.dest(destPath))</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> gulp.src(config.locale.src)</span><br><span class="line">        .pipe(browserified)</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(RELEASE, $.uglify()))</span><br><span class="line">        .pipe(gulp.dest(config.locale.dest))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>这里我通过 throungh2 模块来实现 <a href="https://github.com/rvagg/through2" target="_blank" rel="external">stream</a> 的内容更改，通过 <a href="https://github.com/substack/watchify" target="_blank" rel="external">watchify</a> 和 <code>update</code> 来在开发环境下监听文件改动，并重新 bundle。<code>var source = require(&#39;vinyl-source-stream&#39;)</code> 和 `var buffer =  require(‘vinyl-buffer’)’ 可以将用 browserify bundle后生成的stream，转换成所需要的 stream。</p>
+<p>这里我通过 throungh2 模块来实现 <a href="https://github.com/rvagg/through2" target="_blank" rel="external">stream</a> 的内容更改，通过 <a href="https://github.com/substack/watchify" target="_blank" rel="external">watchify</a> 和 <code>update</code>事件来在开发环境下监听文件改动，并重新 bundle。<code>var source = require(&#39;vinyl-source-stream&#39;)</code> 和 <code>var buffer =  require(&#39;vinyl-buffer&#39;)</code> 可以将用 browserify bundle后生成的stream，转换成gulp需要的 stream。<br>这样就可以根据需要，引入不同的语言文件，主文件只需要 <code>var locale = require(&#39;locale&#39;)</code> 即可。其他异步模块可以以相同方式处理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'bundle'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> browserified = through2.obj(<span class="function"><span class="keyword">function</span><span class="params">(file, encoding, done)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> b = browserify(&#123;entries: file.path, debug: !productEnv&#125;);</span><br><span class="line">        b.external(<span class="string">'locale'</span>);</span><br><span class="line">        <span class="keyword">if</span> (!RELEASE) &#123;</span><br><span class="line">            b = watchify(b);</span><br><span class="line">        &#125;</span><br><span class="line">        b.bundle(<span class="function"><span class="keyword">function</span><span class="params">(err, res)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                <span class="keyword">return</span> done(err);</span><br><span class="line">            &#125;</span><br><span class="line">            file.contents = res;</span><br><span class="line">            done(<span class="literal">null</span>, file);</span><br><span class="line">        &#125;)</span><br><span class="line">        b.on(<span class="string">'update'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> filename = path.basename(file.path);</span><br><span class="line">            <span class="keyword">var</span> destPath = path.dirname(file.path)</span><br><span class="line">            <span class="built_in">console</span>.log(file.path + <span class="string">' changed!!!'</span>);</span><br><span class="line">            b.bundle()</span><br><span class="line">                .on(<span class="string">'error'</span>, $.util.log.bind($.util, <span class="string">'Browserify Error'</span>))</span><br><span class="line">                .pipe(source(filename))</span><br><span class="line">                .pipe(buffer())</span><br><span class="line">                .pipe($.<span class="keyword">if</span>(!RELEASE, $.sourcemaps.init(&#123;loadMaps: <span class="literal">true</span>&#125;)))</span><br><span class="line">                .pipe($.<span class="keyword">if</span>(!RELEASE, $.sourcemaps.write(<span class="string">'./'</span>)))</span><br><span class="line">                .pipe(gulp.dest(destPath))</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> gulp.src(config.bundle.src, &#123;base: basePath.src&#125;)</span><br><span class="line">        .pipe($.plumber())</span><br><span class="line">        .pipe(browserified)</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(!RELEASE, $.sourcemaps.init(&#123;loadMaps: <span class="literal">true</span>&#125;)))</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(RELEASE, $.uglify()))</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(!RELEASE, $.sourcemaps.write(<span class="string">'./'</span>)))</span><br><span class="line">        .pipe(gulp.dest(config.bundle.dest))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这里使用差不多同样的方法，需要注意的是这里的 <code>b.external(&#39;locale&#39;);</code> 把 <code>locale</code> 模块排除掉，这里可以把两个任务公共的部分提取出来，这里为了看得直观代码啰嗦了下。</p>
+<p>后面还有一些其他的 task，比如 <code>gul-jshint</code> —检查代码质量， 利用 <code>gulp-livereload</code> —监听文件的改动刷新当前页面， <code>gulp-jsonminify</code> 压缩 JSON 文件等等。可以去参考下文档，比较简单。</p>
+<hr>
+<p>至此我们已经完成了，前端所需的所有代码的构建任务，但实际工作中，还有一个很重要的问题，如何消除静态文件的缓存。</p>
+<p>由于 Web 项目迭代周期短，需要频繁上线，必然涉及到静态资源的缓存机制。最开始我们的项目采用了，在静态资源的加入构建时的时间戳来解决，不过这样造成每次构建都要把所有资源都更新一下。最好的解决办法是将静态资源命名加入文件的 md5 值， 云龙在知乎上关于这个问题有一个很精彩的<a href="http://www.zhihu.com/question/20790576/answer/32602154" target="_blank" rel="external">回答</a></p>
 <p>To Be Continue</p>
 
         
@@ -216,8 +294,8 @@
           
           
             
-              <a class="post-title-link" href="/2015/04/21/每日进步一点点/">
-                每日进步一点点
+              <a class="post-title-link" href="/2015/04/21/每日进步一点点-201504/">
+                每日进步一点点-201504
               </a>
             
           
@@ -235,8 +313,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/04/21/每日进步一点点/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/21/每日进步一点点/"></span>
+            <a href="/2015/04/21/每日进步一点点-201504/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/21/每日进步一点点-201504/"></span>
             </a>
           </span>
           
@@ -330,7 +408,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
