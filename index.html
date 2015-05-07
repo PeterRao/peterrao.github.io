@@ -124,6 +124,79 @@
           
           
             
+              <a class="post-title-link" href="/2015/05/07/收藏夹/">
+                收藏夹
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-07
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/07/收藏夹/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/07/收藏夹/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>暂时放在这，有空在 blog 新加入页面</p>
+<h3 id="JavaScript">JavaScript</h3><p>You migth not need jquery(手写JS代码参考)：<a href="http://youmightnotneedjquery.com/" target="_blank" rel="external">http://youmightnotneedjquery.com/</a></p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/收藏夹/"> #收藏夹 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/05/04/每日进步一点点-201505/">
                 每日进步一点点-201505
               </a>
@@ -159,8 +232,12 @@
 
       
         
-          <h2 id="5-4">5.4</h2><p>css 动画暂停</p>
-
+          <h2 id="5-4">5.4</h2><p>css 动画暂停<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/04/每日进步一点点-201505/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -232,35 +309,12 @@
       
         
           <h2 id="前言">前言</h2><p>专职前端一年半了，经历了项目结构的一次一次升级，也逐渐加深了对前端工程化的认识。从最初的jQuery + grunt 的<code>1.0</code>版本，到<code>2.0</code> 引入 MVVM 框架 avalon，CSS 预处理工具 Less，HTML 模板引擎 Jade 以及前端模块化框架 seajs ，再到 gulp + browserify 和 静态资源的 md5 后缀以加强缓存机制。通过不断的改进项目结构，建立一个完善的多页面多模块的 Web 应用，形成了自己的一套前端工程化流程。</p>
-<p>当然这套工作流离不开一个强大的构建工具—gulp</p>
-<h2 id="为什么要用_gulp">为什么要用 gulp</h2><p>之前项目用的是 grunt，为什么要改成 gulp ？随着项目越来越复杂，前端构建脚本会越来越复杂，grunt 这种通过配置的方式会变得越来越难维护，而 gulp 这种基于 stream 的方式，更像是编程，更容易维护。软件开发有条定律 <code>约定优于配置</code>，维护 100 行有逻辑的代码和 维护 300 行类似 JSON 那样无逻辑的代码，必然前者占优。同时 gulp 不会频繁的读写文件，效率也会比 grunt 好一些。</p>
-<p>当然，现在用些更先进的构建工具，比如 webpack，将前端模块化做的更加彻底，配合 React 很可能是未来的发展方向，不过这里不做介绍。</p>
-<h2 id="My_Tasks">My Tasks</h2><p>gulp 出来也很久了，目前版本 3.X（坑爹的 4.X 都憋了一年多了），官方文档很完善，各种教程也数不胜数，这里我就介绍我在使用 gulp 中形成的工作流，供大家参考。有不对的地方，欢迎指正。</p>
-<h3 id="构建脚本的目录结构以及插件的加载">构建脚本的目录结构以及插件的加载</h3><p>由于目前项目构建代码比较多，做了拆分，这里我的构建脚本的目录结构式这样的<br><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> build_config</span><br><span class="line"></span>    -<span class="ruby"> config.js</span><br><span class="line"></span>    -<span class="ruby"> my_config.js</span><br><span class="line"></span>-<span class="ruby"> gulpfile.js</span></span><br></pre></td></tr></table></figure></p>
-<p>config.js 中主要是一些路径的配置，插件的加载和工具函数：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 判断是否是部署环境，决定是否压缩代码。</span></span><br><span class="line"><span class="keyword">var</span> argv = <span class="keyword">require</span>(<span class="string">'minimist'</span>)(process.argv.slice(<span class="number">2</span>));</span><br><span class="line"><span class="keyword">var</span> RELEASE = !!argv.release;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 基本的 src 和 dest 路径</span></span><br><span class="line"><span class="keyword">var</span> srcPath = <span class="string">'src'</span>,</span><br><span class="line">    destPath = <span class="string">'dist'</span>,</span><br><span class="line">    buid = destPath + <span class="string">'/build'</span>,</span><br><span class="line">    deployPath = destPath + <span class="string">'/deploy'</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line"><span class="comment">// 引入插件</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="keyword">require</span>(<span class="string">'gulp'</span>)，</span><br><span class="line">    del: <span class="keyword">require</span>(<span class="string">'del'</span>),</span><br><span class="line">    fs: <span class="keyword">require</span>(<span class="string">'fs'</span>),</span><br><span class="line">    <span class="string">'$'</span>: <span class="keyword">require</span>(<span class="string">'gulp-load-plugins'</span>)()；</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line"><span class="comment">// 主要是 glup.src 和 gulp.dest 中的参数的路径配置</span></span><br><span class="line"><span class="keyword">var</span> config = &#123;</span><br><span class="line">    less: &#123;</span><br><span class="line">        src: srcPath + <span class="string">'/less/*.less'</span>,</span><br><span class="line">        dest: buildPath + /css</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 一些辅助函数</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">modify</span><span class="params">(modifier)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> through2.obj(<span class="function"><span class="keyword">function</span><span class="params">(file, encoding, done)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> content = modifier(String(file.contents), file.path);</span><br><span class="line">        file.contents = <span class="keyword">new</span> Buffer(content);</span><br><span class="line">        this.push(file);</span><br><span class="line">        done();</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>因为该项目有些针对不同企业有定制构建的部分，我放入了 my_config.js 中，项目的所有 task 都放在 gulpfile.js 中。<br>当然，我们自己在可以根据实际的项目需要自己判断构建脚本是否需要拆分以及如何拆分（因为我目前的项目构建代码有近千行，太不容易维护了），拆分后各模块只需以 node 的方式 <code>exports</code> 出去，并 <code>require</code> 进 gulpfile.js 即可。<br>这里用了一个 <a href="https://www.npmjs.com/package/gulp-load-plugins" target="_blank" rel="external">gulp-load-plugins</a>来加载 gulp 插件， 省去了书写的麻烦。</p>
-<h3 id="一些公共使用的插件">一些公共使用的插件</h3><p><a href="https://www.npmjs.com/package/gulp-changed" target="_blank" rel="external">gulp-changed</a>：用来实现增量构建必不可少的插件，试想如果每次运行 task 时，那些完全没更改的文件还需重新构建一遍，<code>时间就是金钱，我的朋友</code>，我们要尽量来减少带薪编译的时间。这里判断文件 是否更改，主要有两张方式，一种是判断文件的最后修改时间(changed.compareLastModifiedTime)，这种方式对一些单独的静态文件非常有用，比如图片，字体等等，可以只需要处理一次，后续完全不用再次处理，极大的节省了时间；另一张是判断文件的 md5 (changed.compareSha1Digest)，这种对 jade，less，js 处理有用，因为这些文件大多数时候需要 include 其他文件，最后生成一个入口文件，因而不能单纯的判断文件修改时间，需要判断文件的 md5，不过这种方式还是需要编译，只是节省了写文件的时间，实际效果不明显。当然官方还建议了一些插件<a href="https://github.com/wearefractal/gulp-cached" target="_blank" rel="external">gulp-cached</a>，<a href="https://github.com/ahaurw01/gulp-remember" target="_blank" rel="external">gulp-remember</a>和<a href="https://github.com/tschaub/gulp-newer" target="_blank" rel="external">gulp-newer</a>，来实现 incremental builds ，读者可以自行研究，并加入到自己的 task 中去。</p>
-<p><a href="https://github.com/robrich/gulp-if" target="_blank" rel="external">gulp-if</a>：来实现 stream 的三元操作，比如我本地开发的时候，需要调试，不需要压缩代码，而上线时需要压缩就能通过这个插件来实现。</p>
-<p><a href="https://www.npmjs.com/package/gulp-plumber" target="_blank" rel="external">gulp-plumber</a>：gulp 任务出错时会跳出当前任务，这在开发过程中 watch 文件变动时，比较坑爹。因此这个插件能替代系统的 onerror 事件，不退出当前任务。4.X 版本会加强 gulp 的错误处理机制，很是期待。</p>
-<p><a href="https://github.com/OverZealous/run-sequence" target="_blank" rel="external">run-sequence</a>，解决任务依赖关系的神器，由于 gulp 自身的任务依赖关系无法解决顺序执行的问题，在复杂的关系依赖时，显得力不从心。gulp 4.X 也着力去解决这个问题。</p>
-<h2 id="主要的_task">主要的 task</h2><h3 id="CSS_处理">CSS 处理</h3><p>项目使用了 Less 做 CSS 预处理，需要使用 <a href="https://github.com/plus3network/gulp-less" target="_blank" rel="external">gulp-less</a> 插件，同时可以使用 <a href="https://github.com/postcss/autoprefixer" target="_blank" rel="external">autoprefixer</a> 来自动增加浏览器前缀，<a href="https://github.com/jonathanepollack/gulp-minify-css" target="_blank" rel="external">gulp-minify-css</a> 来压缩并清理CSS，需要注意的是这个插件默认处理IE9及以上的浏览器，需要指定IE兼容版本，否则写的兼容低版本的 IE hack 会被清理掉。<br>这里 autoprefixer 和 sourcemaps 同时用有些问题，暂时在开发和部署环境下分开使用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'less'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src(config.less.src)</span><br><span class="line">        .pipe($.plumber())</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(!RELEASE, $.sourcemaps.init()))</span><br><span class="line">        .pipe($.less())</span><br><span class="line">        .on(<span class="string">'error'</span>, <span class="built_in">console</span>.error.bind(<span class="built_in">console</span>))</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(RELEASE, $.autoprefixer(&#123;browsers: AUTOPREFIXER_BROWSERS&#125;)))</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(RELEASE, $.minifyCss(&#123;compatibility: <span class="string">'ie8'</span>&#125;)))</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(!RELEASE, $.sourcemaps.write()))</span><br><span class="line">        .pipe($.changed(config.less.dest, &#123;hasChanged: $.changed.compareSha1Digest&#125;))</span><br><span class="line">        .pipe(gulp.dest(config.less.dest))</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(!RELEASE, $.livereload()));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="image_压缩">image 压缩</h3><p>使用 <a href="https://github.com/sindresorhus/gulp-imagemin" target="_blank" rel="external">gulp-imagemin</a> 来完成 png，jpg，gif的压缩。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'imgmin'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> gulp.src([config.imgmin.src])</span><br><span class="line">        .pipe($.changed(config.imgmin.dest))</span><br><span class="line">        .pipe($.imagemin())</span><br><span class="line">        .pipe(gulp.dest(config.imgmin.dest));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="HTML_处理">HTML 处理</h3><p>项目使用 Jade 来实现 HTML 的复用。主要 <a href="https://github.com/phated/gulp-jade" target="_blank" rel="external">gulp-jade</a> 插件来完成，<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'jade'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    gulp.src(config.jade[name].src)</span><br><span class="line">        .pipe($.jade())</span><br><span class="line">        .pipe(gulp.dest(config.jade[name].dest))</span><br><span class="line">        .pipe(!RESEASE, $.livereload());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<h3 id="JavaScript_处理">JavaScript 处理</h3><p>这块是最复杂的地方，之前项目是使用的 seajs 做 JS 的模块化加载，但是其实所有 JS 在构建时已经做了 bundle 操作，只有一个语言文件是异步加载进的，对比 browserify, seajs 对我们失去了其本来的意义，而且其生态并不好，只有阿里前端在维护，我们自己还写了一个 gulp-seajs 来满足我们自己的构建需要。因此考虑了下换成了 browserify，使用 commonjs 方式来进行模块化的开发。</p>
-<p>由于 browserify 并没有像 seajs 或者 requirejs 一样，提供一个还好的异步解决方案，因此，我们需要把根据环境，将不同语言文件写到 script 标签中，供入口文件使用。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'locale'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> browserified = through2.obj(<span class="function"><span class="keyword">function</span><span class="params">(file, encoding, done)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> b = browserify();</span><br><span class="line">        <span class="keyword">if</span> (!RELEASE) &#123;</span><br><span class="line">            b = watchify(b);</span><br><span class="line">        &#125;</span><br><span class="line">        b.require(file.path, &#123;expose: <span class="string">'locale'</span>&#125;);</span><br><span class="line">        b.bundle(<span class="function"><span class="keyword">function</span><span class="params">(err, res)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                <span class="keyword">return</span> done(err);</span><br><span class="line">            &#125;</span><br><span class="line">            file.contents = res;</span><br><span class="line">            done(<span class="literal">null</span>, file);</span><br><span class="line">        &#125;);</span><br><span class="line">        b.on(<span class="string">'update'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> filename = path.basename(file.path);</span><br><span class="line">            <span class="keyword">var</span> destPath = path.dirname(file.path)</span><br><span class="line">            <span class="built_in">console</span>.log(file.path + <span class="string">' changed!!!'</span>);</span><br><span class="line">            b.bundle()</span><br><span class="line">                .pipe(source(filename))</span><br><span class="line">                .pipe(buffer())</span><br><span class="line">                .pipe(gulp.dest(destPath))</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">return</span> gulp.src(config.locale.src)</span><br><span class="line">        .pipe(browserified)</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(RELEASE, $.uglify()))</span><br><span class="line">        .pipe(gulp.dest(config.locale.dest))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>这里我通过 throungh2 模块来实现 <a href="https://github.com/rvagg/through2" target="_blank" rel="external">stream</a> 的内容更改，通过 <a href="https://github.com/substack/watchify" target="_blank" rel="external">watchify</a> 和 <code>update</code>事件来在开发环境下监听文件改动，并重新 bundle。<code>var source = require(&#39;vinyl-source-stream&#39;)</code> 和 <code>var buffer =  require(&#39;vinyl-buffer&#39;)</code> 可以将用 browserify bundle后生成的stream，转换成gulp需要的 stream。<br>这样就可以根据需要，引入不同的语言文件，主文件只需要 <code>var locale = require(&#39;locale&#39;)</code> 即可。其他异步模块可以以相同方式处理。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'bundle'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> browserified = through2.obj(<span class="function"><span class="keyword">function</span><span class="params">(file, encoding, done)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> b = browserify(&#123;entries: file.path, debug: !productEnv&#125;);</span><br><span class="line">        b.external(<span class="string">'locale'</span>);</span><br><span class="line">        <span class="keyword">if</span> (!RELEASE) &#123;</span><br><span class="line">            b = watchify(b);</span><br><span class="line">        &#125;</span><br><span class="line">        b.bundle(<span class="function"><span class="keyword">function</span><span class="params">(err, res)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">if</span> (err) &#123;</span><br><span class="line">                <span class="keyword">return</span> done(err);</span><br><span class="line">            &#125;</span><br><span class="line">            file.contents = res;</span><br><span class="line">            done(<span class="literal">null</span>, file);</span><br><span class="line">        &#125;)</span><br><span class="line">        b.on(<span class="string">'update'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> filename = path.basename(file.path);</span><br><span class="line">            <span class="keyword">var</span> destPath = path.dirname(file.path)</span><br><span class="line">            <span class="built_in">console</span>.log(file.path + <span class="string">' changed!!!'</span>);</span><br><span class="line">            b.bundle()</span><br><span class="line">                .on(<span class="string">'error'</span>, $.util.log.bind($.util, <span class="string">'Browserify Error'</span>))</span><br><span class="line">                .pipe(source(filename))</span><br><span class="line">                .pipe(buffer())</span><br><span class="line">                .pipe($.<span class="keyword">if</span>(!RELEASE, $.sourcemaps.init(&#123;loadMaps: <span class="literal">true</span>&#125;)))</span><br><span class="line">                .pipe($.<span class="keyword">if</span>(!RELEASE, $.sourcemaps.write(<span class="string">'./'</span>)))</span><br><span class="line">                .pipe(gulp.dest(destPath))</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> gulp.src(config.bundle.src, &#123;base: basePath.src&#125;)</span><br><span class="line">        .pipe($.plumber())</span><br><span class="line">        .pipe(browserified)</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(!RELEASE, $.sourcemaps.init(&#123;loadMaps: <span class="literal">true</span>&#125;)))</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(RELEASE, $.uglify()))</span><br><span class="line">        .pipe($.<span class="keyword">if</span>(!RELEASE, $.sourcemaps.write(<span class="string">'./'</span>)))</span><br><span class="line">        .pipe(gulp.dest(config.bundle.dest))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>这里使用差不多同样的方法，需要注意的是这里的 <code>b.external(&#39;locale&#39;);</code> 把 <code>locale</code> 模块排除掉，这里可以把两个任务公共的部分提取出来，这里为了看得直观代码啰嗦了下。</p>
-<p>后面还有一些其他的 task，比如 <code>gul-jshint</code> —检查代码质量， 利用 <code>gulp-livereload</code> —监听文件的改动刷新当前页面， <code>gulp-jsonminify</code> 压缩 JSON 文件等等。可以去参考下文档，比较简单。</p>
-<hr>
-<p>至此我们已经完成了，前端所需的所有代码的构建任务，但实际工作中，还有一个很重要的问题，如何消除静态文件的缓存。</p>
-<p>由于 Web 项目迭代周期短，需要频繁上线，必然涉及到静态资源的缓存机制。最开始我们的项目采用了，在静态资源的加入构建时的时间戳来解决，不过这样造成每次构建都要把所有资源都更新一下。最好的解决办法是将静态资源命名加入文件的 md5 值， 云龙在知乎上关于这个问题有一个很精彩的<a href="http://www.zhihu.com/question/20790576/answer/32602154" target="_blank" rel="external">回答</a>。</p>
-<p>用 <a href="https://github.com/smysnk/gulp-rev-all" target="_blank" rel="external">gulp-rev-all</a> 就可以完成我们所需的功能。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">'rev-all'</span>, [<span class="string">'clean:deploy'</span>, <span class="string">'default'</span>], <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> revAll = <span class="keyword">new</span> $.revAll(&#123;</span><br><span class="line">        dontRenameFile: [<span class="regexp">/^\/favicon\..*$/</span>, <span class="string">'robots.txt'</span>, <span class="string">'sitemap.xml'</span>, <span class="string">'.html'</span>, <span class="string">'.json'</span>],</span><br><span class="line">        dontUpdateReference: [<span class="string">'.html'</span>],</span><br><span class="line">        fileNameManifest: <span class="string">'manifest.json'</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">var</span> tasks = [], task;</span><br><span class="line">    <span class="keyword">return</span> gulp.src([basePath.build + <span class="string">'/**/*'</span>, <span class="string">'!'</span> + basePath.build + <span class="string">'/libs/component/ueditor/**/*'</span>, <span class="string">'!'</span> + basePath.build + <span class="string">'/**/*.map'</span>])</span><br><span class="line">        .pipe(revAll.revision())</span><br><span class="line">        .pipe(gulp.dest(basePath.deploy))</span><br><span class="line">        .pipe(revAll.manifestFile())</span><br><span class="line">        .pipe(gulp.dest(basePath.deploy));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
-<p>这样就可以生成需要的带有 md5 值得文件，需要注意的几个配置选项，排除一些不需要 md5 的文件，如果是公共的库的话，生成的 manifest.json 可以供其他项目调用时，进行替换。</p>
-<h2 id="其他有用的资源">其他有用的资源</h2><p>Recipes: <a href="https://github.com/gulpjs/gulp/tree/master/docs/recipes#recipes" target="_blank" rel="external">https://github.com/gulpjs/gulp/tree/master/docs/recipes#recipes</a><br>gulp-cheatsheet(非常赞的资源): <a href="https://github.com/osscafe/gulp-cheatsheet" target="_blank" rel="external">https://github.com/osscafe/gulp-cheatsheet</a></p>
-
+<p>当然这套工作流离不开一个强大的构建工具—gulp<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/26/gulp工作流/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -331,30 +385,12 @@
 
       
         
-          <h2 id="关于题目">关于题目</h2><p>因为其他原因，很久没更新 blog 了，这次用 hexo 搭建一个 blog。 同时建立一个 <code>1.01^365</code> 的标签，记录点点滴滴，来督促自己每天进步一点点。之前的 blog 有的在 sae 上，有的记在笔记里，后面一点一点整理出来，放在这个地方统一管理。</p>
-<h2 id="4-21">4-21</h2><h3 id="移动端css动画相关">移动端css动画相关</h3><p>今天在开发微信的 H5 页面时，遇到了 CSS3 动画在微信的内置 QQ 浏览器的性能问题，不过之前在 w3ctech 上听过不少移动端性能优化的最佳实践，这次有机会实际项目中玩耍了一把。主要的优化方案还是要多用3d硬件加速，在 Android 上性能提升显著。</p>
-<p>在尝试动画的同时，学习了一些不常用的属性，最值得注意的就是这个<code>animation-fill-mode</code>，可以定义动画结束后的状态。</p>
-<h2 id="4-22">4-22</h2><h3 id="碎碎念">碎碎念</h3><p>今天准备用<a href="https://github.com/alvarotrigo/fullPage.js" target="_blank" rel="external">fullPage</a>来实现新产品的宣传页面，仿照了<a href="http://www.mi.com/shouhuan" target="_blank" rel="external">小米手环页面</a>中两排导航的处理。历史原因，页面要在 Wordpress 中生成，又捣鼓了半天的 Wordpress，越来越不喜欢 Wordpress 和 PHP。。。<br>顺便看了下小米前端的代码，居然很多的选择器变量不缓存下，上次在 w3ctech 上，也感觉到了，小米的前端还不是很规范，不过还是很佩服小米页面的设计，甩大部分公司几条街！<br>之前都是用 FTP 往服务器上上传文件，今天学习了 iTerm2 的 SSH，工具果然是第一生产力。</p>
-<h2 id="4-23">4-23</h2><h3 id="前端发展">前端发展</h3><p>射鸡师同学完全忙不过来了，为了不再麻烦人家，我又开始已经好久没干过的切图。想想前端发展的的确快，前几年还是切切页面的前端，现在完全变了工作方式，随着用户体验要求和浏览器性能的不断提升，前端变得越来越复杂，分工也越来越细，切图当初前端的必备技能，现在看来也逐渐变得不重要了。<br>最近几个研究生的同学在问我，说想从事前端开发的工作。原先很不被重视的前端，现在确让很多研究生的同学都想以此为职业，各大招聘网站前端也占了一大片的市场。勃勃生机的前端发展，让我对未来充满期待。<br>Things will get better!</p>
-<h3 id="CSS3:_clip_and_filter">CSS3: <code>clip</code> and <code>filter</code></h3><p>设计想实现下面这种毛玻璃的效果。<br><img src="/images/20150421/1.png" alt="毛玻璃效果"><br>简单的可以通过两种背景图叠加实现，不过由于是在手机上的页面可以使用很多 CSS3 的特性，之前也在看过一篇介绍<a href="http://www.html-js.com/article/2815" target="_blank" rel="external"><code>clip-path</code></a>属性的文章，因此可以通过’fiter’和<code>clip-path</code>来实现。</p>
-<p></p><p data-height="250" data-theme-id="14481" data-slug-hash="QbwwoB" data-default-tab="result" data-user="wizraopeize" class="codepen">See the Pen <a href="http://codepen.io/wizraopeize/pen/QbwwoB/" target="_blank" rel="external">img 毛玻璃</a> by 饶培泽 (<a href="http://codepen.io/wizraopeize" target="_blank" rel="external">@wizraopeize</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="4-24">4-24</h2><h3 id="bootstrap响应式设计各个尺寸布局临界值">bootstrap响应式设计各个尺寸布局临界值</h3><p>Extra small screen / phone: 480px<br>Small screen / tablet: 768px<br>Medium screen / desktop: 992px<br>Large screen / wide desktop: 1200px</p>
-<h3 id="favicon相关">favicon相关</h3><p>今天遇到一个专门来生成 favicon 的<a href="http://realfavicongenerator.net/" target="_blank" rel="external">网站</a>，一个小小的 favicon 里面藏了如此多的玄机，真是活到老，学到老。同时也再一次感觉到老外的细致，在加上前不久 Hacker News 上很火的 <a href="http://howtocenterincss.com/" target="_blank" rel="external">how to center css</a>，看似不起眼的东西，都值得做出一个小东西来。</p>
-<h2 id="4-29">4-29</h2><h3 id="Nginx_之_proxy_pass">Nginx 之 proxy_pass</h3><p>今天在写 Nginx 配置时，这样写的</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">location</span> /weixin &#123;</span><br><span class="line">    <span class="title">proxy_pass</span> <span class="url">http://127.0.0.1:3000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在访问 <code>http://127.0.0.1/weixin/css/main.css</code> 时，确一直跳到了 <code>http://127.0.0.1:3000/weixin/css/main.css</code>，百思不得其解，看了文档才发现问题。需要这样写，才能正确的访问到 <code>http://127.0.0.1:3000/css/main.css</code>。</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">location</span> /weixin &#123;</span><br><span class="line">    <span class="title">proxy_pass</span> <span class="url">http://127.0.0.1:3000/</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>前者不是一个 URI，请求会按原始的路径转发过去，而后者是一个 URI 请求会被替换成指定的 URI 转发过去。</p>
-<h3 id="JS_中_Function-prototype-bind()_使用">JS 中 <code>Function.prototype.bind()</code> 使用</h3><p>JS 中 <code>call()</code> 和 <code>apply()</code>，今天发现了 <code>bind()</code>这个方法。查了下文档，和前面两个主要的区别在于，前面两个方法，主要用在函数调用时，而后者用于函数定义时，它返回的是个函数。<br>可以看这个实际的例子</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">gulp</span><span class="class">.task</span>(<span class="string">'clean'</span>, del.<span class="function">bind</span>(</span><br><span class="line">  null, [<span class="string">'.tmp'</span>, <span class="string">'build/*'</span>, <span class="string">'!build/.git'</span>], &#123;<span class="attribute">dot</span>: true&#125;</span><br><span class="line">));</span><br></pre></td></tr></table></figure>
-<p>相当于</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">gulp</span><span class="class">.task</span>(<span class="string">'clean'</span>, <span class="function">function</span>(cb) &#123;</span><br><span class="line">    <span class="tag">del</span>([<span class="string">'.tmp'</span>, <span class="string">'build/*'</span>, <span class="string">'!build/.git'</span>], &#123;<span class="attribute">dot</span>: true&#125;, cb);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>前者并没有 <code>cb</code> 这个参数，但其实已经附加到返回的函数的参数列表之后了。<br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="external">MDN</a> 上的例子</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">list</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> list1 = list(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a function with a preset leading argument</span></span><br><span class="line"><span class="keyword">var</span> leadingThirtysevenList = list.bind(<span class="literal">undefined</span>, <span class="number">37</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> list2 = leadingThirtysevenList(); <span class="comment">// [37]</span></span><br><span class="line"><span class="keyword">var</span> list3 = leadingThirtysevenList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// [37, 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-<p> 还是挺方便的一个方法，当然这是 ES5 的方法，IE8及IE8以下的浏览器不支持的。</p>
-
+          <h2 id="关于题目">关于题目</h2><p>因为其他原因，很久没更新 blog 了，这次用 hexo 搭建一个 blog。 同时建立一个 <code>1.01^365</code> 的标签，记录点点滴滴，来督促自己每天进步一点点。之前的 blog 有的在 sae 上，有的记在笔记里，后面一点一点整理出来，放在这个地方统一管理。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/04/21/每日进步一点点-201504/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -425,25 +461,12 @@
 
       
         
-          <p>之前提到过，在可视化格式模型中，每一个元素都会根据盒子模型产生0个或多个box，而这些box的布局会受四大因素的影响（box尺寸和类型、定位系统、文档树中元素之间的关系、外部信息），下面就学习下定位系统。</p>
-<p>在CSS2.1中，会根据三种定位系统来摆放框：</p>
-<ol>
-<li>常规流（<a href="http://www.w3.org/TR/CSS2/visuren.html#normal-flow" target="_blank" rel="external">Normal flow</a>）。在CSS2.1中，常规流包括了块级框（block-level box）的块格式化（<a href="http://www.w3.org/TR/CSS2/visuren.html#block-formatting" target="_blank" rel="external">block formating</a>）、行内级框（inline-level box）的行内格式化（<a href="http://www.w3.org/TR/CSS2/visuren.html#inline-formatting" target="_blank" rel="external">inline formatting</a>）以及块级框和行内级框的相对定位（<a href="http://www.w3.org/TR/CSS2/visuren.html#relative-positioning" target="_blank" rel="external">relative positioning</a>）</li>
-<li>浮动（<a href="http://www.w3.org/TR/CSS2/visuren.html#floats" target="_blank" rel="external">Floats</a>）。在浮动模型中，一个框首先根据常规流摆放，然后，再将它从（常规）流中取出并尽可能地向左或向右偏移。其他内容可以排在一个浮动的周围。</li>
-<li>绝对定位（<a href="http://www.w3.org/TR/CSS2/visuren.html#absolute-positioning" target="_blank" rel="external">Absolute positioning</a>）。在绝对定位模型中，一个框会从常规流中完全脱离出来（它对后续的兄弟没有影响），并根据它的包含块来分配其位置。</li>
-</ol>
-<p>如果一个元素是浮动、绝对定位或根元素，那么它被称为脱离了常规流（out of flow）的元素。没有脱离流的元素被称为常规流内的元素（in-flow）。元素A的流包括元素A以及这么一组元素：它们是流内的元素，且它们在流之外最近的祖先是元素A。</p>
-<blockquote>
-<p>注意：CSS2.1中，定位系统可以实现网页作者期望的布局效果，而无需使用特殊的标记手段（例如：不可见的图片），这让文档具有更好的可读性。</p>
-</blockquote>
-<h3 id="选择一个定位方案：’position’属性">选择一个定位方案：’position’属性</h3><p>‘position’属性和’float’属性决定了要用CSS2.1的哪种定位算法来计算一个框的位置。</p>
-<p>‘position’<br>　　取值：relative | absolute | fixed | inherit<br>　　初始: static<br>　　适用于： 所有元素<br>　　百分比：（不适用）<br>　　媒介：<a href="http://www.w3.org/TR/CSS2/media.html#visual-media-group" target="_blank" rel="external">视觉</a><br>　　计算值：同指定值<br>本属性各取值的意义如下：<br>static<br>　　元素生成的框是按常规流方式来摆放的普通框。其’top’、’right’、’bottom’和’left’属性不起作用。<br>relative<br>　　元素生成的框先按常规流方式来计算其位置（这称作在常规流下的位置），然后框相对于其正常位置进行偏移。若框B使用了相对定位，则会以假设框B还没有发生偏移之前的状态来计算算其后面的框的位置。本规范未定义’position: relative’在table-row-group、table-header-group、table-footer-group、table-column-group、table-cell和table-caption元素上的效果。<br>absolute<br>　　框的位置（可能包括大小）由’top’、’right’、’bottom’与’left’属性来指定。这些属性指定了框相对于其包含块（<a href="http://www.w3.org/TR/CSS2/visuren.html#containing-block" target="_blank" rel="external">containing block</a>）的偏移量。绝对定位框会被排除在常规流之外，这意味着它们对之后的兄弟框的布局没有影响。另外，虽然绝对定位框有外边距，这些外边距不与其他外边距<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/box#collapsing-margins" target="_blank" rel="external">折叠</a><br>fixed<br>　　框的位置按照’absolute’模型来计算，但是框相对于某个参考位置固定。如同’absolute’模型，框的外边距不与别的外边距折叠。若媒介型态是手持、投影、荧幕、打字机或是电视，则框相对于视窗（<a href="http://www.w3.org/TR/CSS2/visuren.html#viewport" target="_blank" rel="external">viewport</a>）固定，而并不随着滚动而移动。若媒介类型是打印机，则框要在每一页被渲染，并相对于页面框固定渲染，就算页面透过视窗（<a href="http://www.w3.org/TR/CSS2/visuren.html#viewport" target="_blank" rel="external">viewport</a>）阅读（举例来说，预览打印的时候）也是这样。本规范未定义这个值在其他媒介类型上的呈现方式。网页作者可以依媒介指定’fixed’值，举例来说，网页作者可能希望一个框维持在荧幕视窗（<a href="http://www.w3.org/TR/CSS2/visuren.html#viewport" target="_blank" rel="external">viewport</a>）的上方，但又不出现在印出来的每个页面的上方。这两种定位方案的设定可用<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/media#at-media-rule" target="_blank" rel="external">@media</a>规则分开，如同：</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="at_rule">@media</span> screen &#123;</span><br><span class="line">    <span class="tag">h1</span><span class="id">#first</span> &#123; <span class="tag">position</span>: <span class="tag">fixed</span> &#125;</span><br><span class="line">&#125;</span><br><span class="line">@<span class="tag">media</span> <span class="tag">print</span> &#123;</span><br><span class="line">    <span class="tag">h1</span><span class="id">#first</span> &#123; <span class="attribute">position</span>: static &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>　　　用户代理绝对不能将fixed的内容分页显示。请注意用户代理可用别的方式来打印隐形的内容，详情请参考13章<a href="http://www.w3.org/html/ig/zh/wiki/index.php?title=CSS2/page&amp;action=edit&amp;redlink=1" target="_blank" rel="external">页面框外面的内容</a></p>
-<p>用户代理可将根元素上的’position’视为’static’。</p>
-<h3 id="框偏移_-_‘top’、’right’、’bottom’、’left’">框偏移 - ‘top’、’right’、’bottom’、’left’</h3><p>‘position’属性值不为’static’的元素称为定位元素。定位元素生成定位框，并根据以下四个属性来确定其摆放的位置：</p>
-<p>‘top’、’right’、’bottom’、’left’<br>　　取值： <length> | <percentage> | auto | inherit<br>　　初始： auto<br>　　适用于： 定位元素<br>　　继承： 否<br>　　百分比： 相对于包含块的高度<br>　　媒介： 视觉<br>　　计算值：若指定值为长度，计算值为对应的绝对长度。若指定值为百分比值，计算值同指定值。否则，值为’auto’。<br>该属性可以用来指定绝对定位（<a href="http://www.w3.org/TR/CSS2/visuren.html#absolutely-positioned" target="_blank" rel="external">absolutely positioned</a>）框的外边距边（margin边界）和其包含块（<a href="http://www.w3.org/TR/CSS2/visuren.html#containing-block" target="_blank" rel="external">containing block</a>）的边界偏移的距离。若用在相对定位框上，偏移量相对于自己的外边距边。<br>这四个属性的取值都可以为负值。<br>当取值为’auto’时，对于非置换（non-replaced）元素，这个值的效果根还有哪些相关属性的值也是’auto’x相关，详情请参考说明绝对定位非置换元素<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/visudet#abs-non-replaced-width" target="_blank" rel="external">宽度</a>和<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/visudet#abs-non-replaced-height" target="_blank" rel="external">高度</a>小节。对于替换元素，这个值的效果只与置换内容的固定尺寸相关，详情请参考说明就绝对定位置换元素<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/visudet#abs-replaced-width" target="_blank" rel="external">宽度</a>和<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/visudet#abs-replaced-height" target="_blank" rel="external">高度</a>的小节。</percentage></length></p>
-
+          <p>之前提到过，在可视化格式模型中，每一个元素都会根据盒子模型产生0个或多个box，而这些box的布局会受四大因素的影响（box尺寸和类型、定位系统、文档树中元素之间的关系、外部信息），下面就学习下定位系统。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/04/30/学习可视化格式模式-定位系统（Positioning-Schemes）/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -514,46 +537,12 @@
 
       
         
-          <p>接下来，介绍一下CSS2.1中可能产生的框的类型。在某种程度上，框的类型影响了它在可视化格式模型中的表现。<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-display" target="_blank" rel="external"><code>diaplay</code></a>属性用来指定框的类型。</p>
-<h2 id="块级元素（block-level_elements）和块框（block_boxes）">块级元素（block-level elements）和块框（block boxes）</h2><p>块级元素是源文档中那些在视觉上被格式化为块（如：段落）的元素。以下<code>display</code>的取值会让一个元素成为块级元素：<code>block</code>、<code>list-item</code>、<code>table</code>。</p>
-<p>块级框是参与块格式化上下文（<a href="(http://www.w3.org/TR/CSS2/visuren.html#block-formatting">block formatting context</a>)）的框。每一个块级元素生成一个主要的块级框(principal block-level box)来包含其子框和生成的内容，同时任何定位方案都会与这个主要的框有关。某些块级元素还会在主要框之外产生额外的框：例如<code>list-item</code>元素。这些额外的框会相对于主要框来放置。（个人感觉那些额外的框是用来放置标示的，比如LI元素前面的点）</p>
-<p>除了tab框（后面会讲到）和可置换元素（replaced elements），一个块级框（block-level box）同时也是一个块容器框（block container box），一个块容器框要么只包含块级框，要么创建一个行格式化上下文（inline formatting context ）而只包含行内级框（inline-level boxes）。并非所有的块容器框都是块级框：不可置换行内块（non-replaced inline blocks ）和不可置换table cell是块容器但不是块级框。是块级框的块容器称作块框（block boxes）。</p>
-<p>三个术语：块级框（block-level box）、块容器框（block container box）和块框（block box）在意义明确的时候简称为块（block）</p>
-<p>这三个概念感觉和乱麻一样，撸个图更直观：</p>
-<p><img src="/images/VFM/block-box.png" alt=""></p>
-<h3 id="匿名块框（Anonymous_block_boxes）">匿名块框（Anonymous block boxes）</h3><p>有这样一个文档：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span>&gt;</span><br><span class="line">    <span class="keyword">some</span> <span class="type">text</span></span><br><span class="line">    &lt;p&gt;More <span class="type">text</span>&lt;/p&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>（并假定div和p都设置了<code>display:block</code>），div似乎同时包含了行内类型的内容和块类型的内容。为了使格式化简单一些，我们假定有一个<strong>匿名块框</strong>围绕在”Some text”周围。</p>
-<p><img src="/images/VFM/anon-block.png" alt=""></p>
-<p>换句话说：如果一个块容器框（如上列中为div生成的框）有一个块级框（如上例中的p），那么我们强制它只包含块级框在其中。</p>
-<p>当一个行内框（inline box）包含一个属于正常排版的块级框，这个行内框（及与其位于同一行框（line box）的行内祖先（inline ancestors））会被从周围的块级框（及其任何连续（中间被插入可折叠的空白或在正常排版以外的元素也算是连续的）的块级兄弟）中分离出来，把行内框分离成两个框（即使其中一边是空的），它在块级框两边。在截断之前和截断之后的行框都附入匿名块框，并且该块级框与匿名块框成为兄弟。当这样的行内框受到相对定位的影响，任何产生的移动同样影响到包含在行内框内的块级框。</p>
-<p>假设有以下的例子：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Anonymous text interrupted by a block<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">        <span class="tag">p</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="tag">span</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid red</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">span</span>&gt;</span>This is anonymous text before the P.</span><br><span class="line">           <span class="tag">&lt;<span class="title">P</span>&gt;</span>This is the content of P.<span class="tag">&lt;/<span class="title">P</span>&gt;</span></span><br><span class="line">             This is anonymous text after the P.</span><br><span class="line">       <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这个例子中p元素包含一段匿名文本（C1），随后是一个款及元素，再随后是另一端匿名文本（C2）。对此生成了一个代表body的块框，它包含了一个围绕C!的匿名块框、代表span的块框和围绕C2的另一匿名块框。（这段代码中P元素的盒模型在各个浏览器中差距很大）。</p>
-<p>匿名框的继承属性从包含它的非匿名框那里继承。非继承的属性将取其初始值。比如匿名框的字体属性继承自div，但是margin将会是0。</p>
-<p>当一个元素上设置的属性导致了匿名块框的生成，则该属性依然能应用于该元素生成的框和其内容之上。例如，上面的例子中，如果在p元素上设置了边框，则这个边框画在C1（在最后一行下方开放）和C2（在第一行上方开发）周围。</p>
-<p>一些用户代理用其他方式实现了行内包含块上的边框。例如，将其内嵌的块放入“匿名行框”中，并在这些匿名行框周围绘出行内边框。由于CSS1和CSS2没有定义这些效果，仅支持CSS1和CSS2的用户代理会以其他形式来实现，并可仍旧声称与CSS2.1的特征保持部分一致。对于CSS2.1规范发布之后才发布的用户代理，就不能这么做了。</p>
-<p>当处理百分比值时，应该忽略匿名块框，而以最近的非匿名祖先框来替代。例如，如果一个匿名块框的孩子在div里面需要知道包含块的高度来解析一个百分比高度。那么它将使用div形成的包含块的高度，而不是匿名块框的高度。</p>
-<h2 id="行内级元素（inline-level_element）和行内框（inline_box）">行内级元素（inline-level element）和行内框（inline box）</h2><p>行内级元素（inline-level element）是源文档中那些不为其内容形成新的块，而让其内容分布在多行中的元素（如，段落内着重的文本，行内图片等等）。以下的<code>display</code>属性值产生一个行内级元素：<code>inline</code>、<code>inline-table</code>、<code>inline-block</code>。行内级元素生成行内级框（inline-level box），而这些框会参与某个行格式化上下文（inline formatting context）</p>
-<p>一个行内框（inline box）是行内级框（inline-level box），且其内容参与了包含它的行格式化上下文（inline formatting context）。一个<code>display</code>值是<code>inline</code>的非置换元素会生成一个行内框。那些不是行内框（inline box）的行内级框（inline-level box），例如，可置换的行内级元素（replaced inline-level element），行内块元素（inline-block element），行内表格元素（inline-table）被称为原子行内级框（atomic inline-level box），因为它们是以单一不透明框的形式来参与格式化上下文。</p>
-<p>换句话说，inline-level box分成inline box和atomic inline-level box两种类型，inline box由<code>display</code>值时<code>inline</code>的no-replaced元素产生，atomic inline-level box由replaced inline-level元素、inline-block元素和inline-table元素生成。（这个地方弄的我快疯掉了。。。）</p>
-<h3 id="匿名行内框（Anonymous_inline_box）">匿名行内框（Anonymous inline box）</h3><p>任何直接被包含在一个块容器（block container）元素（而不是行内元素）中的文本必须视为匿名行内元素。</p>
-<p>在如下的文档中</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Some <span class="tag">&lt;<span class="title">em</span>&gt;</span>emphasized<span class="tag">&lt;/<span class="title">em</span>&gt;</span> text<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>P元素生成一个块框，其中还有几个行内框。”emphasized”的框是由行内元素（em）产生的一个行内框。而其他的框（”Some”和”text”）是块级元素（p）产生的行内框。后者就称为匿名行内框，因为它们没有与之相关的行内级元素。</p>
-<p>这样的行内框从其父块框那里继承可以继承的属性。非继承属性取其初始值。例子中，匿名行内框的颜色继承自p，而背景是透明的。</p>
-<p>空格内容，如果可被折叠（根据<code>white-space</code>属性），则其不会生成任何匿名行内框。</p>
-<p>在本规范中，如果一个匿名框的类型可根据上下文来清晰界定，则匿名行内框和匿名块框都可被简称为匿名框。</p>
-<p>自格式化<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/tables#anonymous-boxes" target="_blank" rel="external">表格</a>时，还会出现更多类型的匿名框。</p>
-<h3 id="插入框（Run-in_box）">插入框（Run-in box）</h3><p><code>display: run-in</code>是CSS3（Experimental values）的定义，因为我也没有过这个属性，后续用到在学习（可以参考<a href="http://www.w3.org/TR/css3-box" target="_blank" rel="external">CSS基本框模型</a>）。</p>
-<h3 id="‘display’属性">‘display’属性</h3><p><strong>‘display’</strong></p>
-<p>值： block | list-item | inline-block | table | inline-table | table-row-group | table-header-group | table-footer-group | table-row | table-column-group | table-column | table-cell | table-caption | none | inherit<br>初始值： inline<br>适用于： 所有元素<br>可否继承： 否<br>百分比： N/A<br>媒介： 所有</p>
-<p>这里注意的是其实所有元素默认的<code>display</code>都为<code>inline</code>，用户端（对我们来说是浏览器）的缺省样式表可以覆盖它。比如，P 和 DIV 的<code>display</code>特性值是<code>block</code>，TABLE的<code>display</code>特性值是<code>table</code>。</p>
-<p>本属性各取值的意义如下：</p>
-<p><strong>block</strong>：这个值让元素产生一个块框。<br><strong>inline-block</strong>：这个值让元素产生一个行内级块容器（inline-level block container）。行内块（inline-block）的内部会被当做块框来格式化，而此元素本身会被当作原子行内级框来格式化。<br><strong>inline</strong>：这个值让元素产生一个或多个的行内框。<br><strong>list-item</strong>：这个值让元素（例：HTML里的LI）产生一个主块框与标记框。详情请看<a href="http://www.w3.org/html/ig/zh/wiki/index.php?title=CSS2/generate&amp;action=edit&amp;redlink=1" target="_blank" rel="external">列表</a>章节以获得列表相关的资讯与列表排版的范例<br><strong>none</strong>：这个值让给元素不出现在<a href="http://www.w3.org/TR/CSS2/intro.html#formatting-structure" target="_blank" rel="external">排版结构</a>中（也就是在视觉媒体中，元素既不产生框也不影响布局）。其子孙元素也不产生任何框；该元素及其内容会被从排版结构中完全移除。对子孙元素设定<code>display</code>属性不能覆盖这个结果。<br>请注意<code>display</code>属性取值为<code>none</code>并不会产生隐形的框：<code>none</code>完全不产生任何框。CSS具有可以让元素在排版结构中出现并影响排版，但是框本身却不见的属性。详情请看<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/visufx#visibility" target="_blank" rel="external">可见性</a>的小节</p>
-<p>table、inline-table、table-row-group、table-column、table-column-group、table-header-group、table-footer-group、table-row、table-cell 与 table-caption：这些值让元素产生表现的像表格元素的行为（详情见<a href="http://www.w3.org/TR/CSS2/tables.html" target="_blank" rel="external">表格</a>章节的描述）</p>
-<p>除了定位元素、浮动元素（请参考<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/visuren#dis-pos-flo" target="_blank" rel="external">‘display’、’position’ 与 ‘float’ 的关系</a>）与根元素，本属性的计算值与指定值相同。根元素上的本属性计算值的变动会依照<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/visuren#dis-pos-flo" target="_blank" rel="external">‘display’、’position’ 与 ‘float’ 的关系</a>中描述的规则。</p>
-
+          <p>接下来，介绍一下CSS2.1中可能产生的框的类型。在某种程度上，框的类型影响了它在可视化格式模型中的表现。<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-display"><code>diaplay</code></a>属性用来指定框的类型。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -628,85 +617,12 @@
 <h2 id="包含块判定及其范围">包含块判定及其范围</h2><p>之前说过一个元素box的定位和尺寸计算，有时候和一个特定的矩形有关，这个矩形称作该元素的<em>containing block</em>。而元素会为它的子元素创建包含块，那么是不是说，元素的包含块就是它的父元素呢？答案是否定的！</p>
 <p>一个元素包含块的确定，跟元素自身和它的祖先元素的样式等有关系。</p>
 <p>包含块判定总流程图如下：</p>
-<p><img src="/images/VFM/judge-containing-block.png" alt="包含块判定总流程图"></p>
-<h3 id="根元素的包含块">根元素的包含块</h3><p><a href="http://www.w3.org/TR/CSS2/conform.html#root" target="_blank" rel="external">根元素</a>，就是处于文档树最顶端的元素，它没有父节点。</p>
-<p>根元素存在的矩形包含快叫做初始包含块(initial containing block)。对于连续媒介，它的尺寸就是视窗(<a href="http://www.w3.org/TR/CSS2/visuren.html#viewport" target="_blank" rel="external">viewport</a>)，固定在画布的原点上，也就是说在X(HTML)中，根元素是html元素（尽管有的浏览器会不正确地使用body元素）；对于分页媒介，它就是<a href="http://www.w3.org/TR/CSS2/page.html#page-area" target="_blank" rel="external">页面区域</a>。初始包含块的’direction’属性与根元素相同。</p>
-<h3 id="‘relative’和’static’定位的元素">‘relative’和’static’定位的元素</h3><p>对于其它元素：如果该元素的定位（position）为’relative’（相对定位）或者’static’（静态定位），它的包含块由最近的<a href="http://www.w3.org/TR/CSS2/visuren.html#block-boxes" target="_blank" rel="external">块容器</a>祖先元素的内容框边缘产生。</p>
-<p>这里有两个概念：块容器，后面介绍块框会讲。内容框，可以去看CSS的盒模型。</p>
-<p>元素如果未声明’position’属性，那么就会采用’position’的默认值’static’。所以，一般元素都是静态定位的。</p>
-<p>比如：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">table</span> <span class="attribute">id</span>=<span class="value">"table1"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">td</span>  <span class="attribute">id</span>=<span class="value">"td1"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"div1"</span> <span class="attribute">style</span>=<span class="value">"padding:20px; border:1px solid red;"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="title">span</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="title">strong</span> <span class="attribute">id</span>=<span class="value">"greed"</span> <span class="attribute">style</span>=<span class="value">"postition:relative;"</span>&gt;</span>greed is<span class="tag">&lt;/<span class="title">strong</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>包含块关系表：</p>
-<table>
-<thead>
-<tr>
-<th>元素</th>
-<th>包含块</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>table</td>
-<td>body</td>
-</tr>
-<tr>
-<td>td1</td>
-<td>table1</td>
-</tr>
-<tr>
-<td>div1</td>
-<td>td1</td>
-</tr>
-<tr>
-<td>greed</td>
-<td>div1</td>
-</tr>
-</tbody>
-</table>
-<p>span元素中包含的的文本在div1中的位置可以看出，div1创建的包含块的区域是它的内容边界，也就是内边界。</p>
-<h3 id="‘position:fixed’定位的元素">‘position:fixed’定位的元素</h3><p>如果元素是固定定位（’position:fixed’）元素，那么它的包含块是当前可视窗口（viewport）。</p>
-<h3 id="‘position:absolute’定位的元素。">‘position:absolute’定位的元素。</h3><p>如果元素是绝对定位（’position:absolute’）元素，那么它的包含块由它最近的position属性为’absolute’、’relative’或者’fixed’的祖先元素创建。</p>
-<p>1.如果其祖先元素是行内元素，则包含块取决于其祖先元素的’direction’特性。（我也是刚知道’direction’这个属性）。</p>
-<ul>
-<li>如果’direction’是’ltr’,包含块的顶、左边是祖先元素生成的第一个框的顶、左内边距边界（padding edges），右、下边是祖先元素生成的最后一个框的右、下内边距边界（padding edges）。</li>
-</ul>
-<p>示例代码：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"border:1px solid red; width:200px; padding:20px;"</span>&gt;</span></span><br><span class="line">    T</span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"background-color:#C0C0C0; position:relative;"</span>&gt;</span></span><br><span class="line">            这段文字从左向右排列，红 XX 和 蓝 XX 和黄 XX 都是绝对定位元素，它的包含块是相对定位的SPAN。 可以通过它们绝对定位的位置来判断它们包含块的边缘。</span><br><span class="line">            <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:red; top:0; left:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:yellow; top:20px; left:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:blue; bottom:0; right:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>以上代码中，文字采取默认从左到右的方式排列。红XX、蓝XX和黄XX都是绝对定位元素，它的包含块是相对定位的SPAN。它们定位需要参照包含块，按照标准来说，它们包含块的左顶边是SPAN形成的第一个框（即第一行的灰色部分）的顶、左内边距边，包含块的右、下边是SPAN生成的最后一个框（最后一行灰色的部分）的右、下内边距边界。</p>
-<p>示意图：</p>
-<p>Chrome34和IE11下的表现</p>
-<p><img src="/images/VFM/direction-ltr-chrome.png" alt=""></p>
-<p>Firefox29的表现</p>
-<p><img src="/images/VFM/direction-ltr-firefox.png" alt=""></p>
-<p>行内元素形成的包含块，在各个浏览器中各不相同，存在兼容性问题。上面两个例子可以看出，蓝色的\’xx\’在Chrome和FF中位置并不一样。</p>
-<p>包含块的宽度可能是负的。（在Chrome和IE11下测试，这个包含块不是负值，应该是0）</p>
-<p>示例代码：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"border:1px solid red; width:200px; padding:20px;"</span>&gt;</span></span><br><span class="line">    TEXT TEXT TEXT</span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"background-color:#C0C0C0; position:relative;"</span>&gt;</span></span><br><span class="line">        这段文字从左向右排列，红 XX 和 蓝 XX 和黄 XX 都是绝对定位元素，它的包含块是相对定位的SPAN。 可以通过它们绝对定位的位置来判断它们包含块的边缘。</span><br><span class="line">        <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:red; top:0; left:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:yellow; top:20px; left:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:blue; bottom:0; right:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>示意图：</p>
-<p>Chrome34和IE11下的表现</p>
-<p><img src="/images/VFM/direction-ltr-negative-chrome.jpg" alt=""></p>
-<p>Firefox29的表现</p>
-<p><img src="/images/VFM/direction-ltr-negative-firefox.jpg" alt=""></p>
-<ul>
-<li>如果’direction’是’rtl’，包含块的顶、右边是祖先元素生成的第一个框的顶、右内边距边界（padding edges），左、下边是祖先元素生成的最后一个框的左、下内边距边界（padding edges）</li>
-</ul>
-<p>示例代码：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"border:1px solid red; width:200px; padding:20px; direction:rtl;"</span>&gt;</span></span><br><span class="line">    T</span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"background-color:#C0C0C0; position:relative;"</span>&gt;</span></span><br><span class="line">         这段文字从右向左排列，红 XX 和 蓝 XX 和黄 XX 都是绝对定位元素，它的包含块是相对定位的SPAN。可以通过它们绝对定位的位置来判断它们……</span><br><span class="line">        <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:red; top:0; left:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:yellow; top:20px; left:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:blue; bottom:0; right:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>示意图：</p>
-<p>Chrome34和IE11下的表现</p>
-<p><img src="/images/VFM/direction-rtl-chrome.jpg" alt=""></p>
-<p>Firefox29的表现</p>
-<p><img src="/images/VFM/direction-rtl-firefox.jpg" alt=""></p>
-<p>2.其他情况下，如果祖先元素不是行内元素，那么包含块的区域应该是祖先元素的<strong>内边距边界</strong>（padding edges）。</p>
-<p>3.如果不存在这样的祖先元素，那么它的包含块就是初始包含块。</p>
-<p>补充：关于祖先元素是行内元素的情况，看<a href="http://www.w3.org/TR/CSS2/visudet.html#containing-block-details" target="_blank" rel="external">W3C的文档</a>是这样的。</p>
-<blockquote>
-<p>In the case that the ancestor is an inline element, the containing block is the bounding box around the padding boxes of the first and the last inline boxes generated for that element. In CSS 2.1, if the inline element is split across multiple lines, the containing block is undefined.</p>
-</blockquote>
-<p>也就是说，此时的包含块应该是第一个行内元素和最后一个行内元素决定的。在CSS2.1中，如果行内元素是多行的，包含块就是未定义的。各个浏览器并没区别多行和单行的概念。可以把下面的例子在浏览器中运行下试试。<br>这里Firefox还是只以第一行来确定包含块，显然是不符合CSS2.1标准的。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span> <span class="attribute">style</span>=<span class="value">"border:1px solid red; width:200px; padding:20px;"</span>&gt;</span></span><br><span class="line">    T</span><br><span class="line">    <span class="tag">&lt;<span class="title">span</span> <span class="attribute">style</span>=<span class="value">"background-color:#C0C0C0; position:relative;"</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">span</span>&gt;</span>这段文字从左向右排列 <span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">span</span>&gt;</span>XX都是绝对定位<span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">br</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">span</span>&gt;</span>应该有包含块<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:red; top:0; left:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:yellow; top:20px; left:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="title">em</span> <span class="attribute">style</span>=<span class="value">"position:absolute; color:blue; bottom:0; right:0;"</span>&gt;</span>XX<span class="tag">&lt;/<span class="title">em</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h2 id="资料">资料</h2><p><a href="http://www.w3help.org/zh-cn/kb/008/" target="_blank" rel="external">W3Help-KB008</a></p>
-
+<p><img src="/images/VFM/judge-containing-block.png" alt="包含块判定总流程图"><br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/04/27/学习可视化格式模式-包含块（containing-block）/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -778,43 +694,12 @@
       
         
           <h2 id="前言">前言</h2><p>好久没写东西了，最近太懒了。最近在微博上看了一副学习金字塔，从图中可以看出学习效率最低的就是”听讲”和”阅读”，最高的就是“教别人”和“马上应用”，高中就从这条定律中受益匪浅，为啥上了大学就成口头上的巨人，行动上的矮人了，要强迫改变自己了！</p>
-<p>下面就总结下这段时间看的一个知识点——CSS的可视化格式模式（visual formattin model）</p>
-<h2 id="资源">资源</h2><ul>
-<li><p><a href="http://blog.csdn.net/webadvocate/article/details/5833801" target="_blank" rel="external">说说标准系列</a></p>
-<p>无意中发现的好资料，这次学习也从这系列博客看起的，看完后收获很多，建议大家阅读。后面我的内容也算是对这系列文章的整理，加深自己的印象。</p>
-</li>
-<li><p><a href="http://www.w3.org/TR/CSS2/visuren.html#x0" target="_blank" rel="external">W3C—Visual formatting model</a></p>
-<p>无需多言只要学习标准离不开W3C文档。</p>
-</li>
-</ul>
-<h2 id="可视化格式模型简介">可视化格式模型简介</h2><p>那么，什么是可视化格式模型呢？看看官方的定义</p>
-<blockquote>
-<p>How uers agents process the document tree for visual media</p>
-</blockquote>
-<p>对于可视的媒介，用户代理怎样处理文档树。这里有几个概念需要搞明白。</p>
-<ul>
-<li>用户代理（User Agent）：一般指浏览器，它的信息包括硬件平台、系统软件、应用软件和用户个人偏好。后面所说的浏览器就是指用户代理。</li>
-<li>媒介（<a href="http://www.w3.org/TR/CSS2/media.html" target="_blank" rel="external">media</a>）：展示页面的介质，包括显示器，纸，听觉浏览器和打印机等等</li>
-<li>文档树（<a href="http://www.w3.org/TR/CSS2/conform.html#doctree" target="_blank" rel="external">document tree</a>）:指源文档中元素树的编码。每一个元素都只有一个父节点，根节点除外，它没有父节点。</li>
-</ul>
-<p>在可视化格式模型中，根据<a href="http://www.w3.org/TR/CSS2/box.html" target="_blank" rel="external">box模型</a>，在文档树中的每个元素产生0个或多个box，这些box的布局受下面因素影响：</p>
-<ul>
-<li>box的<a href="http://www.w3.org/TR/CSS2/box.html#box-dimensions" target="_blank" rel="external">尺寸</a>和<a href="http://www.w3.org/TR/CSS2/visuren.html#box-gen" target="_blank" rel="external">类型</a>：box的尺寸就是盒子模型中的margin、border、padding和content，box的类型就是display的值。</li>
-<li><a href="http://www.w3.org/TR/CSS2/visuren.html#positioning-scheme" target="_blank" rel="external">定位体系</a>：有三种定位体系分别是，常规流(normal flow)、浮动(float)和绝对定位(absolute positioning)。</li>
-<li>文档树中元素之间的关系。</li>
-<li>额外的信息（比如，视窗(viewport)大小，图片的原始尺寸）</li>
-</ul>
-<p>这部分定义的特性，适用于<a href="http://www.w3.org/TR/CSS2/media.html#continuous-media-group" target="_blank" rel="external">continuous media</a>和<a href="http://www.w3.org/TR/CSS2/media.html#paged-media-group" target="_blank" rel="external">pages media</a>。当然，当用于paged media时，<a href="http://www.w3.org/TR/CSS2/box.html#margin-properties" target="_blank" rel="external">margin</a>的属性的意义有所变化。（详情查看<a href="http://www.w3.org/TR/CSS2/page.html#page-margins" target="_blank" rel="external">page model</a>）。</p>
-<p>可视化模型不会指定格式的所有细节（比如它没有指定字间距算法）。用户端的一致性(<a href="http://www.w3.org/TR/CSS2/conform.html#conformance" target="_blank" rel="external">conforming user agents</a>)在处理本规范未包含的格式化情形时，表现可能有所不同。</p>
-<h3 id="视窗（viewport）">视窗（viewport）</h3><p>对于连续的媒介，浏览器通常提供给用户提供一个视窗（在屏幕上的一个窗口或者其他可视区域），通过它用户可以查阅文旦。当视窗大小尺寸被改变时，用户代理可能会改变文档的布局（详情查看<a href="http://www.w3.org/TR/CSS2/visudet.html#containing-block-details" target="_blank" rel="external">initial containing block</a>）。</p>
-<p>当视窗小于文档渲染的画布的大小时，浏览器应该提供一个滚动机制。每个画布最多有一个可视窗口，但是用户代理可能渲染多个画布。（也就是说，浏览器可以打开多个页面，但是每个页面最多只有一个可视窗口）。</p>
-<h3 id="包含块(Containing_blocks)">包含块(Containing blocks)</h3><p>在CSS2.1中，很多box的定位和尺寸的计算，取决于一个矩形框的边界，这个矩形就叫做<em>containing block</em> 。一般来说，（元素）生成的box会当作它子孙元素的包含块，我们称之为“一个（元素的）box为它的子孙元素建造了包含块” 。“一个（元素的）box的包含块”意思是“该box所存在的那个包含块”，不是它产生的包含块。包含块是一个相对的概念<br>比如：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">table</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">tr</span>&gt;</span><span class="tag">&lt;<span class="title">td</span>&gt;</span>hi<span class="tag">&lt;/<span class="title">td</span>&gt;</span><span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>这个例子中，div和table都是包含块。div是table的包含块，同时table又是td的包含块，不是绝对的。这里table的包含块说的是div建造的包含块，而不是table自身建造的包含块。</p>
-<p>每个box关于它的包含块都给定了一个位置，但是不会被它的包含块限制，可以从包含块<a href="http://www.w3.org/TR/CSS2/visufx.html#overflow" target="_blank" rel="external">溢出</a>。设置overflow属性可以处理溢出的子孙元素。</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"A"</span> <span class="attribute">style</span>=<span class="value">"width:100px; height:100px; border:1px solid red;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"B"</span> <span class="attribute">style</span>=<span class="value">"width:200px; height:200px; background-color:gold;"</span>&gt;</span>hello<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这段代码中A是B的包含块，B的定位跟A有关，B的大小大于A的大小，这时候，B会溢出，而A不能限制B的大小。注意这段代码是有兼容性的问题，见：<a href="http://topic.csdn.net/u/20100720/17/635ff1e8-fce7-4b34-84cd-e3c9d993dcda.html?93963" target="_blank" rel="external">【分享】小心，IE中width/height的设定值可能被其内容撑大</a></p>
-<p>包含块的概念很重要，因为可视化格式模型中很多的理论性知识都跟这个概念有关系。比如，宽度和高度自动值的计算，浮动元素的定位，绝对定位元素的定位等等。不了解包含块，就掌握不好以它为基础的后续理论。</p>
-
+<p>下面就总结下这段时间看的一个知识点——CSS的可视化格式模式（visual formattin model）<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/04/25/学习可视化格式模式-简介/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -885,9 +770,12 @@
 
       
         
-          <p>大概知道localStorage大小大约在2~5M之间，直接用10M的字符串然后二分的方式测试一下不就可以很快的测试出容量的大小了。<br><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> LS = window.localStorage;</span><br><span class="line"></span><br><span class="line"><span class="comment">//生成10M的字符串</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">value</span> = <span class="string">"aaaaaaaaaa"</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">value</span> = <span class="keyword">value</span> + <span class="keyword">value</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> testStr = <span class="keyword">value</span>;</span><br><span class="line"></span><br><span class="line"><span class="function">function <span class="title">test</span><span class="params">(str)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        localStorage.test = str;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">catch</span>(e) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//二分</span></span><br><span class="line"><span class="keyword">var</span> low = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">var</span> high = <span class="keyword">value</span>.length;</span><br><span class="line"><span class="keyword">var</span> lastHigh;</span><br><span class="line"><span class="keyword">while</span>(low &lt; high) &#123;</span><br><span class="line">    <span class="keyword">var</span> middle = Math.floor((low + high) /<span class="number">2</span>);</span><br><span class="line">    testStr = <span class="keyword">value</span>.substring(<span class="number">0</span>, middle  + <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">var</span> rel = test(testStr);</span><br><span class="line">    <span class="keyword">if</span> (rel == <span class="keyword">false</span>) &#123;</span><br><span class="line">        high  = middle;</span><br><span class="line">        lastHigh = high;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        high = lastHigh;</span><br><span class="line">        low = middle + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.log(low);</span><br></pre></td></tr></table></figure></p>
-<p>在本机chrome测试下得到值为5242876，大约5M左右。这有个地址可以在线测试localStorage的大小，可以参考其实现方式<a href="http://dev-test.nemikor.com/web-storage/support-test/" target="_blank" rel="external">http://dev-test.nemikor.com/web-storage/support-test/</a>和<a href="http://arty.name/localstorage.html" target="_blank" rel="external">http://arty.name/localstorage.html</a></p>
-
+          <p>大概知道localStorage大小大约在2~5M之间，直接用10M的字符串然后二分的方式测试一下不就可以很快的测试出容量的大小了。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2013/11/27/二分测试localStorage大小/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -896,7 +784,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript-算法/"> #JavaScript 算法 </a>
+            <a href="/tags/JavaScript/"> #JavaScript </a>
+          
+            <a href="/tags/算法/"> #算法 </a>
           
         </div>
       
@@ -943,7 +833,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -957,7 +847,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

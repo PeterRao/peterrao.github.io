@@ -158,7 +158,7 @@
 <h2 id="包含块判定及其范围">包含块判定及其范围</h2><p>之前说过一个元素box的定位和尺寸计算，有时候和一个特定的矩形有关，这个矩形称作该元素的<em>containing block</em>。而元素会为它的子元素创建包含块，那么是不是说，元素的包含块就是它的父元素呢？答案是否定的！</p>
 <p>一个元素包含块的确定，跟元素自身和它的祖先元素的样式等有关系。</p>
 <p>包含块判定总流程图如下：</p>
-<p><img src="/images/VFM/judge-containing-block.png" alt="包含块判定总流程图"></p>
+<p><img src="/images/VFM/judge-containing-block.png" alt="包含块判定总流程图"><br><a id="more"></a></p>
 <h3 id="根元素的包含块">根元素的包含块</h3><p><a href="http://www.w3.org/TR/CSS2/conform.html#root" target="_blank" rel="external">根元素</a>，就是处于文档树最顶端的元素，它没有父节点。</p>
 <p>根元素存在的矩形包含快叫做初始包含块(initial containing block)。对于连续媒介，它的尺寸就是视窗(<a href="http://www.w3.org/TR/CSS2/visuren.html#viewport" target="_blank" rel="external">viewport</a>)，固定在画布的原点上，也就是说在X(HTML)中，根元素是html元素（尽管有的浏览器会不正确地使用body元素）；对于分页媒介，它就是<a href="http://www.w3.org/TR/CSS2/page.html#page-area" target="_blank" rel="external">页面区域</a>。初始包含块的’direction’属性与根元素相同。</p>
 <h3 id="‘relative’和’static’定位的元素">‘relative’和’static’定位的元素</h3><p>对于其它元素：如果该元素的定位（position）为’relative’（相对定位）或者’static’（静态定位），它的包含块由最近的<a href="http://www.w3.org/TR/CSS2/visuren.html#block-boxes" target="_blank" rel="external">块容器</a>祖先元素的内容框边缘产生。</p>
@@ -320,7 +320,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -334,7 +334,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
