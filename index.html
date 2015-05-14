@@ -159,13 +159,12 @@
 
       
         
-          <h3 id="5-13">5-13</h3><h3 id="display:none_和_visibility:hidden_下图片加载问题。"><code>display:none</code> 和 <code>visibility:hidden</code> 下图片加载问题。</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// html</span></span><br><span class="line">&lt;<span class="keyword">div</span> id=<span class="string">"test1"</span>&gt;</span><br><span class="line">    &lt;span id=<span class="string">"test2"</span>&gt;&lt;/span&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//css</span></span><br><span class="line"><span class="preprocessor">#test2 &#123;</span></span><br><span class="line">    background-image: url(<span class="string">'mypic.jpg'</span>);</span><br><span class="line">    visibility: hidden;</span><br><span class="line">&#125;</span><br><span class="line">或</span><br><span class="line"><span class="preprocessor">#test2 &#123;</span></span><br><span class="line">    background-image: url(<span class="string">'mypic.jpg'</span>);</span><br><span class="line">    display: none</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此时 mypic.jpg 会下载</p>
-<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// html</span></span><br><span class="line">&lt;<span class="keyword">div</span> id=<span class="string">"test1"</span>&gt;</span><br><span class="line">    &lt;span id=<span class="string">"test2"</span>&gt;&lt;/span&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//css</span></span><br><span class="line"><span class="preprocessor">#test1 &#123;</span></span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="preprocessor">#test2 &#123;</span></span><br><span class="line">    background-image: url(<span class="string">'mypic.jpg'</span>);</span><br><span class="line">    visibility: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此时 mypic.jpg 不会下载</p>
-<p>结论：带有 display:none 和 visibility:hidden 的元素会被加载，display:none的子元素不会被加载。</p>
-<h3 id="“Block-level”_links_in_HTML5">“Block-level” links in HTML5</h3><p><a href="http://html5doctor.com/block-level-links-in-html-5/" target="_blank" rel="external">http://html5doctor.com/block-level-links-in-html-5/</a></p>
-
+          <p>201505杂记<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/13/杂记-201505/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -355,7 +354,7 @@
           
             
               <a class="post-title-link" href="/2015/04/21/杂记-201504/">
-                每日进步一点点-201504
+                杂记-201504
               </a>
             
           
