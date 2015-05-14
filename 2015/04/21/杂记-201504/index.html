@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="w3ctech," />
+  <meta name="keywords" content="1.01^365," />
 
 
 
@@ -43,7 +43,7 @@
   </script>
 
 
-  <title> w3ctech-豌豆荚前端技术专场总结 // Undefined Coder </title>
+  <title> 每日进步一点点-201504 // Undefined Coder </title>
 </head>
 
 <body>
@@ -122,7 +122,7 @@
           
           
             
-              w3ctech-豌豆荚前端技术专场总结
+              每日进步一点点-201504
             
           
         </h1>
@@ -130,7 +130,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2014-08-31
+          发表于 2015-04-21
         </span>
 
         
@@ -139,8 +139,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2014/08/31/w3ctech-豌豆荚前端技术专场总结/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/31/w3ctech-豌豆荚前端技术专场总结/"></span>
+            <a href="/2015/04/21/杂记-201504/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/21/杂记-201504/"></span>
             </a>
           </span>
           
@@ -154,23 +154,29 @@
       
 
       
-        <p>周六去了w3ctech举办的豌豆荚前端技术专场，一共听了3场演讲。<a href="http://www.w3ctech.com/event/33。" target="_blank" rel="external">http://www.w3ctech.com/event/33。</a></p>
-<h2 id="总体体会">总体体会</h2><p>之前也参加过其他公司比如腾讯、百度等举办的技术分享活动，但这次感觉是和前几次不一样。</p>
-<p>之前的活动分享的多是他们自己开发的库，自己在开发中的解决思路以及对某个特定问题的研究等等，而豌豆荚并不是这样，他们非常崇尚效率。看下豌豆荚的项目可以发现，他们使用了各种开源库，研究了各种新的技术，并投入到生产中去，比如angular，backbone，recat，ploymer等都有在使用，还使用了各种开源或商业的服务。</p>
-<p>豌豆荚和我们很多相似的地方，都是初创公司（其他他们也不小近300人了），他们的前端工程化解决方案和我们目前的几乎一致，但他们的更加完善，他们的 Windows 客户端也同样是 webkit + html 的 webapp 架构。因此觉得值得总结一下。<br><a id="more"></a></p>
-<h2 id="演讲内容">演讲内容</h2><p>第一个是张耀春的《node实战和方法论》，主要讲的是怎么学习 node 和编写 node 模块的相关知识，感觉讲的不如他的 blog 精彩，有兴趣的可以看看他的<a href="http://zhangyaochun.iteye.com/" target="_blank" rel="external">blog</a>关于js的研究。第三个是李晓鹏的《前端性能优化》，主要介绍了豌豆荚windows客户端中动画的优化，我们目前各个产品并没有太多的动画，在交互与设计上我们和豌豆荚差距真的很大。后面希望能多多实际到项目中去。</p>
-<p>这里我主要分享下第二个演讲《自生长的前端研发环境》（<a href="http://slides.com/wangyezhao/rdenv/#/" target="_blank" rel="external">http://slides.com/wangyezhao/rdenv/#/</a>）， 开始我没理解这个‘自生长’是个啥意思，后来才明白，这是豌豆荚自己摸索出来的一套前端自动化解决方案，而且和我们的体系极其类似，但他们这套方案积累的时间更长，也因此更加完善。</p>
-<h3 id="前端开发环境的变化">前端开发环境的变化</h3><p><img src="/images/20140831/1.png" alt="早期的前端开发环境"><br>十年前的前端开发，犹如上面的那一坨坨的电线，杂乱无章。虽然我没体验过10年前的开发，但是目前我们的官网和网页剪辑器的代码已经有这样的感觉，本身 JS 就是动态语言，灵活多变，各种东西（库，DOM，CSS，浏览器兼容性等等）混杂在一起，让人摸不着头绪，而且那时的前端更多的是展示数据，没有复杂的业务逻辑。</p>
-<p><img src="/images/20140831/2.png" alt="现在的前端开发环境"><br>但是现在的随着前端技术的发展，各种前端 MVVM 框架的出现，以及 node 带来的前端构建上的变化，使前端开发变得井然有序，效率大大提高，同时更多的业务逻辑交给了前端。</p>
-<h3 id="豌豆夹的前端研发环境">豌豆夹的前端研发环境</h3><p>豌豆荚的前端研发环境得益于上述的变化，他们摸索出一套适合自己的解决方案。他们这套解决方案由3部分组成：开发环境、运行环境和生产环境，和我们研发环境极其类似。</p>
-<h4 id="1-开发环境">1.开发环境</h4><p>豌豆荚的前端开发环境使用了 Jade + Sass + Grunt，这和我们目前的 Jade + Less + Gulp比应该说是大同小异，这里有几个地方我们并没有做，一是代码规范，豌豆荚有自己的一套前端代码规范，使用了jslint来规范js代码质量，我自己也在用jshint，目前我们的前端代码并没有一个规范（比如，tab和空格的统一，未使用分号的检查，变量重复的定义等等），二是测试，豌豆荚使用 Karmar Runner + Mocha 来进行测试，包括 Unit Test 和 UI Test，每个项目他们都写了不少的测试代码，三是他们用 Yo Generator 开发了自己的一键式开发环境，帮助新人分分钟内建立起一个开发环境，我们目前没有这那么多项目，人也不多倒是没有这个需求，该项目的地址<a href="https://github.com/wandoulabs/generator-wdj" target="_blank" rel="external">https://github.com/wandoulabs/generator-wdj</a></p>
-<h3 id="2-运行环境">2.运行环境</h3><p>豌豆荚说的运行环境，也就是我们目前使用的 beta 环境，当然也是同样的作用：给相关人员（产品运营）测试，他们的流程基本和我们一致。<br><img src="/images/20140831/3.png" alt="豌豆荚的开发环境"></p>
-<p>有几处不同点，使用了一个叫 <a href="https://travis-ci.org/" target="_blank" rel="external">travis</a>的服务，当在运行环境上构建失败（服务器出错或者测试不通过）时，travis 会告诉开发人员，同时他们将这个部署功能做成了一个项目 Domino（ <a href="https://github.com/wandoulabs/Domino" target="_blank" rel="external">https://github.com/wandoulabs/Domino</a>），用可视化的方式来进行项目的部署，当开发人员完成一个功能或修改后，使用 domino 来部署到远程服务器上去（目前我们beta上是自动部署，正式环境上是靠服务端部署），其他人也能在 Domino 上看到某个功能是否完成，是在 beta 上还是在生产环境上。<br><img src="/images/20140831/4.png" alt="豌豆荚的开发环境"></p>
-<h3 id="3-生产环境">3.生产环境</h3><p>这点，我们做的很少，来看看豌豆荚的做法。<br>负载均衡，安全方面只是点了一下，这也是必须的。重点在服务器监控、应用监控上以及数据收集上。<br>豌豆荚使用了一个叫做 New Relic 的服务，来监控服务的状态，看了介绍感觉挺cool的，我们是不是也可以尝试一下呢？<br><img src="/images/20140831/5.png" alt="豌豆荚生产环境"><br><img src="/images/20140831/6.png" alt="豌豆荚生产环境"></p>
-<p>CDN方面，目前豌豆荚正在尝试使用Amazon S3，演讲中一笔带过没有细讲，CDN我们目前是没有在用，后面可以研究下怎么能用起来。<br>最后是数据收集方面，豌豆荚使用了一个叫<a href="https://www.pingdom.com/" target="_blank" rel="external">pingdom</a>的服务来进行国际化的测速，这个服务能实时监控全球各个地区的访问速度，是否无法访问等等。</p>
-<p><img src="/images/20140831/7.png" alt="BugSnag"><br>对于 JS 错误监控，他们使用了<a href="https://bugsnag.com/" target="_blank" rel="external">bugsnag</a>服务，能将 JS 的错误发送过来，便于分析。看了下这个服务的介绍，需要在项目中加一些额外的代码。<br><img src="/images/20140831/8.png" alt="BugSnag"></p>
-<p>当然他们还使用了 google analytice 来做定性的分析，不加赘述了。</p>
-<p>总结一下，豌豆荚的确很open，很geek的公司，不断尝试新的技术与服务，并运用到自己的产品中去，在交互与设计上下足了功夫。同时，他们很推崇这种full stack工程师，前端不仅关注产品的交互设计，还承担了部分服务端的监控与数据收集分析工作来改善前端的性能，很多地方值得其他创业公司学习。</p>
+        <h2 id="关于题目">关于题目</h2><p>因为其他原因，很久没更新 blog 了，这次用 hexo 搭建一个 blog。 同时建立一个 <code>1.01^365</code> 的标签，记录点点滴滴，来督促自己每天进步一点点。之前的 blog 有的在 sae 上，有的记在笔记里，后面一点一点整理出来，放在这个地方统一管理。<br><a id="more"></a></p>
+<h2 id="4-21">4-21</h2><h3 id="移动端css动画相关">移动端css动画相关</h3><p>今天在开发微信的 H5 页面时，遇到了 CSS3 动画在微信的内置 QQ 浏览器的性能问题，不过之前在 w3ctech 上听过不少移动端性能优化的最佳实践，这次有机会实际项目中玩耍了一把。主要的优化方案还是要多用3d硬件加速，在 Android 上性能提升显著。</p>
+<p>在尝试动画的同时，学习了一些不常用的属性，最值得注意的就是这个<code>animation-fill-mode</code>，可以定义动画结束后的状态。</p>
+<h2 id="4-22">4-22</h2><h3 id="碎碎念">碎碎念</h3><p>今天准备用<a href="https://github.com/alvarotrigo/fullPage.js" target="_blank" rel="external">fullPage</a>来实现新产品的宣传页面，仿照了<a href="http://www.mi.com/shouhuan" target="_blank" rel="external">小米手环页面</a>中两排导航的处理。历史原因，页面要在 Wordpress 中生成，又捣鼓了半天的 Wordpress，越来越不喜欢 Wordpress 和 PHP。。。<br>顺便看了下小米前端的代码，居然很多的选择器变量不缓存下，上次在 w3ctech 上，也感觉到了，小米的前端还不是很规范，不过还是很佩服小米页面的设计，甩大部分公司几条街！<br>之前都是用 FTP 往服务器上上传文件，今天学习了 iTerm2 的 SSH，工具果然是第一生产力。</p>
+<h2 id="4-23">4-23</h2><h3 id="前端发展">前端发展</h3><p>射鸡师同学完全忙不过来了，为了不再麻烦人家，我又开始已经好久没干过的切图。想想前端发展的的确快，前几年还是切切页面的前端，现在完全变了工作方式，随着用户体验要求和浏览器性能的不断提升，前端变得越来越复杂，分工也越来越细，切图当初前端的必备技能，现在看来也逐渐变得不重要了。<br>最近几个研究生的同学在问我，说想从事前端开发的工作。原先很不被重视的前端，现在确让很多研究生的同学都想以此为职业，各大招聘网站前端也占了一大片的市场。勃勃生机的前端发展，让我对未来充满期待。<br>Things will get better!</p>
+<h3 id="CSS3:_clip_and_filter">CSS3: <code>clip</code> and <code>filter</code></h3><p>设计想实现下面这种毛玻璃的效果。<br><img src="/images/20150421/1.png" alt="毛玻璃效果"><br>简单的可以通过两种背景图叠加实现，不过由于是在手机上的页面可以使用很多 CSS3 的特性，之前也在看过一篇介绍<a href="http://www.html-js.com/article/2815" target="_blank" rel="external"><code>clip-path</code></a>属性的文章，因此可以通过’fiter’和<code>clip-path</code>来实现。</p>
+<p></p><p data-height="250" data-theme-id="14481" data-slug-hash="QbwwoB" data-default-tab="result" data-user="wizraopeize" class="codepen">See the Pen <a href="http://codepen.io/wizraopeize/pen/QbwwoB/" target="_blank" rel="external">img 毛玻璃</a> by 饶培泽 (<a href="http://codepen.io/wizraopeize" target="_blank" rel="external">@wizraopeize</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+
+<h2 id="4-24">4-24</h2><h3 id="bootstrap响应式设计各个尺寸布局临界值">bootstrap响应式设计各个尺寸布局临界值</h3><p>Extra small screen / phone: 480px<br>Small screen / tablet: 768px<br>Medium screen / desktop: 992px<br>Large screen / wide desktop: 1200px</p>
+<h3 id="favicon相关">favicon相关</h3><p>今天遇到一个专门来生成 favicon 的<a href="http://realfavicongenerator.net/" target="_blank" rel="external">网站</a>，一个小小的 favicon 里面藏了如此多的玄机，真是活到老，学到老。同时也再一次感觉到老外的细致，在加上前不久 Hacker News 上很火的 <a href="http://howtocenterincss.com/" target="_blank" rel="external">how to center css</a>，看似不起眼的东西，都值得做出一个小东西来。</p>
+<h2 id="4-29">4-29</h2><h3 id="Nginx_之_proxy_pass">Nginx 之 proxy_pass</h3><p>今天在写 Nginx 配置时，这样写的</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">location</span> /weixin &#123;</span><br><span class="line">    <span class="title">proxy_pass</span> <span class="url">http://127.0.0.1:3000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在访问 <code>http://127.0.0.1/weixin/css/main.css</code> 时，确一直跳到了 <code>http://127.0.0.1:3000/weixin/css/main.css</code>，百思不得其解，看了文档才发现问题。需要这样写，才能正确的访问到 <code>http://127.0.0.1:3000/css/main.css</code>。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">location</span> /weixin &#123;</span><br><span class="line">    <span class="title">proxy_pass</span> <span class="url">http://127.0.0.1:3000/</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>前者不是一个 URI，请求会按原始的路径转发过去，而后者是一个 URI 请求会被替换成指定的 URI 转发过去。</p>
+<h3 id="JS_中_Function-prototype-bind()_使用">JS 中 <code>Function.prototype.bind()</code> 使用</h3><p>JS 中 <code>call()</code> 和 <code>apply()</code>，今天发现了 <code>bind()</code>这个方法。查了下文档，和前面两个主要的区别在于，前面两个方法，主要用在函数调用时，而后者用于函数定义时，它返回的是个函数。<br>可以看这个实际的例子</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">gulp</span><span class="class">.task</span>(<span class="string">'clean'</span>, del.<span class="function">bind</span>(</span><br><span class="line">  null, [<span class="string">'.tmp'</span>, <span class="string">'build/*'</span>, <span class="string">'!build/.git'</span>], &#123;<span class="attribute">dot</span>: true&#125;</span><br><span class="line">));</span><br></pre></td></tr></table></figure>
+<p>相当于</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">gulp</span><span class="class">.task</span>(<span class="string">'clean'</span>, <span class="function">function</span>(cb) &#123;</span><br><span class="line">    <span class="tag">del</span>([<span class="string">'.tmp'</span>, <span class="string">'build/*'</span>, <span class="string">'!build/.git'</span>], &#123;<span class="attribute">dot</span>: true&#125;, cb);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>前者并没有 <code>cb</code> 这个参数，但其实已经附加到返回的函数的参数列表之后了。<br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="external">MDN</a> 上的例子</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">list</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> list1 = list(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a function with a preset leading argument</span></span><br><span class="line"><span class="keyword">var</span> leadingThirtysevenList = list.bind(<span class="literal">undefined</span>, <span class="number">37</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> list2 = leadingThirtysevenList(); <span class="comment">// [37]</span></span><br><span class="line"><span class="keyword">var</span> list3 = leadingThirtysevenList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// [37, 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
+<p> 还是挺方便的一个方法，当然这是 ES5 的方法，IE8及IE8以下的浏览器不支持的。</p>
 
       
     </div>
@@ -179,7 +185,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/w3ctech/"> #w3ctech </a>
+            <a href="/tags/1-01-365/"> #1.01^365 </a>
           
         </div>
       
@@ -188,13 +194,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/21/杂记-201504/">每日进步一点点-201504</a>
+              <a href="/2015/04/26/gulp工作流/">gulp工作流</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/04/30/学习可视化格式模式-定位系统（Positioning-Schemes）/">学习可视化格式模式-定位系统（Positioning Schemes）</a>
+              <a href="/2014/08/31/w3ctech-豌豆荚前端技术专场总结/">w3ctech-豌豆荚前端技术专场总结</a>
             
           </div>
         </div>
@@ -210,8 +216,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2014/08/31/w3ctech-豌豆荚前端技术专场总结/"
-               data-title="w3ctech-豌豆荚前端技术专场总结" data-url="http://yoursite.com/2014/08/31/w3ctech-豌豆荚前端技术专场总结/">
+          <div class="ds-thread" data-thread-key="2015/04/21/杂记-201504/"
+               data-title="每日进步一点点-201504" data-url="http://yoursite.com/2015/04/21/杂记-201504/">
           </div>
         
       </div>
@@ -317,7 +323,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总体体会"><span class="nav-number">1.</span> <span class="nav-text">总体体会</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#演讲内容"><span class="nav-number">2.</span> <span class="nav-text">演讲内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端开发环境的变化"><span class="nav-number">2.1.</span> <span class="nav-text">前端开发环境的变化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#豌豆夹的前端研发环境"><span class="nav-number">2.2.</span> <span class="nav-text">豌豆夹的前端研发环境</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-开发环境"><span class="nav-number">2.2.1.</span> <span class="nav-text">1.开发环境</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-运行环境"><span class="nav-number">2.3.</span> <span class="nav-text">2.运行环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-生产环境"><span class="nav-number">2.4.</span> <span class="nav-text">3.生产环境</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于题目"><span class="nav-number">1.</span> <span class="nav-text">关于题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-21"><span class="nav-number">2.</span> <span class="nav-text">4-21</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端css动画相关"><span class="nav-number">2.1.</span> <span class="nav-text">移动端css动画相关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-22"><span class="nav-number">3.</span> <span class="nav-text">4-22</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#碎碎念"><span class="nav-number">3.1.</span> <span class="nav-text">碎碎念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-23"><span class="nav-number">4.</span> <span class="nav-text">4-23</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端发展"><span class="nav-number">4.1.</span> <span class="nav-text">前端发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS3:_clip_and_filter"><span class="nav-number">4.2.</span> <span class="nav-text">CSS3: clip and filter</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-24"><span class="nav-number">5.</span> <span class="nav-text">4-24</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrap响应式设计各个尺寸布局临界值"><span class="nav-number">5.1.</span> <span class="nav-text">bootstrap响应式设计各个尺寸布局临界值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#favicon相关"><span class="nav-number">5.2.</span> <span class="nav-text">favicon相关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-29"><span class="nav-number">6.</span> <span class="nav-text">4-29</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx_之_proxy_pass"><span class="nav-number">6.1.</span> <span class="nav-text">Nginx 之 proxy_pass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS_中_Function-prototype-bind()_使用"><span class="nav-number">6.2.</span> <span class="nav-text">JS 中 Function.prototype.bind() 使用</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

@@ -124,6 +124,159 @@
           
           
             
+              <a class="post-title-link" href="/2015/05/13/杂记-201505/">
+                杂记-201505
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-13
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/13/杂记-201505/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/13/杂记-201505/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h3 id="5-13">5-13</h3><h3 id="display:none_和_visibility:hidden_下图片加载问题。"><code>display:none</code> 和 <code>visibility:hidden</code> 下图片加载问题。</h3><figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// html</span></span><br><span class="line">&lt;<span class="keyword">div</span> id=<span class="string">"test1"</span>&gt;</span><br><span class="line">    &lt;span id=<span class="string">"test2"</span>&gt;&lt;/span&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//css</span></span><br><span class="line"><span class="preprocessor">#test2 &#123;</span></span><br><span class="line">    background-image: url(<span class="string">'mypic.jpg'</span>);</span><br><span class="line">    visibility: hidden;</span><br><span class="line">&#125;</span><br><span class="line">或</span><br><span class="line"><span class="preprocessor">#test2 &#123;</span></span><br><span class="line">    background-image: url(<span class="string">'mypic.jpg'</span>);</span><br><span class="line">    display: none</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时 mypic.jpg 会下载</p>
+<figure class="highlight axapta"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// html</span></span><br><span class="line">&lt;<span class="keyword">div</span> id=<span class="string">"test1"</span>&gt;</span><br><span class="line">    &lt;span id=<span class="string">"test2"</span>&gt;&lt;/span&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">//css</span></span><br><span class="line"><span class="preprocessor">#test1 &#123;</span></span><br><span class="line">    display: none;</span><br><span class="line">&#125;</span><br><span class="line"><span class="preprocessor">#test2 &#123;</span></span><br><span class="line">    background-image: url(<span class="string">'mypic.jpg'</span>);</span><br><span class="line">    visibility: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此时 mypic.jpg 不会下载</p>
+<p>结论：带有 display:none 和 visibility:hidden 的元素会被加载，display:none的子元素不会被加载。</p>
+<h3 id="“Block-level”_links_in_HTML5">“Block-level” links in HTML5</h3><p><a href="http://html5doctor.com/block-level-links-in-html-5/" target="_blank" rel="external">http://html5doctor.com/block-level-links-in-html-5/</a></p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/1-01-365/"> #1.01^365 </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
+              <a class="post-title-link" href="/2015/05/12/CSS结构性伪类选择器/">
+                CSS结构性伪类选择器
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-05-12
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/05/12/CSS结构性伪类选择器/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/12/CSS结构性伪类选择器/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>学习一下CSS结构性伪类选择器<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/05/12/CSS结构性伪类选择器/#more">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CSS/"> #CSS </a>
+          
+        </div>
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/04/26/gulp工作流/">
                 gulp工作流
               </a>
@@ -201,7 +354,7 @@
           
           
             
-              <a class="post-title-link" href="/2015/04/21/每日进步一点点-201504/">
+              <a class="post-title-link" href="/2015/04/21/杂记-201504/">
                 每日进步一点点-201504
               </a>
             
@@ -220,8 +373,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/04/21/每日进步一点点-201504/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/21/每日进步一点点-201504/"></span>
+            <a href="/2015/04/21/杂记-201504/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/21/杂记-201504/"></span>
             </a>
           </span>
           
@@ -238,7 +391,7 @@
         
           <h2 id="关于题目">关于题目</h2><p>因为其他原因，很久没更新 blog 了，这次用 hexo 搭建一个 blog。 同时建立一个 <code>1.01^365</code> 的标签，记录点点滴滴，来督促自己每天进步一点点。之前的 blog 有的在 sae 上，有的记在笔记里，后面一点一点整理出来，放在这个地方统一管理。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/21/每日进步一点点-201504/#more">
+            <a class="btn" href="/2015/04/21/杂记-201504/#more">
               阅读全文 &raquo;
             </a>
           </div>
@@ -761,7 +914,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
