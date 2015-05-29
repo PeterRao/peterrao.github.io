@@ -22,7 +22,7 @@
 
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="ES6,JavaScript," />
 
 
 
@@ -43,7 +43,7 @@
   </script>
 
 
-  <title> 学习可视化格式模式-控制框（controlling box）的形成 // Undefined Coder </title>
+  <title> ES6实践 // Undefined Coder </title>
 </head>
 
 <body>
@@ -122,7 +122,7 @@
           
           
             
-              学习可视化格式模式-控制框（controlling box）的形成
+              ES6实践
             
           
         </h1>
@@ -130,7 +130,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2014-04-30
+          发表于 2015-05-26
         </span>
 
         
@@ -139,8 +139,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/"></span>
+            <a href="/2015/05/26/ES6实践/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/26/ES6实践/"></span>
             </a>
           </span>
           
@@ -154,45 +154,27 @@
       
 
       
-        <p>接下来，介绍一下CSS2.1中可能产生的框的类型。在某种程度上，框的类型影响了它在可视化格式模型中的表现。<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-display" target="_blank" rel="external"><code>diaplay</code></a>属性用来指定框的类型。<br><a id="more"></a></p>
-<h2 id="块级元素（block-level_elements）和块框（block_boxes）">块级元素（block-level elements）和块框（block boxes）</h2><p>块级元素是源文档中那些在视觉上被格式化为块（如：段落）的元素。以下<code>display</code>的取值会让一个元素成为块级元素：<code>block</code>、<code>list-item</code>、<code>table</code>。</p>
-<p>块级框是参与块格式化上下文（<a href="(http://www.w3.org/TR/CSS2/visuren.html#block-formatting">block formatting context</a>)）的框。每一个块级元素生成一个主要的块级框(principal block-level box)来包含其子框和生成的内容，同时任何定位方案都会与这个主要的框有关。某些块级元素还会在主要框之外产生额外的框：例如<code>list-item</code>元素。这些额外的框会相对于主要框来放置。（个人感觉那些额外的框是用来放置标示的，比如LI元素前面的点）</p>
-<p>除了tab框（后面会讲到）和可置换元素（replaced elements），一个块级框（block-level box）同时也是一个块容器框（block container box），一个块容器框要么只包含块级框，要么创建一个行格式化上下文（inline formatting context ）而只包含行内级框（inline-level boxes）。并非所有的块容器框都是块级框：不可置换行内块（non-replaced inline blocks ）和不可置换table cell是块容器但不是块级框。是块级框的块容器称作块框（block boxes）。</p>
-<p>三个术语：块级框（block-level box）、块容器框（block container box）和块框（block box）在意义明确的时候简称为块（block）</p>
-<p>这三个概念感觉和乱麻一样，撸个图更直观：</p>
-<p><img src="/images/VFM/block-box.png" alt=""></p>
-<h3 id="匿名块框（Anonymous_block_boxes）">匿名块框（Anonymous block boxes）</h3><p>有这样一个文档：</p>
-<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span>&gt;</span><br><span class="line">    <span class="keyword">some</span> <span class="type">text</span></span><br><span class="line">    &lt;p&gt;More <span class="type">text</span>&lt;/p&gt;</span><br><span class="line">&lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
-<p>（并假定div和p都设置了<code>display:block</code>），div似乎同时包含了行内类型的内容和块类型的内容。为了使格式化简单一些，我们假定有一个<strong>匿名块框</strong>围绕在”Some text”周围。</p>
-<p><img src="/images/VFM/anon-block.png" alt=""></p>
-<p>换句话说：如果一个块容器框（如上列中为div生成的框）有一个块级框（如上例中的p），那么我们强制它只包含块级框在其中。</p>
-<p>当一个行内框（inline box）包含一个属于正常排版的块级框，这个行内框（及与其位于同一行框（line box）的行内祖先（inline ancestors））会被从周围的块级框（及其任何连续（中间被插入可折叠的空白或在正常排版以外的元素也算是连续的）的块级兄弟）中分离出来，把行内框分离成两个框（即使其中一边是空的），它在块级框两边。在截断之前和截断之后的行框都附入匿名块框，并且该块级框与匿名块框成为兄弟。当这样的行内框受到相对定位的影响，任何产生的移动同样影响到包含在行内框内的块级框。</p>
-<p>假设有以下的例子：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!doctype html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">title</span>&gt;</span>Anonymous text interrupted by a block<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">        <span class="tag">p</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">margin</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">        <span class="tag">span</span> <span class="rules">&#123;</span><br><span class="line">            <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid red</span></span>;</span><br><span class="line">        &#125;</span></span><br><span class="line">    </span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="title">span</span>&gt;</span>This is anonymous text before the P.</span><br><span class="line">           <span class="tag">&lt;<span class="title">P</span>&gt;</span>This is the content of P.<span class="tag">&lt;/<span class="title">P</span>&gt;</span></span><br><span class="line">             This is anonymous text after the P.</span><br><span class="line">       <span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>这个例子中p元素包含一段匿名文本（C1），随后是一个款及元素，再随后是另一端匿名文本（C2）。对此生成了一个代表body的块框，它包含了一个围绕C!的匿名块框、代表span的块框和围绕C2的另一匿名块框。（这段代码中P元素的盒模型在各个浏览器中差距很大）。</p>
-<p>匿名框的继承属性从包含它的非匿名框那里继承。非继承的属性将取其初始值。比如匿名框的字体属性继承自div，但是margin将会是0。</p>
-<p>当一个元素上设置的属性导致了匿名块框的生成，则该属性依然能应用于该元素生成的框和其内容之上。例如，上面的例子中，如果在p元素上设置了边框，则这个边框画在C1（在最后一行下方开放）和C2（在第一行上方开发）周围。</p>
-<p>一些用户代理用其他方式实现了行内包含块上的边框。例如，将其内嵌的块放入“匿名行框”中，并在这些匿名行框周围绘出行内边框。由于CSS1和CSS2没有定义这些效果，仅支持CSS1和CSS2的用户代理会以其他形式来实现，并可仍旧声称与CSS2.1的特征保持部分一致。对于CSS2.1规范发布之后才发布的用户代理，就不能这么做了。</p>
-<p>当处理百分比值时，应该忽略匿名块框，而以最近的非匿名祖先框来替代。例如，如果一个匿名块框的孩子在div里面需要知道包含块的高度来解析一个百分比高度。那么它将使用div形成的包含块的高度，而不是匿名块框的高度。</p>
-<h2 id="行内级元素（inline-level_element）和行内框（inline_box）">行内级元素（inline-level element）和行内框（inline box）</h2><p>行内级元素（inline-level element）是源文档中那些不为其内容形成新的块，而让其内容分布在多行中的元素（如，段落内着重的文本，行内图片等等）。以下的<code>display</code>属性值产生一个行内级元素：<code>inline</code>、<code>inline-table</code>、<code>inline-block</code>。行内级元素生成行内级框（inline-level box），而这些框会参与某个行格式化上下文（inline formatting context）</p>
-<p>一个行内框（inline box）是行内级框（inline-level box），且其内容参与了包含它的行格式化上下文（inline formatting context）。一个<code>display</code>值是<code>inline</code>的非置换元素会生成一个行内框。那些不是行内框（inline box）的行内级框（inline-level box），例如，可置换的行内级元素（replaced inline-level element），行内块元素（inline-block element），行内表格元素（inline-table）被称为原子行内级框（atomic inline-level box），因为它们是以单一不透明框的形式来参与格式化上下文。</p>
-<p>换句话说，inline-level box分成inline box和atomic inline-level box两种类型，inline box由<code>display</code>值时<code>inline</code>的no-replaced元素产生，atomic inline-level box由replaced inline-level元素、inline-block元素和inline-table元素生成。（这个地方弄的我快疯掉了。。。）</p>
-<h3 id="匿名行内框（Anonymous_inline_box）">匿名行内框（Anonymous inline box）</h3><p>任何直接被包含在一个块容器（block container）元素（而不是行内元素）中的文本必须视为匿名行内元素。</p>
-<p>在如下的文档中</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">p</span>&gt;</span>Some <span class="tag">&lt;<span class="title">em</span>&gt;</span>emphasized<span class="tag">&lt;/<span class="title">em</span>&gt;</span> text<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>P元素生成一个块框，其中还有几个行内框。”emphasized”的框是由行内元素（em）产生的一个行内框。而其他的框（”Some”和”text”）是块级元素（p）产生的行内框。后者就称为匿名行内框，因为它们没有与之相关的行内级元素。</p>
-<p>这样的行内框从其父块框那里继承可以继承的属性。非继承属性取其初始值。例子中，匿名行内框的颜色继承自p，而背景是透明的。</p>
-<p>空格内容，如果可被折叠（根据<code>white-space</code>属性），则其不会生成任何匿名行内框。</p>
-<p>在本规范中，如果一个匿名框的类型可根据上下文来清晰界定，则匿名行内框和匿名块框都可被简称为匿名框。</p>
-<p>自格式化<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/tables#anonymous-boxes" target="_blank" rel="external">表格</a>时，还会出现更多类型的匿名框。</p>
-<h3 id="插入框（Run-in_box）">插入框（Run-in box）</h3><p><code>display: run-in</code>是CSS3（Experimental values）的定义，因为我也没有过这个属性，后续用到在学习（可以参考<a href="http://www.w3.org/TR/css3-box" target="_blank" rel="external">CSS基本框模型</a>）。</p>
-<h3 id="‘display’属性">‘display’属性</h3><p><strong>‘display’</strong></p>
-<p>值： block | list-item | inline-block | table | inline-table | table-row-group | table-header-group | table-footer-group | table-row | table-column-group | table-column | table-cell | table-caption | none | inherit<br>初始值： inline<br>适用于： 所有元素<br>可否继承： 否<br>百分比： N/A<br>媒介： 所有</p>
-<p>这里注意的是其实所有元素默认的<code>display</code>都为<code>inline</code>，用户端（对我们来说是浏览器）的缺省样式表可以覆盖它。比如，P 和 DIV 的<code>display</code>特性值是<code>block</code>，TABLE的<code>display</code>特性值是<code>table</code>。</p>
-<p>本属性各取值的意义如下：</p>
-<p><strong>block</strong>：这个值让元素产生一个块框。<br><strong>inline-block</strong>：这个值让元素产生一个行内级块容器（inline-level block container）。行内块（inline-block）的内部会被当做块框来格式化，而此元素本身会被当作原子行内级框来格式化。<br><strong>inline</strong>：这个值让元素产生一个或多个的行内框。<br><strong>list-item</strong>：这个值让元素（例：HTML里的LI）产生一个主块框与标记框。详情请看<a href="http://www.w3.org/html/ig/zh/wiki/index.php?title=CSS2/generate&amp;action=edit&amp;redlink=1" target="_blank" rel="external">列表</a>章节以获得列表相关的资讯与列表排版的范例<br><strong>none</strong>：这个值让给元素不出现在<a href="http://www.w3.org/TR/CSS2/intro.html#formatting-structure" target="_blank" rel="external">排版结构</a>中（也就是在视觉媒体中，元素既不产生框也不影响布局）。其子孙元素也不产生任何框；该元素及其内容会被从排版结构中完全移除。对子孙元素设定<code>display</code>属性不能覆盖这个结果。<br>请注意<code>display</code>属性取值为<code>none</code>并不会产生隐形的框：<code>none</code>完全不产生任何框。CSS具有可以让元素在排版结构中出现并影响排版，但是框本身却不见的属性。详情请看<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/visufx#visibility" target="_blank" rel="external">可见性</a>的小节</p>
-<p>table、inline-table、table-row-group、table-column、table-column-group、table-header-group、table-footer-group、table-row、table-cell 与 table-caption：这些值让元素产生表现的像表格元素的行为（详情见<a href="http://www.w3.org/TR/CSS2/tables.html" target="_blank" rel="external">表格</a>章节的描述）</p>
-<p>除了定位元素、浮动元素（请参考<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/visuren#dis-pos-flo" target="_blank" rel="external">‘display’、’position’ 与 ‘float’ 的关系</a>）与根元素，本属性的计算值与指定值相同。根元素上的本属性计算值的变动会依照<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/visuren#dis-pos-flo" target="_blank" rel="external">‘display’、’position’ 与 ‘float’ 的关系</a>中描述的规则。</p>
+        <p>在一个新项目上使用 ES6 语法有一段时间了，自己在学习 React 时，也尝试了不少 ES6 的语法。这里记录一下学习实践的经验。<br><a id="more"></a></p>
+<h3 id="Compiler">Compiler</h3><p>使用 <a href="https://babeljs.io/" target="_blank" rel="external">Babel</a> 进行编译。<br>实际使用中遇到的问题：</p>
+<ul>
+<li>由于需要兼容 IE8，不支持 <code>Object.defineProperty</code>，使用 Babel 时，需要使用关闭 <code>es6.module</code> <a href="http://babeljs.io/docs/advanced/loose/#es6-modules" target="_blank" rel="external">选项</a>。</li>
+<li>Babel 严格遵守 ES2015 模块标准，ES2015 模块默认是在严格模式下，所以最外层的 <code>this</code> 并不是指的 <code>window</code> 对象，在使用其他第三方库时遇到过这个问题，在编译时，需要加入 <code>blacklist: [&quot;strict&quot;]</code> 选项。</li>
+</ul>
+<h2 id="Main_Syntax">Main Syntax</h2><p><a href="https://github.com/lukehoban/es6features#readme" target="_blank" rel="external">这里</a>说明了 ES6 的主要语法，实际根据实用程度以及对 ES6 语法的理解程度，并不会全部用到，这里介绍目前用到的语法，后面用到并理解后一点一点补充。</p>
+<h3 id="Arrows">Arrows</h3><p>箭头函数是很常用的语法了，基本抛弃了 <code>function</code> 关键字，更加简洁。<br>arrow functions 带来最大的改变就是固定了 <code>this</code> 的对象，箭头函数中的 <code>this</code> 指向包含该箭头函数的代码的 <code>this</code> 值，在使用过程中需要特别注意 <code>this</code> 的使用。<br>对比以下两段代码。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> <span class="keyword">self</span> = this;</span><br><span class="line">  <span class="keyword">self</span>.age = <span class="number">0</span>;</span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> <span class="title">growUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">self</span>.age++;</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>setInterval 中 <code>this</code> 一直指向 <code>window</code> 对象，在 Person 中缓存 <code>this</code> 值。<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="reserved">function</span> Person()&#123;</span><br><span class="line">  <span class="keyword">this</span>.age = <span class="number">0</span>;</span><br><span class="line">  setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.age++;</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>使用箭头函数后，<code>this</code> 指向其外层的 this 值。前者既是后者使用 bable 编译的<a href="https://babeljs.io/repl/#?experimental=true&amp;evaluate=true&amp;loose=false&amp;spec=false&amp;code=function%20Person(" target="_blank" rel="external">结果</a>%7B%0A%20%20this.age%20%3D%200%3B%0A%20%20setInterval(()%20%3D%3E%20%7B%0A%20%20%20%20this.age%2B%2B%3B%0A%20%20%7D%2C%201000)%3B%0A%7D)<br>Nicholas 有篇介绍 arrow functions 中 <code>this</code> 的<a href="http://www.nczonline.net/blog/2013/09/10/understanding-ecmascript-6-arrow-functions/" target="_blank" rel="external">文章</a>。</p>
+<h3 id="Class">Class</h3><p>Class 语法，除了在用 React 时，自己到用的不多，这里是详细的语法<a href="http://www.2ality.com/2015/02/es6-classes-final.html" target="_blank" rel="external">介绍</a>，在使用前需要好好看一下这个文档，后续有较多使用经验时在补充吧，这里不介绍了。<br>不过其编译后的<a href="https://babeljs.io/repl/#?experimental=true&amp;evaluate=true&amp;loose=false&amp;spec=false&amp;code=class%20Point%20%7B%0A%20%20constructor(x%2C%20y" target="_blank" rel="external">代码</a>%20%7B%0A%20%20%20%20this.x%20%3D%20x%3B%0A%20%20%20%20this.y%20%3D%20y%3B%0A%20%20%7D%0A%20%20toString()%20%7B%0A%20%20%20%20return%20’(‘%20%2B%20this.x%20%2B%20’%2C%20’%20%2B%20this.y%20%2B%20’)’%3B%0A%20%20%7D%0A%7D%0Aclass%20ColorPoint%20extends%20Point%20%7B%0A%20%20%20%20constructor(x%2C%20y%2C%20color)%20%7B%0A%20%20%20%20%20%20%20%20super(x%2C%20y)%3B%0A%20%20%20%20%20%20%20%20this.color%20%3D%20color%3B%0A%20%20%20%20%7D%0A%20%20%20%20toString()%20%7B%0A%20%20%20%20%20%20%20%20return%20super.toString()%20%2B%20’%20in%20’%20%2B%20this.color%3B%0A%20%20%20%20%7D%0A%7D)可以研究下原理。<br>首先可以看到其通过 <code>_classCallCheck</code> 来判断是否通过 <code>new</code> 关键字来创建对象，直接调用 <code>Point()</code> 会报错。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_classCallCheck</span><span class="params">(instance, Constructor)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(instance <span class="keyword">instanceof</span> Constructor)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Cannot call a class as a function'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后调用 <code>_createClass</code> 方法来绑定属性和方法。原型方法绑定到 <code>Constructor.prototype</code> (<code>Point.prototype</code>) 上，静态方法绑定到 <code>Constructor</code> (<code>Point</code>) 上。在对象上定义属性时，使用了 <code>Object.defineProperty()</code> 方法，<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="external">这里</a>是其详细的说明。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">(Constructor, protoProps, staticProps)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (protoProps) defineProperties(Constructor.prototype, protoProps);</span><br><span class="line">        <span class="keyword">if</span> (staticProps) defineProperties(Constructor, staticProps);</span><br><span class="line">        <span class="keyword">return</span> Constructor;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>当有类继承时，如例子中的 ColorPoint 继承 Point 类时，在子类只增加了一些处理。<br><code>_inherits</code> 方法将 ColorPoint.prototype 指向 由Point 的 prototype 上新创建的对象，并设置 ‘constructor’。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_inherits</span><span class="params">(subClass, superClass)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> superClass !== <span class="string">'function'</span> &amp;&amp; superClass !== <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Super expression must either be null or a function, not '</span> + <span class="keyword">typeof</span> superClass);</span><br><span class="line">    &#125;</span><br><span class="line">    subClass.prototype = <span class="built_in">Object</span>.create(superClass &amp;&amp; superClass.prototype, &#123;</span><br><span class="line">        <span class="constructor"><span class="keyword">constructor</span>: </span>&#123;</span><br><span class="line">            value: subClass,</span><br><span class="line">            enumerable: <span class="literal">false</span>,</span><br><span class="line">            writable: <span class="literal">true</span>,</span><br><span class="line">            configurable: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">if</span> (superClass) subClass.__proto__ = superClass;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>继续看 下面的代码<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_get(<span class="built_in">Object</span>.getPrototypeOf(ColorPoint.prototype), <span class="string">'constructor'</span>, <span class="keyword">this</span>).call(<span class="keyword">this</span>, x, y);</span><br></pre></td></tr></table></figure></p>
+<p><code>Object.getPrototypeOf(ColorPoint.prototype)</code> 得到的是 <code>ColorPoint.prototype.__proto__</code> 即 <code>Point.prototype</code>.<br><code>_get()</code> 函数，返回父类 <code>Point</code> ，并在 ColorPoint 的 this 上，向 <code>Point</code> 传入 x, y的值，进行子类的初始化。</p>
+<h3 id="Enhanced_Object_Literals">Enhanced Object Literals</h3><p>增强的对象字面量，可以继续看官方的<a href="https://babeljs.io/repl/#?experimental=true&amp;evaluate=true&amp;loose=false&amp;spec=false&amp;code=var%20obj%20%3D%20%7B%0A%20%20%20%20%2F%2F%20__proto__%0A%20%20%20%20__proto__%3A%20theProtoObj%2C%0A%20%20%20%20%2F%2F%20Shorthand%20for%20%E2%80%98handler%3A%20handler%E2%80%99%0A%20%20%20%20handler%2C%0A%20%20%20%20%2F%2F%20Methods%0A%20%20%20%20toString(" target="_blank" rel="external">例子</a>%20%7B%0A%20%20%20%20%20%2F%2F%20Super%20calls%0A%20%20%20%20%20return%20%22d%20%22%20%2B%20super.toString()%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20%2F%2F%20Computed%20(dynamic)%20property%20names%0A%20%20%20%20%5B%20’prop_’%20%2B%20(()%20%3D%3E%2042)()%20%5D%3A%2042%0A%7D%3B)。<br>这里是主要通过 <code>Object.defineProperty</code> 来实现属性的设置，Loose mode 下，直接给对象设置属性<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">_defineProperty</span><span class="params">(obj, key, value)</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">return</span> Object.<span class="title">defineProperty</span><span class="params">(obj, key, &#123;value: value, enumerable: <span class="keyword">true</span>, configurable: <span class="keyword">true</span>, writable: <span class="keyword">true</span>&#125;)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// lose mode</span></span><br><span class="line">_obj2.__proto__ = theProtoObj;</span><br><span class="line">_obj2.<span class="keyword">handler</span> = <span class="keyword">handler</span>;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<p>这里有以下几个用法：</p>
+<h4 id="同名变量简写">同名变量简写</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> obj</span> = &#123;</span><br><span class="line">    handler</span><br><span class="line">&#125;</span><br><span class="line">相当于</span><br><span class="line"><span class="variable"><span class="keyword">var</span> handler</span> = xxx;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> obj</span> = &#123;</span><br><span class="line">    handler: handler</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="方法简写">方法简写</h4><p>省略了 <code>function</code> 关键字<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = xxx;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    toString() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"d "</span> + <span class="keyword">super</span>.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    toString: <span class="function"><span class="keyword">function</span> <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"d "</span> + _get(<span class="built_in">Object</span>.getPrototypeOf(_obj), <span class="string">"toString"</span>, <span class="keyword">this</span>).call(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><code>_get(Object.getPrototypeOf(_obj), &quot;toString&quot;, this).call(this)</code> 即调用了 Object 的 toString方法。</p>
+<h4 id="动态属性名">动态属性名</h4><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="reserved">var</span> obj = &#123;</span><br><span class="line">    [ <span class="string">'prop_'</span> + (<span class="function"><span class="params">()</span> =&gt;</span> <span class="number">42</span>)() ]: <span class="number">42</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -201,7 +183,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/"> #CSS </a>
+            <a href="/tags/ES6/"> #ES6 </a>
+          
+            <a href="/tags/JavaScript/"> #JavaScript </a>
           
         </div>
       
@@ -210,13 +194,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2014/04/30/学习可视化格式模式-定位系统（Positioning-Schemes）/">学习可视化格式模式-定位系统（Positioning Schemes）</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/04/27/学习可视化格式模式-包含块（containing-block）/">学习可视化格式模式-包含块（containing block）</a>
+              <a href="/2015/05/13/杂记-201505/">杂记-201505</a>
             
           </div>
         </div>
@@ -232,8 +214,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/"
-               data-title="学习可视化格式模式-控制框（controlling box）的形成" data-url="http://yoursite.com/2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/">
+          <div class="ds-thread" data-thread-key="2015/05/26/ES6实践/"
+               data-title="ES6实践" data-url="http://yoursite.com/2015/05/26/ES6实践/">
           </div>
         
       </div>
@@ -339,7 +321,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#块级元素（block-level_elements）和块框（block_boxes）"><span class="nav-number">1.</span> <span class="nav-text">块级元素（block-level elements）和块框（block boxes）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名块框（Anonymous_block_boxes）"><span class="nav-number">1.1.</span> <span class="nav-text">匿名块框（Anonymous block boxes）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行内级元素（inline-level_element）和行内框（inline_box）"><span class="nav-number">2.</span> <span class="nav-text">行内级元素（inline-level element）和行内框（inline box）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名行内框（Anonymous_inline_box）"><span class="nav-number">2.1.</span> <span class="nav-text">匿名行内框（Anonymous inline box）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入框（Run-in_box）"><span class="nav-number">2.2.</span> <span class="nav-text">插入框（Run-in box）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#‘display’属性"><span class="nav-number">2.3.</span> <span class="nav-text">‘display’属性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Compiler"><span class="nav-number">1.</span> <span class="nav-text">Compiler</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main_Syntax"><span class="nav-number"></span> <span class="nav-text">Main Syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrows"><span class="nav-number">1.</span> <span class="nav-text">Arrows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class"><span class="nav-number">2.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Enhanced_Object_Literals"><span class="nav-number">3.</span> <span class="nav-text">Enhanced Object Literals</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同名变量简写"><span class="nav-number">3.1.</span> <span class="nav-text">同名变量简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法简写"><span class="nav-number">3.2.</span> <span class="nav-text">方法简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态属性名"><span class="nav-number">3.3.</span> <span class="nav-text">动态属性名</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
