@@ -636,7 +636,7 @@ td {
   overflow: auto;
   font-size: 13px;
   color: #4d4d4c;
-  line-height: 1.8;
+  line-height: 1.2;
 }
 .post .highlight .gutter pre,
 .post .gist .gist-file .gist-data .line-numbers {
@@ -895,6 +895,11 @@ body {
   display: inline-block;
   margin-left: 20px;
 }
+@media screen and (max-width: 767px) {
+  .menu .menu-item {
+    margin-top: 10px;
+  }
+}
 .menu .menu-item:first-child {
   margin-left: 0;
 }
@@ -925,6 +930,23 @@ input.menu-search-input {
   font-size: 13px;
   background-image: url("/images/searchicon.png");
   background-size: 15px 15px;
+}
+.menu .menu-item-search .st-search-input {
+  width: 80px;
+  float: left;
+}
+.theme-next-mist .menu .menu-item-search .st-search-input {
+  float: none;
+}
+@media screen and (max-width: 767px) {
+  .menu .menu-item-search {
+    margin-bottom: 15px;
+    display: block;
+  }
+  .menu .menu-item-search .st-search-input {
+    width: auto;
+    float: none;
+  }
 }
 .translation {
   margin-top: -20px;
@@ -1083,7 +1105,7 @@ input.menu-search-input {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffb3d6;
+  background: #996521;
 }
 .sidebar-nav {
   margin: 0;
@@ -1306,6 +1328,9 @@ input.menu-search-input {
 }
 .posts-expand .post-meta .post-category-list-link {
   color: #999;
+}
+.posts-expand .post-body {
+  text-align: justify;
 }
 .posts-expand .post-body h2,
 .posts-expand .post-body h3,
@@ -1584,15 +1609,15 @@ input.menu-search-input {
   margin: 10px;
 }
 .post-gallery {
-  overflow: hidden;
   display: table;
   border-spacing: 10px;
   border-collapse: separate;
 }
 .post-gallery a {
   display: table-cell;
-  width: 25%;
-  height: 100px;
+  float: left;
+  width: 33%;
+  height: 130px;
   text-align: center;
   vertical-align: middle;
   border: none;
@@ -1761,9 +1786,6 @@ input.menu-search-input {
 }
 .theme-next #ds-thread #ds-reset .ds-service-list .ds-more-services:hover {
   background: none;
-}
-.page-home .post-tags {
-  display: none;
 }
 .use-motion .post {
   opacity: 0;
