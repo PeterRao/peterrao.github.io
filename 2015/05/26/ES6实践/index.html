@@ -4,7 +4,7 @@
   
 
 <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -12,10 +12,12 @@
 
 
 
+
+
   <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.2"/>
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
 
 
     <meta name="description" content="F2E" />
@@ -28,25 +30,31 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.2" />
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
 
 
 
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "//hm.baidu.com/hm.js?50c15455e37f70aea674ff4a663eef27";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: '',
+    analytics: {
+      baidu: '50c15455e37f70aea674ff4a663eef27',
+      google: 'UA-48555322-1'
+    },
+    sidebar: 'post'
+  };
+</script>
+
+
+  <script type="text/javascript" src="/js/analytics_baidu-analytics.js"></script>
+
 
 
   <title> ES6实践 // Undefined Coder </title>
 </head>
 
 <body>
+<!--[if lte IE 8]> <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'> <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode"><img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari." style='margin-left:auto;margin-right:auto;display: block;'/></a></div> <![endif]-->
   <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
@@ -80,6 +88,14 @@
         <a href="/categories">
           <i class="menu-item-icon icon-categories"></i> <br />
           分类
+        </a>
+      </li>
+    
+      
+      <li class="menu-item menu-item-about">
+        <a href="/about">
+          <i class="menu-item-icon icon-about"></i> <br />
+          关于
         </a>
       </li>
     
@@ -155,7 +171,7 @@
 
       
         <p>在一个新项目上使用 ES6 语法有一段时间了，自己在学习 React 时，也尝试了不少 ES6 的语法。这里记录一下学习实践的经验。<br><a id="more"></a></p>
-<h3 id="Compiler">Compiler</h3><p>使用 <a href="https://babeljs.io/" target="_blank" rel="external">Babel</a> 进行编译。<br>实际使用中遇到的问题：</p>
+<h2 id="Compiler">Compiler</h2><p>使用 <a href="https://babeljs.io/" target="_blank" rel="external">Babel</a> 进行编译。<br>实际使用中遇到的问题：</p>
 <ul>
 <li>由于需要兼容 IE8，不支持 <code>Object.defineProperty</code>，使用 Babel 时，需要使用关闭 <code>es6.module</code> <a href="http://babeljs.io/docs/advanced/loose/#es6-modules" target="_blank" rel="external">选项</a>。</li>
 <li>Babel 严格遵守 ES2015 模块标准，ES2015 模块默认是在严格模式下，所以最外层的 <code>this</code> 并不是指的 <code>window</code> 对象，在使用其他第三方库时遇到过这个问题，在编译时，需要加入 <code>blacklist: [&quot;strict&quot;]</code> 选项。</li>
@@ -163,18 +179,24 @@
 <h2 id="Main_Syntax">Main Syntax</h2><p><a href="https://github.com/lukehoban/es6features#readme" target="_blank" rel="external">这里</a>说明了 ES6 的主要语法，实际根据实用程度以及对 ES6 语法的理解程度，并不会全部用到，这里介绍目前用到的语法，后面用到并理解后一点一点补充。</p>
 <h3 id="Arrows">Arrows</h3><p>箭头函数是很常用的语法了，基本抛弃了 <code>function</code> 关键字，更加简洁。<br>arrow functions 带来最大的改变就是固定了 <code>this</code> 的对象，箭头函数中的 <code>this</code> 指向包含该箭头函数的代码的 <code>this</code> 值，在使用过程中需要特别注意 <code>this</code> 的使用。<br>对比以下两段代码。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> <span class="keyword">self</span> = this;</span><br><span class="line">  <span class="keyword">self</span>.age = <span class="number">0</span>;</span><br><span class="line">  setInterval(<span class="function"><span class="keyword">function</span> <span class="title">growUp</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">self</span>.age++;</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>setInterval 中 <code>this</code> 一直指向 <code>window</code> 对象，在 Person 中缓存 <code>this</code> 值。<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="reserved">function</span> Person()&#123;</span><br><span class="line">  <span class="keyword">this</span>.age = <span class="number">0</span>;</span><br><span class="line">  setInterval(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">this</span>.age++;</span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>使用箭头函数后，<code>this</code> 指向其外层的 this 值。前者既是后者使用 bable 编译的<a href="https://babeljs.io/repl/#?experimental=true&amp;evaluate=true&amp;loose=false&amp;spec=false&amp;code=function%20Person(\" target="_blank" rel="external">结果</a>%7B%0A%20%20this.age%20%3D%200%3B%0A%20%20setInterval(()%20%3D%3E%20%7B%0A%20%20%20%20this.age%2B%2B%3B%0A%20%20%7D%2C%201000)%3B%0A%7D)<br>Nicholas 有篇介绍 arrow functions 中 <code>this</code> 的<a href="http://www.nczonline.net/blog/2013/09/10/understanding-ecmascript-6-arrow-functions/" target="_blank" rel="external">文章</a>。</p>
-<h3 id="Class">Class</h3><p>Class 语法，除了在用 React 时，自己到用的不多，这里是详细的语法<a href="http://www.2ality.com/2015/02/es6-classes-final.html" target="_blank" rel="external">介绍</a>，在使用前需要好好看一下这个文档，后续有较多使用经验时在补充吧，这里不介绍了。<br>不过其编译后的<a href="https://babeljs.io/repl/#?experimental=true&amp;evaluate=true&amp;loose=false&amp;spec=false&amp;code=class%20Point%20%7B%0A%20%20constructor(x%2C%20y" target="_blank" rel="external">代码</a>%20%7B%0A%20%20%20%20this.x%20%3D%20x%3B%0A%20%20%20%20this.y%20%3D%20y%3B%0A%20%20%7D%0A%20%20toString()%20%7B%0A%20%20%20%20return%20’(‘%20%2B%20this.x%20%2B%20’%2C%20’%20%2B%20this.y%20%2B%20’)’%3B%0A%20%20%7D%0A%7D%0Aclass%20ColorPoint%20extends%20Point%20%7B%0A%20%20%20%20constructor(x%2C%20y%2C%20color)%20%7B%0A%20%20%20%20%20%20%20%20super(x%2C%20y)%3B%0A%20%20%20%20%20%20%20%20this.color%20%3D%20color%3B%0A%20%20%20%20%7D%0A%20%20%20%20toString()%20%7B%0A%20%20%20%20%20%20%20%20return%20super.toString()%20%2B%20’%20in%20’%20%2B%20this.color%3B%0A%20%20%20%20%7D%0A%7D)可以研究下原理。<br>首先可以看到其通过 <code>_classCallCheck</code> 来判断是否通过 <code>new</code> 关键字来创建对象，直接调用 <code>Point()</code> 会报错。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_classCallCheck</span><span class="params">(instance, Constructor)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(instance <span class="keyword">instanceof</span> Constructor)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Cannot call a class as a function'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>然后调用 <code>_createClass</code> 方法来绑定属性和方法。原型方法绑定到 <code>Constructor.prototype</code> (<code>Point.prototype</code>) 上，静态方法绑定到 <code>Constructor</code> (<code>Point</code>) 上。在对象上定义属性时，使用了 <code>Object.defineProperty()</code> 方法，<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="external">这里</a>是其详细的说明。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">(Constructor, protoProps, staticProps)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (protoProps) defineProperties(Constructor.prototype, protoProps);</span><br><span class="line">        <span class="keyword">if</span> (staticProps) defineProperties(Constructor, staticProps);</span><br><span class="line">        <span class="keyword">return</span> Constructor;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>使用箭头函数后，<code>this</code> 指向其外层的 this 值。前者既是后者使用 bable 编译的<a href="https://babeljs.io/repl/#?experimental=true&amp;evaluate=true&amp;loose=false&amp;spec=false&amp;code=function%20Person()%7B%0A%20%20this.age%20%3D%200%3B%0A%20%20setInterval(()%20%3D%3E%20%7B%0A%20%20%20%20this.age%2B%2B%3B%0A%20%20%7D%2C%201000)%3B%0A%7D" target="_blank" rel="external">结果</a><br>Nicholas 有篇介绍 arrow functions 中 <code>this</code> 的<a href="http://www.nczonline.net/blog/2013/09/10/understanding-ecmascript-6-arrow-functions/" target="_blank" rel="external">文章</a>。</p>
+<h3 id="Class">Class</h3><p>Class 语法，除了在用 React 时，自己到用的不多，这里是详细的语法<a href="http://www.2ality.com/2015/02/es6-classes-final.html" target="_blank" rel="external">介绍</a>，在使用前需要好好看一下这个文档，后续有较多使用经验时在补充吧，这里不介绍了。<br>这里学习下，其编译后的<a href="https://babeljs.io/repl/#?experimental=true&amp;evaluate=true&amp;loose=false&amp;spec=false&amp;code=class%20Point%20%7B%0A%20%20constructor(x%2C%20y)%20%7B%0A%20%20%20%20this.x%20%3D%20x%3B%0A%20%20%20%20this.y%20%3D%20y%3B%0A%20%20%7D%0A%20%20toString()%20%7B%0A%20%20%20%20return%20&#39;(&#39;%20%2B%20this.x%20%2B%20&#39;%2C%20&#39;%20%2B%20this.y%20%2B%20&#39;)&#39;%3B%0A%20%20%7D%0A%7D%0Aclass%20ColorPoint%20extends%20Point%20%7B%0A%20%20%20%20constructor(x%2C%20y%2C%20color)%20%7B%0A%20%20%20%20%20%20%20%20super(x%2C%20y)%3B%0A%20%20%20%20%20%20%20%20this.color%20%3D%20color%3B%0A%20%20%20%20%7D%0A%20%20%20%20toString()%20%7B%0A%20%20%20%20%20%20%20%20return%20super.toString()%20%2B%20&#39;%20in%20&#39;%20%2B%20this.color%3B%0A%20%20%20%20%7D%0A%7D" target="_blank" rel="external">代码</a>原理。<br>首先可以看到其通过 <code>_classCallCheck</code> 来判断是否通过 <code>new</code> 关键字来创建对象，直接调用 <code>Point()</code> 会报错。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_classCallCheck</span><span class="params">(instance, Constructor)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!(instance <span class="keyword">instanceof</span> Constructor)) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Cannot call a class as a function'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>然后调用 <code>_createClass</code> 方法来绑定属性和方法。原型方法绑定到 <code>Constructor.prototype</code>(<code>Point.prototype</code>) 上，静态方法绑定到 <code>Constructor</code>(<code>Point</code>) 上。在对象上定义属性时，使用了 <code>Object.defineProperty()</code> 方法，<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty" target="_blank" rel="external">这里</a>是其详细的说明。<br><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="params">(Constructor, protoProps, staticProps)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (protoProps) defineProperties(Constructor.prototype, protoProps);</span><br><span class="line">        <span class="keyword">if</span> (staticProps) defineProperties(Constructor, staticProps);</span><br><span class="line">        <span class="keyword">return</span> Constructor;</span><br><span class="line">    &#125;;</span><br></pre></td></tr></table></figure></p>
 <p>当有类继承时，如例子中的 ColorPoint 继承 Point 类时，在子类只增加了一些处理。<br><code>_inherits</code> 方法将 ColorPoint.prototype 指向 由Point 的 prototype 上新创建的对象，并设置 ‘constructor’。<br><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_inherits</span><span class="params">(subClass, superClass)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> superClass !== <span class="string">'function'</span> &amp;&amp; superClass !== <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">'Super expression must either be null or a function, not '</span> + <span class="keyword">typeof</span> superClass);</span><br><span class="line">    &#125;</span><br><span class="line">    subClass.prototype = <span class="built_in">Object</span>.create(superClass &amp;&amp; superClass.prototype, &#123;</span><br><span class="line">        <span class="constructor"><span class="keyword">constructor</span>: </span>&#123;</span><br><span class="line">            value: subClass,</span><br><span class="line">            enumerable: <span class="literal">false</span>,</span><br><span class="line">            writable: <span class="literal">true</span>,</span><br><span class="line">            configurable: <span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="keyword">if</span> (superClass) subClass.__proto__ = superClass;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>继续看 下面的代码<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_get(<span class="built_in">Object</span>.getPrototypeOf(ColorPoint.prototype), <span class="string">'constructor'</span>, <span class="keyword">this</span>).call(<span class="keyword">this</span>, x, y);</span><br></pre></td></tr></table></figure></p>
 <p><code>Object.getPrototypeOf(ColorPoint.prototype)</code> 得到的是 <code>ColorPoint.prototype.__proto__</code> 即 <code>Point.prototype</code>.<br><code>_get()</code> 函数，返回父类 <code>Point</code> ，并在 ColorPoint 的 this 上，向 <code>Point</code> 传入 x, y的值，进行子类的初始化。</p>
-<h3 id="Enhanced_Object_Literals">Enhanced Object Literals</h3><p>增强的对象字面量，可以继续看官方的<a href="https://babeljs.io/repl/#?experimental=true&amp;evaluate=true&amp;loose=false&amp;spec=false&amp;code=var%20obj%20%3D%20%7B%0A%20%20%20%20%2F%2F%20__proto__%0A%20%20%20%20__proto__%3A%20theProtoObj%2C%0A%20%20%20%20%2F%2F%20Shorthand%20for%20%E2%80%98handler%3A%20handler%E2%80%99%0A%20%20%20%20handler%2C%0A%20%20%20%20%2F%2F%20Methods%0A%20%20%20%20toString(" target="_blank" rel="external">例子</a>%20%7B%0A%20%20%20%20%20%2F%2F%20Super%20calls%0A%20%20%20%20%20return%20%22d%20%22%20%2B%20super.toString()%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20%2F%2F%20Computed%20(dynamic)%20property%20names%0A%20%20%20%20%5B%20’prop_’%20%2B%20(()%20%3D%3E%2042)()%20%5D%3A%2042%0A%7D%3B)。<br>这里是主要通过 <code>Object.defineProperty</code> 来实现属性的设置，Loose mode 下，直接给对象设置属性<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">_defineProperty</span><span class="params">(obj, key, value)</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">return</span> Object.<span class="title">defineProperty</span><span class="params">(obj, key, &#123;value: value, enumerable: <span class="keyword">true</span>, configurable: <span class="keyword">true</span>, writable: <span class="keyword">true</span>&#125;)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// lose mode</span></span><br><span class="line">_obj2.__proto__ = theProtoObj;</span><br><span class="line">_obj2.<span class="keyword">handler</span> = <span class="keyword">handler</span>;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
+<h3 id="Enhanced_Object_Literals">Enhanced Object Literals</h3><p>增强的对象字面量，可以继续看官方的<a href="https://babeljs.io/repl/#?experimental=true&amp;evaluate=true&amp;loose=false&amp;spec=false&amp;code=var%20obj%20%3D%20%7B%0A%20%20%20%20%2F%2F%20__proto__%0A%20%20%20%20__proto__%3A%20theProtoObj%2C%0A%20%20%20%20%2F%2F%20Shorthand%20for%20%E2%80%98handler%3A%20handler%E2%80%99%0A%20%20%20%20handler%2C%0A%20%20%20%20%2F%2F%20Methods%0A%20%20%20%20toString()%20%7B%0A%20%20%20%20%20%2F%2F%20Super%20calls%0A%20%20%20%20%20return%20%22d%20%22%20%2B%20super.toString()%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20%2F%2F%20Computed%20(dynamic)%20property%20names%0A%20%20%20%20%5B%20&#39;prop_&#39;%20%2B%20(()%20%3D%3E%2042)()%20%5D%3A%2042%0A%7D%3B" target="_blank" rel="external">例子</a>。<br>这里是主要通过 <code>Object.defineProperty</code> 来实现属性的设置，Loose mode 下，直接给对象设置属性<br><figure class="highlight aspectj"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">function <span class="title">_defineProperty</span><span class="params">(obj, key, value)</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">return</span> Object.<span class="title">defineProperty</span><span class="params">(obj, key, &#123;value: value, enumerable: <span class="keyword">true</span>, configurable: <span class="keyword">true</span>, writable: <span class="keyword">true</span>&#125;)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// lose mode</span></span><br><span class="line">_obj2.__proto__ = theProtoObj;</span><br><span class="line">_obj2.<span class="keyword">handler</span> = <span class="keyword">handler</span>;</span><br><span class="line">...</span><br></pre></td></tr></table></figure></p>
 <p>这里有以下几个用法：</p>
 <h4 id="同名变量简写">同名变量简写</h4><figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable"><span class="keyword">var</span> obj</span> = &#123;</span><br><span class="line">    handler</span><br><span class="line">&#125;</span><br><span class="line">相当于</span><br><span class="line"><span class="variable"><span class="keyword">var</span> handler</span> = xxx;</span><br><span class="line"><span class="variable"><span class="keyword">var</span> obj</span> = &#123;</span><br><span class="line">    handler: handler</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h4 id="方法简写">方法简写</h4><p>省略了 <code>function</code> 关键字<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> handler = xxx;</span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    toString() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">"d "</span> + <span class="keyword">super</span>.toString();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 相当于</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">    toString: <span class="function"><span class="keyword">function</span> <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"d "</span> + _get(<span class="built_in">Object</span>.getPrototypeOf(_obj), <span class="string">"toString"</span>, <span class="keyword">this</span>).call(<span class="keyword">this</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><code>_get(Object.getPrototypeOf(_obj), &quot;toString&quot;, this).call(this)</code> 即调用了 Object 的 toString方法。</p>
 <h4 id="动态属性名">动态属性名</h4><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="reserved">var</span> obj = &#123;</span><br><span class="line">    [ <span class="string">'prop_'</span> + (<span class="function"><span class="params">()</span> =&gt;</span> <span class="number">42</span>)() ]: <span class="number">42</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="Template_Strings">Template Strings</h3><p>很好用的一个语法，主要用于多行字符串和字符串变量替换<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">`In JavaScript this <span class="keyword">is</span></span><br><span class="line"> <span class="keyword">not</span> legal.`</span><br><span class="line"></span><br><span class="line">var <span class="property">name</span> = <span class="string">"Bob"</span>, <span class="property">time</span> = <span class="string">"today"</span>;</span><br><span class="line">`Hello $&#123;<span class="property">name</span>&#125;, how are you $&#123;<span class="property">time</span>&#125;?`</span><br></pre></td></tr></table></figure></p>
+<h2 id="Destructuring">Destructuring</h2><p>解构用的不多，还是推荐看一下 用 bable 后的<a href="4">代码</a>，加深理解。</p>
+<h2 id="Default_+_Rest_+_Spread">Default + Rest + Spread</h2><p>函数参数具有默认值，剩余参数以及参数展开功能，使用方法和原理也比较简单。</p>
+<h2 id="Let_+_Const">Let + Const</h2><p>ES6 加入的很常用的关键字，代替了 <code>var</code> 的使用。<br><code>let</code> 表示块作用域变量，<code>const</code> 表示常量。<br>观察其编译后的代码，可以发现其还是用 <code>var</code> 实现，Babel 会在编译时去检查语法的使用（相同块作用域不能重复使用 let 声明，常量不可以在赋值等等）</p>
+<h2 id="Modules">Modules</h2><p>目前使用该语法，主要通过 Broswerify 或者 Webpack 实现模块的 bundle，不过异步加载模块并没有相应的语法 ，平时最常用也是推荐用的是 <code>Default exports</code>，其完整语法比较复杂，如果要用的话，推荐深入看一下<a href="http://www.2ality.com/2014/09/es6-modules-final.html" target="_blank" rel="external">文档</a>。</p>
+<p>其他语法都不是很常用，等实际中有使用经验后在总结。<br>最后还有一个非常重要而且非常有用的语法 Promise，这个后面单独介绍。</p>
 
       
     </div>
@@ -224,7 +246,10 @@
 
 
         </div>
+
+        
       </div>
+
 
       
   
@@ -321,7 +346,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Compiler"><span class="nav-number">1.</span> <span class="nav-text">Compiler</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main_Syntax"><span class="nav-number"></span> <span class="nav-text">Main Syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrows"><span class="nav-number">1.</span> <span class="nav-text">Arrows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class"><span class="nav-number">2.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Enhanced_Object_Literals"><span class="nav-number">3.</span> <span class="nav-text">Enhanced Object Literals</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同名变量简写"><span class="nav-number">3.1.</span> <span class="nav-text">同名变量简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法简写"><span class="nav-number">3.2.</span> <span class="nav-text">方法简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态属性名"><span class="nav-number">3.3.</span> <span class="nav-text">动态属性名</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Compiler"><span class="nav-number">1.</span> <span class="nav-text">Compiler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main_Syntax"><span class="nav-number">2.</span> <span class="nav-text">Main Syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrows"><span class="nav-number">2.1.</span> <span class="nav-text">Arrows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class"><span class="nav-number">2.2.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Enhanced_Object_Literals"><span class="nav-number">2.3.</span> <span class="nav-text">Enhanced Object Literals</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同名变量简写"><span class="nav-number">2.3.1.</span> <span class="nav-text">同名变量简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法简写"><span class="nav-number">2.3.2.</span> <span class="nav-text">方法简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态属性名"><span class="nav-number">2.3.3.</span> <span class="nav-text">动态属性名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Template_Strings"><span class="nav-number">2.4.</span> <span class="nav-text">Template Strings</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Destructuring"><span class="nav-number">3.</span> <span class="nav-text">Destructuring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Default_+_Rest_+_Spread"><span class="nav-number">4.</span> <span class="nav-text">Default + Rest + Spread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let_+_Const"><span class="nav-number">5.</span> <span class="nav-text">Let + Const</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modules"><span class="nav-number">6.</span> <span class="nav-text">Modules</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -372,373 +397,23 @@
 
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript">
-    $(document).ready(function() {
-      $('.content img').each(function () {
-        var $image = $(this);
-        var $imageWrapLink = $image.parent('a');
-
-        if ($imageWrapLink.size() < 1) {
-          $imageWrapLink = $image.wrap('<a href="' + this.getAttribute('src') + '"></a>').parent('a');
-        }
-        $imageWrapLink.addClass('fancybox');
-      });
-    });
-    $('.fancybox').fancybox({
-      helpers: {
-        overlay: {
-          locked: false
-        }
-      }
-    });
-  </script>
+  <script type="text/javascript" src="/js/fancy-box.js"></script>
 
 
-  <script type="text/javascript">
-  function hasMobileUA () {
-    var nav = window.navigator;
-    var ua = nav.userAgent;
-    var pa = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
-
-    return pa.test(ua);
-  }
-
-  function isDesktop () {
-    return screen.width > 991 && !hasMobileUA();
-  }
-
-  function isTablet () {
-    return screen.width < 992 && screen.width > 767 && hasMobileUA();
-  }
-
-  function isMobile () {
-    return screen.width < 767 && hasMobileUA();
-  }
-
-  function escapeSelector (selector) {
-    return selector.replace(/[!"$%&'()*+,.\/:;<=>?@[\\\]^`{|}~]/g, "\\$&")
-  }
-</script>
-
+  <script type="text/javascript" src="/js/helpers.js"></script>
   
 
   <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
   <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" id="motion.global">
-  $(document).ready(function () {
-    var body = $('body');
-    var isSidebarVisible = false;
-    var sidebarToggle = $('.sidebar-toggle');
-    var sidebarToggleLine1st = $('.sidebar-toggle-line-first')
-    var sidebarToggleLine2nd = $('.sidebar-toggle-line-middle');
-    var sidebarToggleLine3rd = $('.sidebar-toggle-line-last');
-    var sidebar = $('.sidebar');
-
-    var SIDEBAR_WIDTH = '320px';
-    var SIDEBAR_DISPLAY_DURATION = 300;
-
-    var sidebarToogleLineStatusInit = {width: '100%', opacity: 1, left: 0, rotateZ: 0, top: 0};
-
-    var sidebarToggleLine1stStatusInit = sidebarToogleLineStatusInit;
-    var sidebarToggleLine1stStatusArrow = {width: '50%', rotateZ: '-45deg', top: '2px'};
-    var sidebarToogleLine1stStatusClose = {width: '100%', rotateZ: '-45deg', top: '5px'};
-
-    var sidebarToggleLine2ndStatusInit = sidebarToogleLineStatusInit;
-    var sidebarToggleLine2ndStatusArrow = {width: '90%'};
-    var sidebarToogleLine2ndStatusClose = {opacity: 0};
-
-    var sidebarToggleLine3rdStatusInit = sidebarToogleLineStatusInit;
-    var sidebarToggleLine3rdStatusArrow = {width: '50%', rotateZ: '45deg', top: '-2px'};
-    var sidebarToogleLine3rdStatusClose = {width: '100%', rotateZ: '45deg', top: '-5px'};
-
-    LogoAndMenuMotion();
-    sidebatToggleMotion();
-    postsListMotion();
-    backToTopMotion();
-
-
-    $(document)
-      .on('sidebar.isShowing', function () {
-        isDesktop() && body.velocity(
-          {paddingRight: SIDEBAR_WIDTH},
-          SIDEBAR_DISPLAY_DURATION
-        );
-        sidebarContentMotion();
-      })
-      .on('sidebar.isHiding', function () {});
-
-    function LogoAndMenuMotion() {
-      $.Velocity.RunSequence([
-        { e: $('.brand'), p: { opacity: 1 }, o: { duration: 100 } },
-        { e: $('.logo'), p: { opacity: 1, top: 0 }, o: { duration: 50} },
-        
-        { e: $('.site-title'), p: { opacity: 1, top: 0 }, o: { duration: 200 } }
-      ]);
-      $('.menu-item').velocity('transition.slideDownIn', {display: null});
-    }
-
-
-    function backToTopMotion () {
-      var b2top = $('.back-to-top');
-      b2top.on('click', function () {
-        body.velocity('scroll');
-      });
-    }
-
-    function sidebarShowMotion () {
-
-      sidebarToggleLine1st.velocity(sidebarToogleLine1stStatusClose);
-      sidebarToggleLine2nd.velocity(sidebarToogleLine2ndStatusClose);
-      sidebarToggleLine3rd.velocity(sidebarToogleLine3rdStatusClose);
-
-      sidebar.velocity({width: SIDEBAR_WIDTH}, {
-        display: 'block',
-        duration: SIDEBAR_DISPLAY_DURATION,
-        complete: function () {
-          sidebar.addClass('sidebar-active');
-          sidebar.trigger('sidebar.didShow');
-        }
-      });
-      sidebar.trigger('sidebar.isShowing');
-    }
-
-    function sidebarHideMotion () {
-      isDesktop() && body.velocity({paddingRight: 0});
-      sidebar.velocity('reverse');
-
-      sidebarToggleLine1st.velocity(sidebarToggleLine1stStatusInit);
-      sidebarToggleLine2nd.velocity(sidebarToggleLine2ndStatusInit);
-      sidebarToggleLine3rd.velocity(sidebarToggleLine3rdStatusInit);
-
-      sidebar.removeClass('sidebar-active');
-      sidebar.trigger('sidebar.isHiding');
-    };
-
-    function sidebarContentMotion () {
-      $('.sidebar .motion-element').velocity(
-        'transition.slideRightIn',
-        {stagger: 50, drag: true}
-      );
-    }
-
-    function postsListMotion () {
-      var postMotionOptions = window.postMotionOptions || {stagger: 300, drag: true};
-      $('.post').velocity('transition.slideDownIn', postMotionOptions);
-    }
-
-    function sidebatToggleMotion () {
-      sidebarToggle.on('click', function () {
-        isSidebarVisible ? sidebarHideMotion() : sidebarShowMotion();
-        isSidebarVisible = !isSidebarVisible;
-      });
-
-      sidebarToggle.hover(function () {
-        if (isSidebarVisible) {return}
-        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusArrow);
-        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusArrow);
-        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusArrow);
-      }, function () {
-        if (isSidebarVisible) {return}
-        sidebarToggleLine1st.velocity('stop').velocity(sidebarToggleLine1stStatusInit);
-        sidebarToggleLine2nd.velocity('stop').velocity(sidebarToggleLine2ndStatusInit);
-        sidebarToggleLine3rd.velocity('stop').velocity(sidebarToggleLine3rdStatusInit);
-      });
-    }
-  });
-
-</script>
-
+  <script type="text/javascript" src="/js/motion_global.js" id="motion.global"></script>
 
 
 
 
   
   
-<script type="text/javascript" id="bootstrap.scrollspy.custom">
-  /* ========================================================================
-  * Bootstrap: scrollspy.js v3.3.2
-  * http://getbootstrap.com/javascript/#scrollspy
-  * ========================================================================
-  * Copyright 2011-2015 Twitter, Inc.
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
-  * ======================================================================== */
-
-  /**
-   * Custom by iissnan
-   *
-   * - Add a `clear.bs.scrollspy` event.
-   * - Esacpe targets selector.
-   */
-
-
-  +function ($) {
-    'use strict';
-
-    // SCROLLSPY CLASS DEFINITION
-    // ==========================
-
-    function ScrollSpy(element, options) {
-      this.$body          = $(document.body)
-      this.$scrollElement = $(element).is(document.body) ? $(window) : $(element)
-      this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
-      this.selector       = (this.options.target || '') + ' .nav li > a'
-      this.offsets        = []
-      this.targets        = []
-      this.activeTarget   = null
-      this.scrollHeight   = 0
-
-      this.$scrollElement.on('scroll.bs.scrollspy', $.proxy(this.process, this))
-      this.refresh()
-      this.process()
-    }
-
-    ScrollSpy.VERSION  = '3.3.2'
-
-    ScrollSpy.DEFAULTS = {
-      offset: 10
-    }
-
-    ScrollSpy.prototype.getScrollHeight = function () {
-      return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight)
-    }
-
-    ScrollSpy.prototype.refresh = function () {
-      var that          = this
-      var offsetMethod  = 'offset'
-      var offsetBase    = 0
-
-      this.offsets      = []
-      this.targets      = []
-      this.scrollHeight = this.getScrollHeight()
-
-      if (!$.isWindow(this.$scrollElement[0])) {
-        offsetMethod = 'position'
-        offsetBase   = this.$scrollElement.scrollTop()
-      }
-
-      this.$body
-        .find(this.selector)
-        .map(function () {
-          var $el   = $(this)
-          var href  = $el.data('target') || $el.attr('href')
-          var $href = /^#./.test(href) && $(escapeSelector(href)) // Need to escape selector.
-
-          return ($href
-            && $href.length
-            && $href.is(':visible')
-            && [[$href[offsetMethod]().top + offsetBase, href]]) || null
-        })
-        .sort(function (a, b) { return a[0] - b[0] })
-        .each(function () {
-          that.offsets.push(this[0])
-          that.targets.push(this[1])
-        })
-
-
-    }
-
-    ScrollSpy.prototype.process = function () {
-      var scrollTop    = this.$scrollElement.scrollTop() + this.options.offset
-      var scrollHeight = this.getScrollHeight()
-      var maxScroll    = this.options.offset + scrollHeight - this.$scrollElement.height()
-      var offsets      = this.offsets
-      var targets      = this.targets
-      var activeTarget = this.activeTarget
-      var i
-
-      if (this.scrollHeight != scrollHeight) {
-        this.refresh()
-      }
-
-      if (scrollTop >= maxScroll) {
-        return activeTarget != (i = targets[targets.length - 1]) && this.activate(i)
-      }
-
-      if (activeTarget && scrollTop < offsets[0]) {
-        $(this.selector).trigger('clear.bs.scrollspy')  // Add a custom event.
-        this.activeTarget = null
-        return this.clear()
-      }
-
-      for (i = offsets.length; i--;) {
-        activeTarget != targets[i]
-          && scrollTop >= offsets[i]
-          && (!offsets[i + 1] || scrollTop <= offsets[i + 1])
-          && this.activate(targets[i])
-      }
-    }
-
-    ScrollSpy.prototype.activate = function (target) {
-      this.activeTarget = target
-
-      this.clear()
-
-      var selector = this.selector +
-        '[data-target="' + target + '"],' +
-        this.selector + '[href="' + target + '"]'
-
-      var active = $(selector)
-        .parents('li')
-        .addClass('active')
-
-      if (active.parent('.dropdown-menu').length) {
-        active = active
-          .closest('li.dropdown')
-          .addClass('active')
-      }
-
-      active.trigger('activate.bs.scrollspy')
-    }
-
-    ScrollSpy.prototype.clear = function () {
-      $(this.selector)
-        .parentsUntil(this.options.target, '.active')
-        .removeClass('active')
-    }
-
-
-    // SCROLLSPY PLUGIN DEFINITION
-    // ===========================
-
-    function Plugin(option) {
-      return this.each(function () {
-        var $this   = $(this)
-        var data    = $this.data('bs.scrollspy')
-        var options = typeof option == 'object' && option
-
-        if (!data) $this.data('bs.scrollspy', (data = new ScrollSpy(this, options)))
-        if (typeof option == 'string') data[option]()
-      })
-    }
-
-    var old = $.fn.scrollspy
-
-    $.fn.scrollspy             = Plugin
-    $.fn.scrollspy.Constructor = ScrollSpy
-
-
-    // SCROLLSPY NO CONFLICT
-    // =====================
-
-    $.fn.scrollspy.noConflict = function () {
-      $.fn.scrollspy = old
-      return this
-    }
-
-
-    // SCROLLSPY DATA-API
-    // ==================
-
-    $(window).on('load.bs.scrollspy.data-api', function () {
-      $('[data-spy="scroll"]').each(function () {
-        var $spy = $(this)
-        Plugin.call($spy, $spy.data())
-      })
-    })
-
-  }(jQuery);
-</script>
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js" id="bootstrap.scrollspy.custom"></script>
 
 
 <script type="text/javascript" id="sidebar.toc.highlight">
@@ -866,16 +541,24 @@
 
       // Expand sidebar on post detail page by default, when post has a toc.
       var $tocContent = $('.post-toc-content');
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0 && isDesktop()) {
-        setTimeout(function () {
-          $('.sidebar-toggle').trigger('click');
-        }, 800);
+      if (isDesktop() && CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
       }
     });
   </script>
 
 
 
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+    });
+  </script>
 
   
 
@@ -902,14 +585,9 @@
 
 
   
-  <script type="text/javascript">
-    (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-        function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='//www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-    ga('create','UA-48555322-1');ga('send','pageview');
-  </script>
+  
+  <script type="text/javascript" src="/js/analytics_google-analytics.js"></script>
+
 
 </body>
 </html>
