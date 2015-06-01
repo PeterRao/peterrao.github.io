@@ -192,10 +192,10 @@
 <p><code>_get(Object.getPrototypeOf(_obj), &quot;toString&quot;, this).call(this)</code> 即调用了 Object 的 toString方法。</p>
 <h4 id="动态属性名">动态属性名</h4><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="reserved">var</span> obj = &#123;</span><br><span class="line">    [ <span class="string">'prop_'</span> + (<span class="function"><span class="params">()</span> =&gt;</span> <span class="number">42</span>)() ]: <span class="number">42</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h3 id="Template_Strings">Template Strings</h3><p>很好用的一个语法，主要用于多行字符串和字符串变量替换<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">`In JavaScript this <span class="keyword">is</span></span><br><span class="line"> <span class="keyword">not</span> legal.`</span><br><span class="line"></span><br><span class="line">var <span class="property">name</span> = <span class="string">"Bob"</span>, <span class="property">time</span> = <span class="string">"today"</span>;</span><br><span class="line">`Hello $&#123;<span class="property">name</span>&#125;, how are you $&#123;<span class="property">time</span>&#125;?`</span><br></pre></td></tr></table></figure></p>
-<h2 id="Destructuring">Destructuring</h2><p>解构用的不多，还是推荐看一下 用 bable 后的<a href="4">代码</a>，加深理解。</p>
-<h2 id="Default_+_Rest_+_Spread">Default + Rest + Spread</h2><p>函数参数具有默认值，剩余参数以及参数展开功能，使用方法和原理也比较简单。</p>
-<h2 id="Let_+_Const">Let + Const</h2><p>ES6 加入的很常用的关键字，代替了 <code>var</code> 的使用。<br><code>let</code> 表示块作用域变量，<code>const</code> 表示常量。<br>观察其编译后的代码，可以发现其还是用 <code>var</code> 实现，Babel 会在编译时去检查语法的使用（相同块作用域不能重复使用 let 声明，常量不可以在赋值等等）</p>
-<h2 id="Modules">Modules</h2><p>目前使用该语法，主要通过 Broswerify 或者 Webpack 实现模块的 bundle，不过异步加载模块并没有相应的语法 ，平时最常用也是推荐用的是 <code>Default exports</code>，其完整语法比较复杂，如果要用的话，推荐深入看一下<a href="http://www.2ality.com/2014/09/es6-modules-final.html" target="_blank" rel="external">文档</a>。</p>
+<h3 id="Destructuring">Destructuring</h3><p>解构用的不多，还是推荐看一下 用 bable 后的<a href="4">代码</a>，加深理解。</p>
+<h3 id="Default_+_Rest_+_Spread">Default + Rest + Spread</h3><p>函数参数具有默认值，剩余参数以及参数展开功能，使用方法和原理也比较简单。</p>
+<h3 id="Let_+_Const">Let + Const</h3><p>ES6 加入的很常用的关键字，代替了 <code>var</code> 的使用。<br><code>let</code> 表示块作用域变量，<code>const</code> 表示常量。<br>观察其编译后的代码，可以发现其还是用 <code>var</code> 实现，Babel 会在编译时去检查语法的使用（相同块作用域不能重复使用 let 声明，常量不可以在赋值等等）</p>
+<h3 id="Modules">Modules</h3><p>目前使用该语法，主要通过 Broswerify 或者 Webpack 实现模块的 bundle，不过异步加载模块并没有相应的语法 ，平时最常用也是推荐用的是 <code>Default exports</code>，其完整语法比较复杂，如果要用的话，推荐深入看一下<a href="http://www.2ality.com/2014/09/es6-modules-final.html" target="_blank" rel="external">文档</a>。</p>
 <p>其他语法都不是很常用，等实际中有使用经验后在总结。<br>最后还有一个非常重要而且非常有用的语法 Promise，这个后面单独介绍。</p>
 
       
@@ -215,6 +215,8 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/06/01/《高性能JavaScript编程》读书笔记（1）/">《高性能JavaScript编程》读书笔记（1）</a>
             
           </div>
 
@@ -284,7 +286,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -346,7 +348,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Compiler"><span class="nav-number">1.</span> <span class="nav-text">Compiler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main_Syntax"><span class="nav-number">2.</span> <span class="nav-text">Main Syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrows"><span class="nav-number">2.1.</span> <span class="nav-text">Arrows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class"><span class="nav-number">2.2.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Enhanced_Object_Literals"><span class="nav-number">2.3.</span> <span class="nav-text">Enhanced Object Literals</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同名变量简写"><span class="nav-number">2.3.1.</span> <span class="nav-text">同名变量简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法简写"><span class="nav-number">2.3.2.</span> <span class="nav-text">方法简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态属性名"><span class="nav-number">2.3.3.</span> <span class="nav-text">动态属性名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Template_Strings"><span class="nav-number">2.4.</span> <span class="nav-text">Template Strings</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Destructuring"><span class="nav-number">3.</span> <span class="nav-text">Destructuring</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Default_+_Rest_+_Spread"><span class="nav-number">4.</span> <span class="nav-text">Default + Rest + Spread</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Let_+_Const"><span class="nav-number">5.</span> <span class="nav-text">Let + Const</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modules"><span class="nav-number">6.</span> <span class="nav-text">Modules</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Compiler"><span class="nav-number">1.</span> <span class="nav-text">Compiler</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Main_Syntax"><span class="nav-number">2.</span> <span class="nav-text">Main Syntax</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Arrows"><span class="nav-number">2.1.</span> <span class="nav-text">Arrows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Class"><span class="nav-number">2.2.</span> <span class="nav-text">Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Enhanced_Object_Literals"><span class="nav-number">2.3.</span> <span class="nav-text">Enhanced Object Literals</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#同名变量简写"><span class="nav-number">2.3.1.</span> <span class="nav-text">同名变量简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方法简写"><span class="nav-number">2.3.2.</span> <span class="nav-text">方法简写</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态属性名"><span class="nav-number">2.3.3.</span> <span class="nav-text">动态属性名</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Template_Strings"><span class="nav-number">2.4.</span> <span class="nav-text">Template Strings</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Destructuring"><span class="nav-number">2.5.</span> <span class="nav-text">Destructuring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Default_+_Rest_+_Spread"><span class="nav-number">2.6.</span> <span class="nav-text">Default + Rest + Spread</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Let_+_Const"><span class="nav-number">2.7.</span> <span class="nav-text">Let + Const</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Modules"><span class="nav-number">2.8.</span> <span class="nav-text">Modules</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

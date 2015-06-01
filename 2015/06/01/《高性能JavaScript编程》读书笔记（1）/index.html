@@ -24,7 +24,7 @@
 
 
 
-  <meta name="keywords" content="1.01^365," />
+  <meta name="keywords" content="JavaScript," />
 
 
 
@@ -50,7 +50,7 @@
 
 
 
-  <title> 杂记-201504 // Undefined Coder </title>
+  <title> 《高性能JavaScript编程》读书笔记（1） // Undefined Coder </title>
 </head>
 
 <body>
@@ -138,7 +138,7 @@
           
           
             
-              杂记-201504
+              《高性能JavaScript编程》读书笔记（1）
             
           
         </h1>
@@ -146,7 +146,7 @@
 
       <div class="post-meta">
         <span class="post-time">
-          发表于 2015-04-21
+          发表于 2015-06-01
         </span>
 
         
@@ -155,8 +155,8 @@
           
             <span class="post-comments-count">
             &nbsp; | &nbsp;
-            <a href="/2015/04/21/杂记-201504/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/21/杂记-201504/"></span>
+            <a href="/2015/06/01/《高性能JavaScript编程》读书笔记（1）/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/01/《高性能JavaScript编程》读书笔记（1）/"></span>
             </a>
           </span>
           
@@ -170,29 +170,10 @@
       
 
       
-        <h2 id="关于题目">关于题目</h2><p>因为其他原因，很久没更新 blog 了，这次用 hexo 搭建一个 blog。 同时建立一个 <code>1.01^365</code> 的标签，记录点点滴滴，来督促自己每天进步一点点。之前的 blog 有的在 sae 上，有的记在笔记里，后面一点一点整理出来，放在这个地方统一管理。<br><a id="more"></a></p>
-<h2 id="4-21">4-21</h2><h3 id="移动端css动画相关">移动端css动画相关</h3><p>今天在开发微信的 H5 页面时，遇到了 CSS3 动画在微信的内置 QQ 浏览器的性能问题，不过之前在 w3ctech 上听过不少移动端性能优化的最佳实践，这次有机会实际项目中玩耍了一把。主要的优化方案还是要多用3d硬件加速，在 Android 上性能提升显著。</p>
-<p>在尝试动画的同时，学习了一些不常用的属性，最值得注意的就是这个<code>animation-fill-mode</code>，可以定义动画结束后的状态。</p>
-<h2 id="4-22">4-22</h2><h3 id="碎碎念">碎碎念</h3><p>今天准备用<a href="https://github.com/alvarotrigo/fullPage.js" target="_blank" rel="external">fullPage</a>来实现新产品的宣传页面，仿照了<a href="http://www.mi.com/shouhuan" target="_blank" rel="external">小米手环页面</a>中两排导航的处理。历史原因，页面要在 Wordpress 中生成，又捣鼓了半天的 Wordpress，越来越不喜欢 Wordpress 和 PHP。。。<br>顺便看了下小米前端的代码，居然很多的选择器变量不缓存下，上次在 w3ctech 上，也感觉到了，小米的前端还不是很规范，不过还是很佩服小米页面的设计，甩大部分公司几条街！<br>之前都是用 FTP 往服务器上上传文件，今天学习了 iTerm2 的 SSH，工具果然是第一生产力。</p>
-<h2 id="4-23">4-23</h2><h3 id="前端发展">前端发展</h3><p>射鸡师同学完全忙不过来了，为了不再麻烦人家，我又开始已经好久没干过的切图。想想前端发展的的确快，前几年还是切切页面的前端，现在完全变了工作方式，随着用户体验要求和浏览器性能的不断提升，前端变得越来越复杂，分工也越来越细，切图当初前端的必备技能，现在看来也逐渐变得不重要了。<br>最近几个研究生的同学在问我，说想从事前端开发的工作。原先很不被重视的前端，现在确让很多研究生的同学都想以此为职业，各大招聘网站前端也占了一大片的市场。勃勃生机的前端发展，让我对未来充满期待。<br>Things will get better!</p>
-<h3 id="CSS3:_clip_and_filter">CSS3: <code>clip</code> and <code>filter</code></h3><p>设计想实现下面这种毛玻璃的效果。<br><img src="/images/20150421/1.png" alt="毛玻璃效果"><br>简单的可以通过两种背景图叠加实现，不过由于是在手机上的页面可以使用很多 CSS3 的特性，之前也在看过一篇介绍<a href="http://www.html-js.com/article/2815" target="_blank" rel="external"><code>clip-path</code></a>属性的文章，因此可以通过’fiter’和<code>clip-path</code>来实现。</p>
-<p></p><p data-height="250" data-theme-id="14481" data-slug-hash="QbwwoB" data-default-tab="result" data-user="wizraopeize" class="codepen">See the Pen <a href="http://codepen.io/wizraopeize/pen/QbwwoB/" target="_blank" rel="external">img 毛玻璃</a> by 饶培泽 (<a href="http://codepen.io/wizraopeize" target="_blank" rel="external">@wizraopeize</a>) on <a href="http://codepen.io" target="_blank" rel="external">CodePen</a>.</p><p></p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
-
-<h2 id="4-24">4-24</h2><h3 id="bootstrap响应式设计各个尺寸布局临界值">bootstrap响应式设计各个尺寸布局临界值</h3><p>Extra small screen / phone: 480px<br>Small screen / tablet: 768px<br>Medium screen / desktop: 992px<br>Large screen / wide desktop: 1200px</p>
-<h3 id="favicon相关">favicon相关</h3><p>今天遇到一个专门来生成 favicon 的<a href="http://realfavicongenerator.net/" target="_blank" rel="external">网站</a>，一个小小的 favicon 里面藏了如此多的玄机，真是活到老，学到老。同时也再一次感觉到老外的细致，在加上前不久 Hacker News 上很火的 <a href="http://howtocenterincss.com/" target="_blank" rel="external">how to center css</a>，看似不起眼的东西，都值得做出一个小东西来。</p>
-<h2 id="4-29">4-29</h2><h3 id="Nginx_之_proxy_pass">Nginx 之 proxy_pass</h3><p>今天在写 Nginx 配置时，这样写的</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">location</span> /weixin &#123;</span><br><span class="line">    <span class="title">proxy_pass</span> <span class="url">http://127.0.0.1:3000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>在访问 <code>http://127.0.0.1/weixin/css/main.css</code> 时，确一直跳到了 <code>http://127.0.0.1:3000/weixin/css/main.css</code>，百思不得其解，看了文档才发现问题。需要这样写，才能正确的访问到 <code>http://127.0.0.1:3000/css/main.css</code>。</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">location</span> /weixin &#123;</span><br><span class="line">    <span class="title">proxy_pass</span> <span class="url">http://127.0.0.1:3000/</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>前者不是一个 URI，请求会按原始的路径转发过去，而后者是一个 URI 请求会被替换成指定的 URI 转发过去。</p>
-<h3 id="JS_中_Function-prototype-bind()_使用">JS 中 <code>Function.prototype.bind()</code> 使用</h3><p>JS 中 <code>call()</code> 和 <code>apply()</code>，今天发现了 <code>bind()</code>这个方法。查了下文档，和前面两个主要的区别在于，前面两个方法，主要用在函数调用时，而后者用于函数定义时，它返回的是个函数。<br>可以看这个实际的例子</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">gulp</span><span class="class">.task</span>(<span class="string">'clean'</span>, del.<span class="function">bind</span>(</span><br><span class="line">  null, [<span class="string">'.tmp'</span>, <span class="string">'build/*'</span>, <span class="string">'!build/.git'</span>], &#123;<span class="attribute">dot</span>: true&#125;</span><br><span class="line">));</span><br></pre></td></tr></table></figure>
-<p>相当于</p>
-<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">gulp</span><span class="class">.task</span>(<span class="string">'clean'</span>, <span class="function">function</span>(cb) &#123;</span><br><span class="line">    <span class="tag">del</span>([<span class="string">'.tmp'</span>, <span class="string">'build/*'</span>, <span class="string">'!build/.git'</span>], &#123;<span class="attribute">dot</span>: true&#125;, cb);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<p>前者并没有 <code>cb</code> 这个参数，但其实已经附加到返回的函数的参数列表之后了。<br><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind" target="_blank" rel="external">MDN</a> 上的例子</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">list</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Array</span>.prototype.slice.call(<span class="built_in">arguments</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> list1 = list(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// [1, 2, 3]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Create a function with a preset leading argument</span></span><br><span class="line"><span class="keyword">var</span> leadingThirtysevenList = list.bind(<span class="literal">undefined</span>, <span class="number">37</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> list2 = leadingThirtysevenList(); <span class="comment">// [37]</span></span><br><span class="line"><span class="keyword">var</span> list3 = leadingThirtysevenList(<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>); <span class="comment">// [37, 1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-<p> 还是挺方便的一个方法，当然这是 ES5 的方法，IE8及IE8以下的浏览器不支持的。</p>
+        <p>断断续续的读完了 《高性能JavaScript》，一半看得英文，一半看得中文，算是粗读了一番。不过收获还是巨大的，对  Nicholas C.Zakas 的崇拜又增加许多。书里讲了很多细节的东西，有大量的数据进行展示，隐含的编程思想和良好的编码习惯非常受用，简直相见恨晚，唯一遗憾的是时间有点久，很多数据无法提供最新版本。</p>
+<p>对于 js 的性能问题，其实从工作到现在，一直没有系统的去了解，学习，实践和总结。想起了 PHP 大牛鸟哥关于性能优化的演讲时说的一句话，”优秀的程序员，应该在写代码时就有性能优化的意识”，</p>
+<p>其实书中每章的 summary 总结的非常好，这里我只记录觉得很有用，平时也没注意的内容，外加一些自己的实践体会。</p>
+<h2 id="第一章_Loading_and_Execution">第一章 Loading and Execution</h2><p>首先得明白，<code>&lt;script&gt;</code> 标签的出现使整个页面因解析、运行而出现等待，阻塞页面解析和用户交互。<br>书中提及一个 <code>&lt;script&gt;</code> 标签在下载外部资源时，不必阻塞其他 <code>&lt;script&gt;</code>，但会阻塞其他资源的下载过程。但我测试了下，在最新版本的 chrome 中 js 并没有阻塞其他资源的下载，而 Firefox，Safari 阻塞了图片资源的下载，没有阻塞 css 的下载，对浏览器所做的优化还是不太明白。（相关<a href="http://www.ravelrumba.com/blog/script-downloading-chrome/" target="_blank" rel="external">资源</a>，后续研究）<br>保证 JavaScript 的加载性能，方法有几种：位置（一般 <code>&lt;script&gt;</code> 紧靠 <code>&lt;/body&gt;</code> 上方），合并压缩（目前主流的构建工具 grunt，gulp都能很好的完成该任务）</p>
 
       
     </div>
@@ -201,7 +182,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/1-01-365/"> #1.01^365 </a>
+            <a href="/tags/JavaScript/"> #JavaScript </a>
           
         </div>
       
@@ -210,13 +191,11 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/04/26/gulp工作流/">gulp工作流</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014/08/31/w3ctech-豌豆荚前端技术专场总结/">w3ctech-豌豆荚前端技术专场总结</a>
+              <a href="/2015/05/26/ES6实践/">ES6实践</a>
             
           </div>
         </div>
@@ -232,8 +211,8 @@
     
       <div class="comments" id="comments">
         
-          <div class="ds-thread" data-thread-key="2015/04/21/杂记-201504/"
-               data-title="杂记-201504" data-url="http://yoursite.com/2015/04/21/杂记-201504/">
+          <div class="ds-thread" data-thread-key="2015/06/01/《高性能JavaScript编程》读书笔记（1）/"
+               data-title="《高性能JavaScript编程》读书笔记（1）" data-url="http://yoursite.com/2015/06/01/《高性能JavaScript编程》读书笔记（1）/">
           </div>
         
       </div>
@@ -342,7 +321,7 @@
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关于题目"><span class="nav-number">1.</span> <span class="nav-text">关于题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-21"><span class="nav-number">2.</span> <span class="nav-text">4-21</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#移动端css动画相关"><span class="nav-number">2.1.</span> <span class="nav-text">移动端css动画相关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-22"><span class="nav-number">3.</span> <span class="nav-text">4-22</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#碎碎念"><span class="nav-number">3.1.</span> <span class="nav-text">碎碎念</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-23"><span class="nav-number">4.</span> <span class="nav-text">4-23</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端发展"><span class="nav-number">4.1.</span> <span class="nav-text">前端发展</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CSS3:_clip_and_filter"><span class="nav-number">4.2.</span> <span class="nav-text">CSS3: clip and filter</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-24"><span class="nav-number">5.</span> <span class="nav-text">4-24</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#bootstrap响应式设计各个尺寸布局临界值"><span class="nav-number">5.1.</span> <span class="nav-text">bootstrap响应式设计各个尺寸布局临界值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#favicon相关"><span class="nav-number">5.2.</span> <span class="nav-text">favicon相关</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-29"><span class="nav-number">6.</span> <span class="nav-text">4-29</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nginx_之_proxy_pass"><span class="nav-number">6.1.</span> <span class="nav-text">Nginx 之 proxy_pass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JS_中_Function-prototype-bind()_使用"><span class="nav-number">6.2.</span> <span class="nav-text">JS 中 Function.prototype.bind() 使用</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章_Loading_and_Execution"><span class="nav-number">1.</span> <span class="nav-text">第一章 Loading and Execution</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>

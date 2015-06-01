@@ -140,6 +140,75 @@
           
           
             
+              <a class="post-title-link" href="/2015/06/01/《高性能JavaScript编程》读书笔记（1）/">
+                《高性能JavaScript编程》读书笔记（1）
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于 2015-06-01
+        </span>
+
+        
+
+        
+          
+            <span class="post-comments-count">
+            &nbsp; | &nbsp;
+            <a href="/2015/06/01/《高性能JavaScript编程》读书笔记（1）/#comments" >
+              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/01/《高性能JavaScript编程》读书笔记（1）/"></span>
+            </a>
+          </span>
+          
+        
+      </div>
+    </div>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>断断续续的读完了 《高性能JavaScript》，一半看得英文，一半看得中文，算是粗读了一番。不过收获还是巨大的，对  Nicholas C.Zakas 的崇拜又增加许多。书里讲了很多细节的东西，有大量的数据进行展示，隐含的编程思想和良好的编码习惯非常受用，简直相见恨晚，唯一遗憾的是时间有点久，很多数据无法提供最新版本。</p>
+<p>对于 js 的性能问题，其实从工作到现在，一直没有系统的去了解，学习，实践和总结。想起了 PHP 大牛鸟哥关于性能优化的演讲时说的一句话，”优秀的程序员，应该在写代码时就有性能优化的意识”，</p>
+<p>其实书中每章的 summary 总结的非常好，这里我只记录觉得很有用，平时也没注意的内容，外加一些自己的实践体会。</p>
+<h2 id="第一章_Loading_and_Execution">第一章 Loading and Execution</h2><p>首先得明白，<code>&lt;script&gt;</code> 标签的出现使整个页面因解析、运行而出现等待，阻塞页面解析和用户交互。<br>书中提及一个 <code>&lt;script&gt;</code> 标签在下载外部资源时，不必阻塞其他 <code>&lt;script&gt;</code>，但会阻塞其他资源的下载过程。但我测试了下，在最新版本的 chrome 中 js 并没有阻塞其他资源的下载，而 Firefox，Safari 阻塞了图片资源的下载，没有阻塞 css 的下载，对浏览器所做的优化还是不太明白。（相关<a href="http://www.ravelrumba.com/blog/script-downloading-chrome/" target="_blank" rel="external">资源</a>，后续研究）<br>保证 JavaScript 的加载性能，方法有几种：位置（一般 <code>&lt;script&gt;</code> 紧靠 <code>&lt;/body&gt;</code> 上方），合并压缩（目前主流的构建工具 grunt，gulp都能很好的完成该任务）</p>
+
+        
+      
+    </div>
+
+    <div class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </div>
+  </div>
+
+
+    
+      
+
+  <div class="post post-type-normal ">
+    <div class="post-header">
+
+      
+      
+        <h1 class="post-title">
+          
+          
+            
               <a class="post-title-link" href="/2015/05/26/ES6实践/">
                 ES6实践
               </a>
@@ -765,77 +834,6 @@
 
 
     
-      
-
-  <div class="post post-type-normal ">
-    <div class="post-header">
-
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/04/25/学习可视化格式模式-简介/">
-                学习可视化格式模式-简介
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2014-04-25
-        </span>
-
-        
-
-        
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/04/25/学习可视化格式模式-简介/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/25/学习可视化格式模式-简介/"></span>
-            </a>
-          </span>
-          
-        
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="前言">前言</h2><p>好久没写东西了，最近太懒了。最近在微博上看了一副学习金字塔，从图中可以看出学习效率最低的就是”听讲”和”阅读”，最高的就是“教别人”和“马上应用”，高中就从这条定律中受益匪浅，为啥上了大学就成口头上的巨人，行动上的矮人了，要强迫改变自己了！</p>
-<p>下面就总结下这段时间看的一个知识点——CSS的可视化格式模式（visual formattin model）<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/04/25/学习可视化格式模式-简介/#more">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </div>
-  </div>
-
-
-    
   </div>
 
   
@@ -874,7 +872,7 @@
         <div class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">12</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
