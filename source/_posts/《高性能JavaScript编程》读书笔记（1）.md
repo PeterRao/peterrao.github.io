@@ -9,6 +9,8 @@ tags: JavaScript
 
 其实书中每章的 summary 总结的非常好，这里我只记录觉得很有用，平时也没注意的内容，外加一些自己的实践体会。
 
+<!-- more -->
+
 ## 第一章 Loading and Execution
 首先得明白，`<script>` 标签的出现使整个页面因解析、运行而出现等待，阻塞页面解析和用户交互。
 书中提及一个 `<script>` 标签在下载外部资源时，不必阻塞其他 `<script>`，但会阻塞其他资源的下载过程。但我测试了下，在最新版本的 chrome 中 js 并没有阻塞其他资源的下载，而 Firefox，Safari 阻塞了图片资源的下载，没有阻塞 css 的下载，对浏览器所做的优化还是不太明白。（相关[资源](http://www.ravelrumba.com/blog/script-downloading-chrome/)，后续研究）
@@ -16,22 +18,22 @@ tags: JavaScript
 当然也有实现非阻塞的方式，有几种方法。
 
 1. Deferred Script
-```
+```html
 <script>
-console.log('script');
+    console.log('script');
 </script>
 <script defer>
-console.log('defer');
+    console.log('defer');
 </script>
 <script>
-window.onload = function() {console.log('load')}
+    window.onload = function() {console.log('load')}
 </script>
 //script, defer, load
 ```
 标记为 defere 的 `<script>` 元素在 onload 事件句柄处理之前被调用。
 
 1. Dynamic Script Elements
-```
+```js
 function loadScript(url, cb) {
     var script = document.createElement('script');
     script.type = "text/javascript";
@@ -53,7 +55,7 @@ function loadScript(url, cb) {
 ```
 
 1. XMLHttpRequest Script Injection
-```
+```js
 var xhr = new XMLHttpRequest();
 xhr.open('get', 'flie.js', true);
 xhr.onreadystatechange = function() {

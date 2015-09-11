@@ -1,0 +1,520 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"backg",
+				"background-size"
+			],
+			[
+				"background-s",
+				"background-position"
+			],
+			[
+				"bac",
+				"background-repeat"
+			],
+			[
+				"bacg",
+				"background-color"
+			],
+			[
+				"m",
+				"margin-left"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"bor",
+				"border-radius"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"Sea",
+				"SearchResults"
+			],
+			[
+				"Search",
+				"SearchResults"
+			],
+			[
+				"T",
+				"TouchableHighlight"
+			],
+			[
+				"page",
+				"pageNumber"
+			],
+			[
+				"butt",
+				"buttonText"
+			],
+			[
+				"sear",
+				"searchInput"
+			],
+			[
+				"ali",
+				"alignSelf"
+			],
+			[
+				"Text",
+				"TextInput"
+			],
+			[
+				"App",
+				"AppRegistry"
+			],
+			[
+				"Sear",
+				"SearchPage"
+			],
+			[
+				"on",
+				"onclick	Attr"
+			],
+			[
+				"movi",
+				"movies"
+			]
+		]
+	},
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 400.0,
+		"last_filter": "p",
+		"selected_items":
+		[
+			[
+				"p",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"copy",
+				"File: Copy Path"
+			],
+			[
+				"pack",
+				"Package Control: Install Package"
+			],
+			[
+				":1",
+				"Emmet: Decrement Number by 1"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				":w",
+				":w - Save"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 457.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())",
+			"mport urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/peizerao/Work/github/blog/db.json",
+		"/Users/peizerao/Work/github/blog/source/_posts/JavaScript中&&和||的返回值.md",
+		"/Users/peizerao/Work/github/blog/source/_posts/JavaScript中~的妙用.md",
+		"/Users/peizerao/Desktop/test.html",
+		"/Users/peizerao/Work/github/react-starter-kit/gulpfile.js",
+		"/Users/peizerao/Work/Wiz/WizWebCli",
+		"/usr/local/var/www/backend/operate/views/article/create.twig",
+		"/Users/peizerao/Library/Application Support/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/usr/local/var/www/backend/operate/web/scss/template-buyer-learn.scss",
+		"/usr/local/var/www/backend/operate/views/template/list.twig",
+		"/usr/local/etc/nginx/nginx.conf",
+		"/usr/local/etc/nginx/conf/operate.amzy.com.conf",
+		"/usr/local/var/www/backend/operate/views/article/buyer-learn-list-tpl.php",
+		"/usr/local/var/www/backend/operate/web/ace/js/template-buyer-learn.js",
+		"/usr/local/var/www/backend/operate/web/ace/js/lib/handlebars-v3.0.3.js",
+		"/usr/local/var/www/backend/operate/web/ace/js/lib/handlebars.runtime.js",
+		"/usr/local/var/www/backend/operate/web/ace/js/lib/handlebars.templates.js",
+		"/usr/local/var/www/backend/operate/views/article/buyer-learn-item-tpl.php",
+		"/usr/local/var/www/backend/common/config/main-local.php",
+		"/Users/peizerao/Work/tmp/demo-compass/sass/main.scss",
+		"/usr/local/var/www/backend/operate/web/ace/css/template-buyer-learn.css",
+		"/Users/peizerao/Work/tmp/demo-compass/stylesheets/main.css",
+		"/usr/local/var/www/backend/operate/config/params-local.php",
+		"/usr/local/var/www/backend/operate/web/scss/template-learn",
+		"/Users/peizerao/Work/tmp/widget/mouseWheel.js",
+		"/Users/peizerao/Work/tmp/widget/index.html",
+		"/Users/peizerao/Work/tmp/widget/luckWheel/luckywheel.css",
+		"/Users/peizerao/Work/tmp/widget/luckWheel/luckWheel.js",
+		"/Users/peizerao/Work/tmp/widget/luckWheel/index.html",
+		"/private/var/log/nginx/access.log",
+		"/usr/local/etc/nginx/nginx.conf.default",
+		"/private/var/log/nginx/error.log",
+		"/usr/local/etc/nginx/error.log",
+		"/Users/peizerao/.zshrc",
+		"/Users/peizerao/Work/tmp/widget/widgetcore/base/class.js",
+		"/Users/peizerao/Work/tmp/widget/widgetcore/base/base.js",
+		"/Users/peizerao/Work/tmp/widget/widgetcore/base/index.html",
+		"/Users/peizerao/Work/tmp/widget/widgetcore/base/widget.js",
+		"/Users/peizerao/Work/tmp/widget/libs/widget.js",
+		"/Users/peizerao/Work/github/ife/2048/build/server.js",
+		"/Users/peizerao/Work/tmp/widget/window/index.html",
+		"/Users/peizerao/Work/tmp/widget/window/js/main.js",
+		"/Users/peizerao/Work/tmp/widget/window/js/window.js",
+		"/Users/peizerao/Work/tmp/widget/window/js/require.js",
+		"/Users/peizerao/Work/github/blog/source/_posts/《高性能JavaScript编程》读书笔记（2）.md",
+		"/Users/peizerao/Desktop/untitled.xml",
+		"/Users/peizerao/.npmrc",
+		"/Users/peizerao/Work/github/baidu-ife/task0001/task0001.html",
+		"/Users/peizerao/Work/github/baidu-ife/task0001/game_qihang_01.md",
+		"/Users/peizerao/Work/github/blog/_config.yml",
+		"/Users/peizerao/Work/github/blog/themes/next/_config.yml",
+		"/Users/peizerao/Work/github/blog/source/_posts/《高性能JavaScript编程》读书笔记（1）.md",
+		"/Users/peizerao/Work/github/blog/source/_posts/《高性能JavaScript编程》读书笔记（3）.md",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/ES6实践.md",
+		"/Users/peizerao/Work/tmp/promise/index.html",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/《高性能JavaScript编程》读书笔记（2）.md",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/《高性能JavaScript编程》读书笔记（1）.md",
+		"/Users/peizerao/Work/tmp/promise/main.js",
+		"/Users/peizerao/Work/tmp/promise/main.css",
+		"/Users/peizerao/Dropbox/hexo-blog/themes/next/_config.yml",
+		"/Users/peizerao/Work/Wiz/wizblog-satellite/js/wiz.js",
+		"/Users/peizerao/Downloads/test.html",
+		"/Users/peizerao/Work/github/codepen/smoke-effect/main.css",
+		"/Users/peizerao/Work/github/codepen/smoke-effect/main.js",
+		"/Users/peizerao/Work/github/codepen/smoke-effect/index.html",
+		"/Users/peizerao/Work/tmp/low-poly/fss.js",
+		"/Users/peizerao/Work/tmp/low-poly/index.html",
+		"/Users/peizerao/Work/Wiz/wizblog-satellite/header.php",
+		"/Users/peizerao/Work/github/fullPage/pure javascript (Alpha)/demo.html",
+		"/Users/peizerao/Work/github/fullPage/jquery.fullPage.js",
+		"/Users/peizerao/Work/github/fullPage/pure javascript (Alpha)/javascript.fullPage.js",
+		"/Users/peizerao/Work/tmp/trace-changes.html",
+		"/Users/peizerao/Work/Wiz/wizblog-satellite/m-wiz-box.php",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/杂记-201505.md",
+		"/Users/peizerao/Work/Wiz/wizblog-satellite/css/wizbox/m-wizbox.css",
+		"/Users/peizerao/Work/Wiz/wizblog-satellite/css/wizbox/wizbox.css",
+		"/Users/peizerao/Work/github/fullPage/examples/simple.html",
+		"/Users/peizerao/Work/Wiz/wizblog-satellite/wiz-box.php",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/CSS结构性伪类选择器.md",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/杂记-201504.md",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/每日进步一点点-201505.md",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/收藏夹.md",
+		"/Users/peizerao/Work/Wiz/wizblog-satellite/404.php",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/每日进步一点点-201504.md",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/学习可视化格式模式-简介.md",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/学习可视化格式模式-控制框（controlling-box）的形成.md",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/gulp工作流.md",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/二分测试localStorage大小.md",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/学习可视化格式模式-定位系统（Positioning-Schemes）.md",
+		"/Users/peizerao/Dropbox/hexo-blog/source/_posts/学习可视化格式模式-包含块（containing-block）.md",
+		"/Users/peizerao/Dropbox/hexo-blog/_config.yml",
+		"/Users/peizerao/Work/tmp/wizbox/css/main.css",
+		"/Users/peizerao/Work/tmp/wizbox/fullpage/javascript.fullPage.js",
+		"/Users/peizerao/Work/tmp/wizbox/index.html",
+		"/Users/peizerao/Downloads/fullPage.js-master/pure javascript (Alpha)/demo.html",
+		"/Users/peizerao/Work/tmp/wizbox/js/main.js",
+		"/Users/peizerao/Work/Wiz/wizblog-satellite/css/wiz.css",
+		"/Users/peizerao/Work/github/hexo-blog/source/_posts/学习可视化格式模式-定位系统（Positioning-Schemes）.md",
+		"/Users/peizerao/Work/github/hexo-blog/source/_posts/学习可视化格式模式-控制框（controlling-box）的形成.md",
+		"/Users/peizerao/Work/github/hexo-blog/source/_posts/学习可视化格式模式-简介.md",
+		"/Users/peizerao/Work/github/hexo-blog/source/_posts/学习可视化格式模式-包含块（containing-block）.md",
+		"/Users/peizerao/Work/github/hexo-blog/source/_posts/学习可视化格式模式-控制框（controlling-box）的形成-1.md",
+		"/Users/peizerao/Work/github/hexo-blog/source/_posts/gulp工作流.md",
+		"/Users/peizerao/Work/github/hexo-blog/source/_posts/二分测试localStorage大小.md",
+		"/Users/peizerao/Downloads/icomoon/style.css",
+		"/Users/peizerao/Work/github/hexo-blog/source/_posts/每日进步一点点.md",
+		"/Users/peizerao/Work/github/hexo-blog/themes/next/layout/post.swig",
+		"/Users/peizerao/Work/github/hexo-blog/themes/next/layout/_partials/head.swig",
+		"/Users/peizerao/Work/github/hexo-blog/themes/next/layout/_macro/post.swig",
+		"/Users/peizerao/Work/github/hexo-blog/themes/next/layout/_scripts/fancy-box.swig",
+		"/Users/peizerao/Work/github/hexo-blog/package.json",
+		"/Users/peizerao/Work/github/hexo-blog/_config.yml",
+		"/Users/peizerao/Work/github/hexo-blog/source/images/201404025",
+		"/Users/peizerao/Work/github/hexo-blog/source/image",
+		"/Users/peizerao/Work/Wiz/wizblog-satellite/css/custom_css_php.css",
+		"/Users/peizerao/Work/tmp/wiz-box.html",
+		"/Users/peizerao/Work/Wiz/wizblog-satellite/js/toolbar.js",
+		"/Users/peizerao/Library/Application Support/Sublime Text 3/Packages/User/untitled.html",
+		"/Users/peizerao/Work/Wiz/wizblog-satellite/category-for-www.php",
+		"/Users/peizerao/Work/github/hexo-blog/source/_posts/每日进步一点-20150424.md",
+		"/Users/peizerao/Work/github/hexo-blog/source/_posts/每日进步一点-20150422.md",
+		"/Users/peizerao/Work/github/hexo-blog/source/_posts/每日进步一点-20150423.md",
+		"/Users/peizerao/Desktop/1.png",
+		"/Users/peizerao/Work/github/hexo-blog/source/categories/index.md",
+		"/Users/peizerao/Work/github/hexo-blog/source/tags/index.md",
+		"/Users/peizerao/Work/github/hexo-blog/themes/next/_config.yml",
+		"/Users/peizerao/Work/script/shuchu.txt",
+		"/Users/peizerao/Work/script/ping.sh"
+	],
+	"find":
+	{
+		"height": 33.0
+	},
+	"find_in_files":
+	{
+		"height": 108.0,
+		"where_history":
+		[
+			"/Users/peizerao/Work/github/blog",
+			"/Users/peizerao/Work/github/blog/source",
+			"/usr/local/var/www/backend/operate/web",
+			"/usr/local/var/www/backend",
+			"/usr/local/var/www/backend/operate/views",
+			"/Users/peizerao/Work/Wiz/wizblog-satellite",
+			"/Users/peizerao/Work/github/hexo-blog/themes/next",
+			"/Users/peizerao/Work/github/hexo-blog/themes",
+			"/Users/peizerao/Work/github/hexo-blog",
+			"/Users/peizerao/Work/github/hexo-blog/themes/next",
+			"/Users/peizerao/Work/github/hexo-blog/themes/next/layout",
+			"/Users/peizerao/Work/github/hexo-blog",
+			"/Users/peizerao/Work/Wiz/wizblog-satellite",
+			"/Users/peizerao/Work/github/hexo-blog",
+			"/Users/peizerao/Work/github/wizblog-satellite",
+			"/Users/peizerao/Work/github/DeerResume"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"结构性伪类选择器",
+			"妙用",
+			"onclick",
+			"publishBtn",
+			"onclick",
+			"publishnow",
+			"handlebars",
+			"link",
+			"css",
+			"getBuyerNum",
+			"模板注册：",
+			"dbname",
+			"t1.php",
+			";*/\n",
+			"$element",
+			"get",
+			"_createClass",
+			"createClass",
+			"downloadBtn",
+			"fitSys-download-btn",
+			"placeholder",
+			"intVar",
+			"addParticle",
+			"generateRandom",
+			"currentopacity",
+			"update",
+			"cover",
+			"draw",
+			"imageObj",
+			"cig",
+			"currentParticleCount",
+			"particles",
+			"canvasWidth",
+			"generateRandom",
+			"ga.js",
+			"ga",
+			"img",
+			"menu",
+			"center-container",
+			"#section3",
+			"190px",
+			"addSlidesNavigation",
+			"init",
+			"slidesNav",
+			"SLIDES_NAV_SEL",
+			"SLIDES_NAV",
+			"content",
+			"menu",
+			"\\",
+			"header",
+			"filter",
+			"filte",
+			"filter",
+			"filter]",
+			"filter",
+			"cssfilters",
+			"cssfilter",
+			"cssFilter",
+			"feature",
+			"img",
+			"photos",
+			"post-img",
+			"fancybox",
+			"url_for",
+			"permalink",
+			"page",
+			"fancybox",
+			"permalink",
+			"fancybox",
+			"img",
+			"ost_asset_folder",
+			"detail",
+			"main_menu",
+			"盒子",
+			"images",
+			"icon_font",
+			"font-face",
+			"font",
+			"st-search-input",
+			"swiftype",
+			"sw",
+			"qode_styles",
+			"wrap",
+			"本简历由",
+			"创建",
+			"jsCodeLocation",
+			"dropbox"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"incremental_find":
+	{
+		"height": 33.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"/usr/local/etc/nginx/conf/operate.amzy.com.conf"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 395.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
