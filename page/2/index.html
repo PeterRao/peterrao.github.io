@@ -1,11 +1,21 @@
 <!doctype html>
-<html class="theme-next use-motion ">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
   <meta name="google-site-verification" content="VvyjvVXcJQa0QklHipu6pwm2PJGnnchIqX7s5JbbT_0" />
@@ -14,36 +24,82 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
-
-
-    <meta name="description" content="F2E" />
-
-
-
-  <meta name="keywords" content="Hexo,next" />
 
 
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="F2E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Undefined Coder">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
+<meta property="og:site_name" content="Undefined Coder">
+<meta property="og:description" content="F2E">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Undefined Coder">
+<meta name="twitter:description" content="F2E">
 
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: '',
-    analytics: {
-      google: 'UA-48555322-1'
-    },
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
+</script>
+
+  <title> Undefined Coder </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48555322-1', 'auto');
+  ga('send', 'pageview');
 </script>
 
 
@@ -59,37 +115,30 @@
 
 
 
-  <title> Undefined Coder </title>
-</head>
 
-<body>
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
+  
+  
+    
+  
 
-  <div class="container one-column 
+  <div class="container one-collumn sidebar-position-left 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
-    <div id="header" class="header">
-      <div class="header-inner">
-        <h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand">
-      <span class="logo">
-        <i class="icon-logo"></i>
-      </span>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Undefined Coder</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Full Snack Developer</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -99,7 +148,7 @@
   </button>
 </div>
 
-<div class="site-nav">
+<nav class="site-nav">
   
 
   
@@ -107,92 +156,128 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/">
-            <i class="menu-item-icon icon-home"></i> <br />
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories">
-            <i class="menu-item-icon icon-categories"></i> <br />
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            <i class="menu-item-icon icon-archives"></i> <br />
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
             归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
-            <i class="menu-item-icon icon-tags"></i> <br />
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
             标签
           </a>
         </li>
+      
+
+      
+      
       
     </ul>
   
 
   
-</div>
+</nav>
 
+ </div>
+    </header>
 
-      </div>
-    </div>
-
-    <div id="main" class="main">
+    <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
-  <div id="posts" class="posts-expand">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+
+    
+
+    
+    
+      
+      
+
+      
+    
+
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/21/杂记-201504/">
-                杂记-201504
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-04-21
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/04/21/杂记-201504/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/21/杂记-201504/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/21/杂记-201504/" itemprop="url">
+                  杂记-201504
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-04-21T23:07:30+08:00" content="2015-04-21">
+              2015-04-21
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/21/杂记-201504/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/21/杂记-201504/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -201,7 +286,7 @@
         
           <h2 id="关于题目">关于题目</h2><p>因为其他原因，很久没更新 blog 了，这次用 hexo 搭建一个 blog。 同时建立一个 <code>1.01^365</code> 的标签，记录点点滴滴，来督促自己每天进步一点点。之前的 blog 有的在 sae 上，有的记在笔记里，后面一点一点整理出来，放在这个地方统一管理。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/21/杂记-201504/#more">
+            <a class="btn" href="/2015/04/21/杂记-201504/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -209,7 +294,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -218,51 +303,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/08/31/w3ctech-豌豆荚前端技术专场总结/">
-                w3ctech-豌豆荚前端技术专场总结
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2014-08-31
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/08/31/w3ctech-豌豆荚前端技术专场总结/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/31/w3ctech-豌豆荚前端技术专场总结/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/08/31/w3ctech-豌豆荚前端技术专场总结/" itemprop="url">
+                  w3ctech-豌豆荚前端技术专场总结
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-08-31T19:01:03+08:00" content="2014-08-31">
+              2014-08-31
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/08/31/w3ctech-豌豆荚前端技术专场总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/08/31/w3ctech-豌豆荚前端技术专场总结/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -274,7 +382,7 @@
 <p>之前的活动分享的多是他们自己开发的库，自己在开发中的解决思路以及对某个特定问题的研究等等，而豌豆荚并不是这样，他们非常崇尚效率。看下豌豆荚的项目可以发现，他们使用了各种开源库，研究了各种新的技术，并投入到生产中去，比如angular，backbone，recat，ploymer等都有在使用，还使用了各种开源或商业的服务。</p>
 <p>豌豆荚和我们很多相似的地方，都是初创公司（其他他们也不小近300人了），他们的前端工程化解决方案和我们目前的几乎一致，但他们的更加完善，他们的 Windows 客户端也同样是 webkit + html 的 webapp 架构。因此觉得值得总结一下。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/08/31/w3ctech-豌豆荚前端技术专场总结/#more">
+            <a class="btn" href="/2014/08/31/w3ctech-豌豆荚前端技术专场总结/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -282,7 +390,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -291,51 +399,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/04/30/学习可视化格式模式-定位系统（Positioning-Schemes）/">
-                学习可视化格式模式-定位系统（Positioning Schemes）
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2014-04-30
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/04/30/学习可视化格式模式-定位系统（Positioning-Schemes）/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/30/学习可视化格式模式-定位系统（Positioning-Schemes）/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/04/30/学习可视化格式模式-定位系统（Positioning-Schemes）/" itemprop="url">
+                  学习可视化格式模式-定位系统（Positioning Schemes）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-04-30T23:28:24+08:00" content="2014-04-30">
+              2014-04-30
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/04/30/学习可视化格式模式-定位系统（Positioning-Schemes）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/30/学习可视化格式模式-定位系统（Positioning-Schemes）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -344,7 +475,7 @@
         
           <p>之前提到过，在可视化格式模型中，每一个元素都会根据盒子模型产生0个或多个box，而这些box的布局会受四大因素的影响（box尺寸和类型、定位系统、文档树中元素之间的关系、外部信息），下面就学习下定位系统。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/04/30/学习可视化格式模式-定位系统（Positioning-Schemes）/#more">
+            <a class="btn" href="/2014/04/30/学习可视化格式模式-定位系统（Positioning-Schemes）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -352,7 +483,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -361,51 +492,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/">
-                学习可视化格式模式-控制框（controlling box）的形成
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2014-04-30
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/" itemprop="url">
+                  学习可视化格式模式-控制框（controlling box）的形成
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-04-30T20:19:10+08:00" content="2014-04-30">
+              2014-04-30
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -414,7 +568,7 @@
         
           <p>接下来，介绍一下CSS2.1中可能产生的框的类型。在某种程度上，框的类型影响了它在可视化格式模型中的表现。<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-display"><code>diaplay</code></a>属性用来指定框的类型。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/#more">
+            <a class="btn" href="/2014/04/30/学习可视化格式模式-控制框（controlling-box）的形成/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -422,7 +576,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -431,51 +585,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/04/27/学习可视化格式模式-包含块（containing-block）/">
-                学习可视化格式模式-包含块（containing block）
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2014-04-27
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/04/27/学习可视化格式模式-包含块（containing-block）/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/27/学习可视化格式模式-包含块（containing-block）/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/04/27/学习可视化格式模式-包含块（containing-block）/" itemprop="url">
+                  学习可视化格式模式-包含块（containing block）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-04-27T23:12:09+08:00" content="2014-04-27">
+              2014-04-27
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/04/27/学习可视化格式模式-包含块（containing-block）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/27/学习可视化格式模式-包含块（containing-block）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -486,7 +663,7 @@
 <h2 id="包含块判定及其范围">包含块判定及其范围</h2><p>之前说过一个元素box的定位和尺寸计算，有时候和一个特定的矩形有关，这个矩形称作该元素的<em>containing block</em>。而元素会为它的子元素创建包含块，那么是不是说，元素的包含块就是它的父元素呢？答案是否定的！</p>
 <p>一个元素包含块的确定，跟元素自身和它的祖先元素的样式等有关系。<br>包含块判定总流程图如下：<br><img src="/images/VFM/judge-containing-block.png" alt="包含块判定总流程图"><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/04/27/学习可视化格式模式-包含块（containing-block）/#more">
+            <a class="btn" href="/2014/04/27/学习可视化格式模式-包含块（containing-block）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -494,7 +671,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -503,51 +680,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2014/04/25/学习可视化格式模式-简介/">
-                学习可视化格式模式-简介
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2014-04-25
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2014/04/25/学习可视化格式模式-简介/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/25/学习可视化格式模式-简介/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2014/04/25/学习可视化格式模式-简介/" itemprop="url">
+                  学习可视化格式模式-简介
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-04-25T23:05:32+08:00" content="2014-04-25">
+              2014-04-25
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/04/25/学习可视化格式模式-简介/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/04/25/学习可视化格式模式-简介/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -557,7 +757,7 @@
           <h2 id="前言">前言</h2><p>好久没写东西了，最近太懒了。最近在微博上看了一副学习金字塔，从图中可以看出学习效率最低的就是”听讲”和”阅读”，最高的就是“教别人”和“马上应用”，高中就从这条定律中受益匪浅，为啥上了大学就成口头上的巨人，行动上的矮人了，要强迫改变自己了！</p>
 <p>下面就总结下这段时间看的一个知识点——CSS的可视化格式模式（visual formattin model）<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2014/04/25/学习可视化格式模式-简介/#more">
+            <a class="btn" href="/2014/04/25/学习可视化格式模式-简介/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -565,7 +765,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -574,51 +774,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2013/11/27/二分测试localStorage大小/">
-                二分法测试localStorage大小
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2013-11-27
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2013/11/27/二分测试localStorage大小/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2013/11/27/二分测试localStorage大小/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2013/11/27/二分测试localStorage大小/" itemprop="url">
+                  二分法测试localStorage大小
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2013-11-27T22:38:31+08:00" content="2013-11-27">
+              2013-11-27
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2013/11/27/二分测试localStorage大小/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2013/11/27/二分测试localStorage大小/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -627,7 +850,7 @@
         
           <p>大概知道localStorage大小大约在2~5M之间，直接用10M的字符串然后二分的方式测试一下不就可以很快的测试出容量的大小了。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2013/11/27/二分测试localStorage大小/#more">
+            <a class="btn" href="/2013/11/27/二分测试localStorage大小/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -635,7 +858,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -644,26 +867,30 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
-  </div>
+
+  </section>
 
   
-  <div class="pagination">
-    <a class="extend prev" rel="prev" href="/">&laquo;</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </div>
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
+
+
+          </div>
+          
+
+
+          
 
         </div>
-
         
-      </div>
-
-
-      
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -673,18 +900,22 @@
     </div>
   </div>
 
-  <div id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
       
 
-      <div class="site-overview">
-        <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Peize Rao" />
-          <p class="site-author-name">Peize Rao</p>
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Peize Rao" />
+          <p class="site-author-name" itemprop="name">Peize Rao</p>
+          <p class="site-description motion-element" itemprop="description">F2E</p>
         </div>
-        <p class="site-description motion-element">F2E</p>
-        <div class="site-state motion-element">
+        <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">17</span>
@@ -693,10 +924,10 @@
           </div>
 
           <div class="site-state-item site-state-categories">
-            <a href="/categories">
+            
               <span class="site-state-item-count">0</span>
               <span class="site-state-item-name">分类</span>
-              </a>
+              
           </div>
 
           <div class="site-state-item site-state-tags">
@@ -706,7 +937,7 @@
               </a>
           </div>
 
-        </div>
+        </nav>
 
         
 
@@ -714,27 +945,43 @@
           
             
               <span class="links-of-author-item">
-              <a href="https://github.com/wizraopeize" target="_blank">GitHub</a>
-            </span>
+                <a href="https://github.com/wizraopeize" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
             
               <span class="links-of-author-item">
-              <a href="https://twitter.com/peizerao" target="_blank">Twitter</a>
-            </span>
+                <a href="https://twitter.com/peizerao" target="_blank">
+                  
+                    <i class="fa fa-twitter"></i> Twitter
+                  
+                </a>
+              </span>
             
               <span class="links-of-author-item">
-              <a href="http://weibo.com/godlikerao" target="_blank">Weibo</a>
-            </span>
+                <a href="http://weibo.com/godlikerao" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
             
               <span class="links-of-author-item">
-              <a href="http://www.zhihu.com/people/rao-pei-ze" target="_blank">ZhiHu</a>
-            </span>
+                <a href="http://www.zhihu.com/people/rao-pei-ze" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> ZhiHu
+                  
+                </a>
+              </span>
             
           
         </div>
 
         
         
-          <div class="cc-license motion-element">
+          <div class="cc-license motion-element" itemprop="license">
             <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
               <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
             </a>
@@ -744,27 +991,29 @@
         <div class="links-of-author motion-element">
           
         </div>
-        
-      </div>
+
+      </section>
 
       
 
     </div>
-  </div>
+  </aside>
 
 
-    </div>
+        
+      </div>
+    </main>
 
-    <div id="footer" class="footer">
+    <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
-  &copy; &nbsp;  2014 - 
-  2015
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
   <span class="with-love">
-    <i class="icon-heart"></i>
+    <i class="icon-next-heart fa fa-heart"></i>
   </span>
-  <span class="author">Peize Rao</span>
+  <span class="author" itemprop="copyrightHolder">Peize Rao</span>
 </div>
 
 <div class="powered-by">
@@ -774,53 +1023,66 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Pisces
   </a>
 </div>
 
 
 
       </div>
-    </div>
+    </footer>
 
     <div class="back-to-top"></div>
   </div>
 
+  
+
+
+  
+
+
+
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  
-  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
-  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
   <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
 
-
-
-  <script type="text/javascript" src="/js/search-toggle.js"></script>
 
   
 
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-    });
-  </script>
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
 
   
 
   
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
   
 
   
@@ -832,6 +1094,7 @@
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
@@ -840,23 +1103,19 @@
   </script>
 
   
+    
+  
+
+
+
 
 
   
   
-  <script type="text/javascript" src="/js/analytics_google-analytics.js?v=0.4.3"></script>
-
 
   
-  <!-- lazyload -->
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-      <script type="text/javascript">
-        jQuery(function() {          
-            jQuery("#posts img").lazyload({
-              placeholder:"http://www.arao.me/loading.gif",  
-                effect:"fadeIn"
-              });
-            });
-    </script>   
+  
+
+
 </body>
 </html>

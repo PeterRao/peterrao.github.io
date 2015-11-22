@@ -1,11 +1,21 @@
 <!doctype html>
-<html class="theme-next use-motion ">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
   <meta name="google-site-verification" content="VvyjvVXcJQa0QklHipu6pwm2PJGnnchIqX7s5JbbT_0" />
@@ -14,16 +24,23 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
-    <meta name="description" content="F2E" />
 
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="JavaScript," />
@@ -32,18 +49,59 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="正则式表达式是每个工程师都应该熟练掌握的工具，特别是前端包含着很多的数据表单的验证。正则表达式虽然功能强大，但其灵活多变，两个正则表达式匹配相同的文本并不意味着他们具有相同的速度，粗浅地编写正则表达式是造成性能瓶颈的主要原因。《高性能JavaScript编程》中，介绍了正则表达式的优化，非常值得仔细学习。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="《高性能JavaScript编程》读书笔记（3）">
+<meta property="og:url" content="http://yoursite.com/2015/06/10/《高性能JavaScript编程》读书笔记（3）/index.html">
+<meta property="og:site_name" content="Undefined Coder">
+<meta property="og:description" content="正则式表达式是每个工程师都应该熟练掌握的工具，特别是前端包含着很多的数据表单的验证。正则表达式虽然功能强大，但其灵活多变，两个正则表达式匹配相同的文本并不意味着他们具有相同的速度，粗浅地编写正则表达式是造成性能瓶颈的主要原因。《高性能JavaScript编程》中，介绍了正则表达式的优化，非常值得仔细学习。">
+<meta property="og:image" content="http://yoursite.com/images/high-performance-javascript/greedy-lazy-quantifiers.jpg">
+<meta property="og:updated_time" content="2015-09-11T01:41:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="《高性能JavaScript编程》读书笔记（3）">
+<meta name="twitter:description" content="正则式表达式是每个工程师都应该熟练掌握的工具，特别是前端包含着很多的数据表单的验证。正则表达式虽然功能强大，但其灵活多变，两个正则表达式匹配相同的文本并不意味着他们具有相同的速度，粗浅地编写正则表达式是造成性能瓶颈的主要原因。《高性能JavaScript编程》中，介绍了正则表达式的优化，非常值得仔细学习。">
 
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: '',
-    analytics: {
-      google: 'UA-48555322-1'
-    },
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
+</script>
+
+  <title> 《高性能JavaScript编程》读书笔记（3） | Undefined Coder </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48555322-1', 'auto');
+  ga('send', 'pageview');
 </script>
 
 
@@ -59,35 +117,28 @@
 
 
 
-  <title> 《高性能JavaScript编程》读书笔记（3） // Undefined Coder </title>
-</head>
 
-<body>
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
+  
+  
+    
+  
 
-  <div class="container one-column page-post-detail">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <div id="header" class="header">
-      <div class="header-inner">
-        <h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand">
-      <span class="logo">
-        <i class="icon-logo"></i>
-      </span>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Undefined Coder</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Full Snack Developer</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -97,7 +148,7 @@
   </button>
 </div>
 
-<div class="site-nav">
+<nav class="site-nav">
   
 
   
@@ -105,90 +156,114 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/">
-            <i class="menu-item-icon icon-home"></i> <br />
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories">
-            <i class="menu-item-icon icon-categories"></i> <br />
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            <i class="menu-item-icon icon-archives"></i> <br />
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
             归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
-            <i class="menu-item-icon icon-tags"></i> <br />
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
             标签
           </a>
         </li>
+      
+
+      
+      
       
     </ul>
   
 
   
-</div>
+</nav>
 
+ </div>
+    </header>
 
-      </div>
-    </div>
-
-    <div id="main" class="main">
+    <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
 
   <div id="posts" class="posts-expand">
     
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              《高性能JavaScript编程》读书笔记（3）
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-10
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/10/《高性能JavaScript编程》读书笔记（3）/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/《高性能JavaScript编程》读书笔记（3）/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                《高性能JavaScript编程》读书笔记（3）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-06-10T17:41:43+08:00" content="2015-06-10">
+              2015-06-10
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/10/《高性能JavaScript编程》读书笔记（3）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/《高性能JavaScript编程》读书笔记（3）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -205,15 +280,15 @@
 <li>匹配成功或失败</li>
 </ol>
 <p>##回溯<br>回溯是匹配过程的基本组成部分，也是影响整体性能的唯一因素。<br>产生回溯的两种主要方式为量词和分支，量词分为贪婪量词和懒惰量词。<br>可以看到虽然贪婪量词和懒惰量词的结果可以一样，但其过程却是不同的。<br><img src="/images/high-performance-javascript/greedy-lazy-quantifiers.jpg" alt="回溯与贪婪量词和懒惰量词"></p>
-<h3 id="回溯失控">回溯失控</h3><p>看下面的正则表达式<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/&#60;html&#62;[\s\S]*?&#60;head&#62;[\s\S]*?&#60;title&#62;[\s\S]*?&#60;/title&#62;[\s\S]*?&#60;\/head&#62;[\s\S]*?&#60;body&#62;[\s\S]*?&#60;\/body&#62;[\s\S]*?&#60;\/html&#62;/</span><br></pre></td></tr></table></figure></p>
+<h3 id="回溯失控">回溯失控</h3><p>看下面的正则表达式<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="tag">&lt;<span class="title">html</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">head</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">title</span>&gt;</span>[\s\S]*?<span class="tag">&lt;/<span class="title">title</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">head</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">body</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">body</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">html</span>&gt;</span>/</span><br></pre></td></tr></table></figure></p>
 <p>此正则表达式匹配正常 HTML 字符串时工作良好，但是如果目标字符串缺少一个或多个标签时，它就变得十分糟糕。例如<code>&lt;/html&gt;</code>标签缺失，那么最后一个<code>[\s\S]*?</code>将扩展到字符串的末尾，但那里没有发现<code>&lt;/html&gt;</code>标签，之后正则表达式将查看此前的<code>[\s\S]\*?</code>队列记录的回溯位置，使它们进一步扩大。之后尝试扩展到第二个<code>[\s\S]*?</code>，依次类推，有点像往贪婪的方向进行，进行了大量的回溯。</p>
 <h4 id="解决方法">解决方法</h4><p>具体化，最大化的去限定范围，尽可能具体地指出分隔符之间的字符匹配形式，减少回溯。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/&#60;html&#62;(?:(?!&#60;head&#62;)[\s\S])*&#60;head&#62;(?:(?!&#60;title&#62;)[\s\S])*&#60;title&#62; (?:(?!&#60;\/title&#62;)[\s\S])*&#60;\/title&#62;(?:(?!&#60;\/head&#62;)[\s\S])*&#60;\/head&#62; (?:(?!&#60;body&#62;)[\s\S])*&#60;body&#62;(?:(?!&#60;\/body&#62;)[\s\S])*&#60;\/body&#62; (?:(?!&#60;\/html&#62;)[\s\S])*&#60;\/html&#62;/</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="tag">&lt;<span class="title">html</span>&gt;</span>(?:(?!<span class="tag">&lt;<span class="title">head</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">head</span>&gt;</span>(?:(?!<span class="tag">&lt;<span class="title">title</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">title</span>&gt;</span> (?:(?!<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">title</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">title</span>&gt;</span>(?:(?!<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">head</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">head</span>&gt;</span> (?:(?!<span class="tag">&lt;<span class="title">body</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">body</span>&gt;</span>(?:(?!<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">body</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">body</span>&gt;</span> (?:(?!<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">html</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">html</span>&gt;</span>/</span><br></pre></td></tr></table></figure>
 <p>虽然上面使用了非捕获组、负向前瞻（<code>(?!exp)</code>匹配后面不是exp的位置）来消除潜在的回溯失控，并允许正则表达式匹配不完整的HTML字符串失败时，其使用时间与文本长度呈线性关系，但是其效率并没有提高。当匹配一个HTML 文件可能需要前瞻并测试上千次。</p>
 <p>使用前瞻和后向引用列举原子组。一些正则表达式一种称作支持原子组（<code>(?&gt;...)</code>）的属性，该属性可以丢弃原子组中正则表达式组中的任何回溯点。但 JavaScript 不支持该属性，不过你可以利用前瞻过程中一项鲜为人知的行为来模拟原子组：前瞻也是原子组。不同的是,前瞻在整个匹配过 程中,不消耗字符;它只是检查自己包含的模板是否能在当前位置匹配。然而,你可以避开这点,在捕获 组中包装一个前瞻模板,在前瞻之外向它添加一个后向引用。它看起来是下面这个样子:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">(?=(&#21407;&#23376;&#32452;&#34920;&#36798;&#24335;))\1</span><br></pre></td></tr></table></figure>
 <p>使用该技术后的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/&#60;html&#62;(?=([\s\S]*?&#60;head&#62;))\1(?=([\s\S]*?&#60;title&#62;))\2(?=([\s\S]*? &#60;\/title&#62;))\3(?=([\s\S]*?&#60;\/head&#62;))\4(?=([\s\S]*?&#60;body&#62;))\5 (?=([\s\S]*?&#60;\/body&#62;))\6[\s\S]*?&#60;\/html&#62;/</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="tag">&lt;<span class="title">html</span>&gt;</span>(?=([\s\S]*?<span class="tag">&lt;<span class="title">head</span>&gt;</span>))\1(?=([\s\S]*?<span class="tag">&lt;<span class="title">title</span>&gt;</span>))\2(?=([\s\S]*? <span class="tag">&lt;<span class="title">\</span>/<span class="attribute">title</span>&gt;</span>))\3(?=([\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">head</span>&gt;</span>))\4(?=([\s\S]*?<span class="tag">&lt;<span class="title">body</span>&gt;</span>))\5 (?=([\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">body</span>&gt;</span>))\6[\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">html</span>&gt;</span>/</span><br></pre></td></tr></table></figure>
 <p>现在如果没有尾随的<code>&lt;/html&gt;</code>那么最后一个<code>[\s\S]*?</code>将扩展至字符串结束，正则表达式将立刻失败因为没有回溯点可以返回。正则表达式每次找到一个中间标签就退出一个前瞻，它在前瞻过程中丢弃所有回溯位 置。下一个后向引用简单地重新匹配前瞻过程中发现的字符，将他们作为实际匹配的一部分</p>
 <p>###嵌套量词和回溯失控<br>使用<code>(x+)*</code>这样的表达式时，需要格外主要回溯失控的问题。假如你想匹配 HTML 标签，使用下面的正则表达式</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/&#60;(?:[^&#62;&#34;&#39;]|&#34;[^&#34;]*&#34;|&#39;[^&#39;]*&#39;)*&#62;/</span><br></pre></td></tr></table></figure>
@@ -239,26 +314,30 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
         <div class="post-tags">
           
-            <a href="/tags/JavaScript/"> #JavaScript </a>
+            <a href="/tags/JavaScript/" rel="tag">#JavaScript</a>
           
         </div>
       
 
       
         <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
+          <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/07/19/JavaScript中&&和||的返回值/">JavaScript中'&&'和'||'的返回值</a>
+              <a href="/2015/06/01/《高性能JavaScript编程》读书笔记（2）/" rel="next" title="《高性能JavaScript编程》读书笔记（2）">
+                <i class="fa fa-chevron-left"></i> 《高性能JavaScript编程》读书笔记（2）
+              </a>
             
           </div>
 
-          <div class="post-nav-next post-nav-item">
+          <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/06/01/《高性能JavaScript编程》读书笔记（2）/">《高性能JavaScript编程》读书笔记（2）</a>
+              <a href="/2015/07/19/JavaScript中&&和||的返回值/" rel="prev" title="JavaScript中'&&'和'||'的返回值">
+                JavaScript中'&&'和'||'的返回值 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -266,34 +345,34 @@
 
       
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
 
     <div class="post-spread">
       
     </div>
+  </div>
 
-    
-      <div class="comments" id="comments">
-        
-          <div class="ds-thread" data-thread-key="2015/06/10/《高性能JavaScript编程》读书笔记（3）/"
-               data-title="《高性能JavaScript编程》读书笔记（3）" data-url="http://yoursite.com/2015/06/10/《高性能JavaScript编程》读书笔记（3）/">
+
           </div>
-        
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/06/10/《高性能JavaScript编程》读书笔记（3）/"
+           data-title="《高性能JavaScript编程》读书笔记（3）" data-url="http://yoursite.com/2015/06/10/《高性能JavaScript编程》读书笔记（3）/">
       </div>
     
   </div>
 
 
         </div>
-
         
-      </div>
-
-
-      
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -303,12 +382,14 @@
     </div>
   </div>
 
-  <div id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
       
+
+      
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -317,13 +398,15 @@
         </ul>
       
 
-      <div class="site-overview">
-        <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Peize Rao" />
-          <p class="site-author-name">Peize Rao</p>
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Peize Rao" />
+          <p class="site-author-name" itemprop="name">Peize Rao</p>
+          <p class="site-description motion-element" itemprop="description">F2E</p>
         </div>
-        <p class="site-description motion-element">F2E</p>
-        <div class="site-state motion-element">
+        <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">17</span>
@@ -332,10 +415,10 @@
           </div>
 
           <div class="site-state-item site-state-categories">
-            <a href="/categories">
+            
               <span class="site-state-item-count">0</span>
               <span class="site-state-item-name">分类</span>
-              </a>
+              
           </div>
 
           <div class="site-state-item site-state-tags">
@@ -345,7 +428,7 @@
               </a>
           </div>
 
-        </div>
+        </nav>
 
         
 
@@ -353,27 +436,43 @@
           
             
               <span class="links-of-author-item">
-              <a href="https://github.com/wizraopeize" target="_blank">GitHub</a>
-            </span>
+                <a href="https://github.com/wizraopeize" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
             
               <span class="links-of-author-item">
-              <a href="https://twitter.com/peizerao" target="_blank">Twitter</a>
-            </span>
+                <a href="https://twitter.com/peizerao" target="_blank">
+                  
+                    <i class="fa fa-twitter"></i> Twitter
+                  
+                </a>
+              </span>
             
               <span class="links-of-author-item">
-              <a href="http://weibo.com/godlikerao" target="_blank">Weibo</a>
-            </span>
+                <a href="http://weibo.com/godlikerao" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
             
               <span class="links-of-author-item">
-              <a href="http://www.zhihu.com/people/rao-pei-ze" target="_blank">ZhiHu</a>
-            </span>
+                <a href="http://www.zhihu.com/people/rao-pei-ze" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> ZhiHu
+                  
+                </a>
+              </span>
             
           
         </div>
 
         
         
-          <div class="cc-license motion-element">
+          <div class="cc-license motion-element" itemprop="license">
             <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
               <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
             </a>
@@ -383,38 +482,46 @@
         <div class="links-of-author motion-element">
           
         </div>
-        
-      </div>
+
+      </section>
 
       
-        <div class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
           <div class="post-toc">
+            
+              
             
             
               <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#回溯失控"><span class="nav-number">1.</span> <span class="nav-text">回溯失控</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">1.1.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></div>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
-        </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
+        </section>
       
 
     </div>
-  </div>
+  </aside>
 
 
-    </div>
+        
+      </div>
+    </main>
 
-    <div id="footer" class="footer">
+    <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
-  &copy; &nbsp;  2014 - 
-  2015
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
   <span class="with-love">
-    <i class="icon-heart"></i>
+    <i class="icon-next-heart fa fa-heart"></i>
   </span>
-  <span class="author">Peize Rao</span>
+  <span class="author" itemprop="copyrightHolder">Peize Rao</span>
 </div>
 
 <div class="powered-by">
@@ -424,44 +531,60 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Pisces
   </a>
 </div>
 
 
 
       </div>
-    </div>
+    </footer>
 
     <div class="back-to-top"></div>
   </div>
 
+  
+
+
+  
+
+
+
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  
-  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
-  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
   <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
 
 
+  
 
-  <script type="text/javascript" src="/js/search-toggle.js"></script>
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
 
   
   
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.3" id="bootstrap.scrollspy.custom"></script>
 
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
+
+  
+  
+<script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.0"></script>
 
 <script type="text/javascript" id="sidebar.toc.highlight">
   $(document).ready(function () {
@@ -493,7 +616,6 @@
     }
 
     function getTOCMaxHeight () {
-      var $sidebarInner = $('.sidebar-inner');
       var height = $('.sidebar').height() -
                    $tocSelector.position().top -
                    $('.post-toc-indicator-bottom').height();
@@ -515,7 +637,7 @@
       )
     }
 
-    $(document).on('sidebar.didShow', function () {
+    $(document).on('sidebar.motion.complete', function () {
       processTOC();
     });
 
@@ -532,7 +654,6 @@
       element.on('mousewheel DOMMouseScroll', function (event) {
           var oe = event.originalEvent;
           var delta = oe.wheelDelta || -oe.detail;
-          var self = this;
 
           this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
           event.preventDefault();
@@ -542,74 +663,95 @@
     }
 
     function tocOverflowIndicator (indicator, action) {
-      $(indicator).velocity('stop').velocity({
-        opacity: action === 'show' ? 0.4 : 0
-      }, { duration: 100 });
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 1 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
     }
 
   });
 </script>
 
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
 
-  <script type="text/javascript" id="sidebar.nav">
-    $(document).ready(function () {
-      var html = $('html');
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
 
-      $('.sidebar-nav li').on('click', function () {
-        var item = $(this);
-        var activeTabClassName = 'sidebar-nav-active';
-        var activePanelClassName = 'sidebar-panel-active';
-        if (item.hasClass(activeTabClassName)) {
-          return;
-        }
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
 
-        var currentTarget = $('.' + activePanelClassName);
-        var target = $('.' + item.data('target'));
-
-        currentTarget.velocity('transition.slideUpOut', 200, function () {
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
           target
             .velocity('stop')
-            .velocity('transition.slideDownIn', 200)
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
             .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
         });
 
-        item.siblings().removeClass(activeTabClassName);
-        item.addClass(activeTabClassName);
-      });
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
 
-      $('.post-toc a').on('click', function (e) {
-        e.preventDefault();
-        var offset = $(escapeSelector(this.getAttribute('href'))).offset().top;
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = NexT.utils.escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
         html.velocity('stop').velocity('scroll', {
           offset: offset  + 'px',
           mobileHA: false
-        });
-      });
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
 
-      // Expand sidebar on post detail page by default, when post has a toc.
+    // Expand sidebar on post detail page by default, when post has a toc.
+    NexT.motion.middleWares.sidebar = function () {
       var $tocContent = $('.post-toc-content');
-      if (isDesktop() && CONFIG.sidebar === 'post') {
+
+      if (CONFIG.sidebar === 'post') {
         if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-          displaySidebar();
+          NexT.utils.displaySidebar();
         }
       }
-    });
-  </script>
+    };
+  });
+</script>
 
 
-
-
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-    });
-  </script>
 
   
 
-  
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
   
 
   
@@ -621,6 +763,7 @@
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
@@ -629,23 +772,19 @@
   </script>
 
   
+    
+  
+
+
+
 
 
   
   
-  <script type="text/javascript" src="/js/analytics_google-analytics.js?v=0.4.3"></script>
-
 
   
-  <!-- lazyload -->
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-      <script type="text/javascript">
-        jQuery(function() {          
-            jQuery("#posts img").lazyload({
-              placeholder:"http://www.arao.me/loading.gif",  
-                effect:"fadeIn"
-              });
-            });
-    </script>   
+  
+
+
 </body>
 </html>

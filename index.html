@@ -1,11 +1,21 @@
 <!doctype html>
-<html class="theme-next use-motion ">
-<head>
+
+
+
   
 
-<meta charset="UTF-8"/>
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
   <meta name="google-site-verification" content="VvyjvVXcJQa0QklHipu6pwm2PJGnnchIqX7s5JbbT_0" />
@@ -14,36 +24,82 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
-
-
-
-
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.3"/>
-
-
-    <meta name="description" content="F2E" />
-
-
-
-  <meta name="keywords" content="Hexo,next" />
 
 
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.3" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
+
+
+
+
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.0" />
+
+
+
+
+
+
+<meta name="description" content="F2E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Undefined Coder">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Undefined Coder">
+<meta property="og:description" content="F2E">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Undefined Coder">
+<meta name="twitter:description" content="F2E">
 
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
-    scheme: '',
-    analytics: {
-      google: 'UA-48555322-1'
-    },
-    sidebar: 'post'
+    scheme: 'Pisces',
+    sidebar: '[object Object]',
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
+</script>
+
+  <title> Undefined Coder </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48555322-1', 'auto');
+  ga('send', 'pageview');
 </script>
 
 
@@ -59,37 +115,30 @@
 
 
 
-  <title> Undefined Coder </title>
-</head>
 
-<body>
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
+  
+  
+    
+  
 
-  <div class="container one-column 
+  <div class="container one-collumn sidebar-position-left 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
-    <div id="header" class="header">
-      <div class="header-inner">
-        <h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand">
-      <span class="logo">
-        <i class="icon-logo"></i>
-      </span>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Undefined Coder</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Full Snack Developer</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -99,7 +148,7 @@
   </button>
 </div>
 
-<div class="site-nav">
+<nav class="site-nav">
   
 
   
@@ -107,105 +156,159 @@
       
         
         <li class="menu-item menu-item-home">
-          <a href="/">
-            <i class="menu-item-icon icon-home"></i> <br />
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
             首页
           </a>
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories">
-            <i class="menu-item-icon icon-categories"></i> <br />
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives">
-            <i class="menu-item-icon icon-archives"></i> <br />
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
             归档
           </a>
         </li>
       
         
         <li class="menu-item menu-item-tags">
-          <a href="/tags">
-            <i class="menu-item-icon icon-tags"></i> <br />
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
             标签
           </a>
         </li>
+      
+
+      
+      
       
     </ul>
   
 
   
-</div>
+</nav>
 
+ </div>
+    </header>
 
-      </div>
-    </div>
-
-    <div id="main" class="main">
+    <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
-  <div id="posts" class="posts-expand">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+
+    
+
+    
+    
+      
+      
+        
+        
+        
+      
+
+      
+    
+
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/09/10/近期状况/">
-                近期状况
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-09-10
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/09/10/近期状况/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/10/近期状况/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/28/从零搭建前端开发体系/" itemprop="url">
+                  从零搭建前端开发体系
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-10-28T22:35:25+08:00" content="2015-10-28">
+              2015-10-28
+            </time>
           </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/10/28/从零搭建前端开发体系/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/10/28/从零搭建前端开发体系/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>三个月前换了工作，刚接手新公司的代码时，瞬间有种从天堂到地狱的感觉，目录结构混乱不堪，代码质量堪忧，中间夹杂着大大小小的坑，上线的代码也是没用经过仔细优化，在此基础上开发简直如履薄冰，痛苦不堪，刚开发完一个需求，处女座的我就已经完全受不了这种开发模式，于是立马着手建立一套完善的前端开发体系。</p>
+<h2 id="技术选型">技术选型</h2><p>因为是基于 H5 的前后端分离项目，主要用于移动端，因此着眼点主要有几个方面。</p>
+<ol>
+<li>很好的适配 Android 和 IOS 中的 Webview，兼容各主流移动浏览器包括微信，同时 PC 上也可供查看使用。</li>
+<li>需要提高开发效率，复用公用代码，做到前端组件化，模块化。</li>
+<li>能够快速部署测试环境，快速上线。</li>
+</ol>
+<p>下面就逐个介绍下使用的一些解决方案。<br>构建工具选择了 gulp，关于 gulp 的使用网上已经有大量教程，之前也写了点使用心得。当然随着前端的发展，Webpack 这种提倡纯模块化的构建工具也是越来越火，后面也会逐渐把其加入到 Tool Chains 中。</p>
+<p>HTML 方面使用了模板语言 Jade，主要用于 HMLT代码片段的复用，之前的项目使用了 nginx 的 SSI 来复用部分 HTML 代码，但 SSI 过于简单，性能也有所损耗。</p>
+<p>CSS 使用了基于 SASS 语法的 Compass 库，Compass 提供了一些常用的 mixin 方便我们书写 CSS，不过目前来看 Compass 在进行构建时，速度略慢，后面可能考虑使用 node-sass 或直接用 Sass 加上 post-css 并使用 Webpack 进行 CSS 的模块构建。</p>
+<p>部署方案采用了上家公司使用的 CI 系统 Jenkins 作自动化构建发布方案，配合 gitlab 的 Webhook 让开发人员只需要提交代码，后续的构建及发布流程完全自动化。</p>
+<h2 id="移动开发相关">移动开发相关</h2><p>之前一直在做 PC 项目，虽然流量不是很大，但是项目完全的前后端分离，架构也比较复杂，前端部分有大量的逻辑处理，从前端路由到 MVC，再到构建，这种 PC 上的 SPA 应用，更注重用户交互及体验。<br>而移动端的 HTML5 虽然也采用的是前后端分离的方案，但目前只做简单数据的渲染，并没有太多的数据交互，因而架构相对简单的多，其主要的关注点在于多屏幕的适配，性能的优化及如何与客户端 App 进行交互上面。<br>多屏幕的适配其实之前也做过一些使用 Media Query 进行响应式开发的方式，单实际开发中遇到不少问题，首先是设计师在设计时需要考虑不同尺寸的手机屏幕，其次是在各种屏幕分辨率下要做不少 hack 来 fix 不同的设备 dpr 带来的问题（比如如何显示物理上的 1px ）。正好遇到手淘的 Flexible 方案，实践了一下发现能解决上面的两个问题，同时手淘自己也在用这套方案，便以此做为目前 H5 的适配上的解决方案，实际使用中又踩了不少坑。</p>
+<p>这里也是感谢老东家和前端 leader 张哥，在为知笔记快两年里，学到了非常多得东西，从浏览器插件开发到用 MVVM 框架去开发复杂 SPA 单页面应用，从学着用 Less，Jade 等到去优化构建流程中的每一步，从兼容各种浏览器到玩耍 CSS3、ES6。毕业后就能有机会和一帮对技术极为追求的同事去尝试去学习，简直是一种幸福！</p>
+
           
         
-      </div>
-    </div>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <p>几个月前换了工作。其实很早就有不错的机会，但一直觉得自己还能学到很多东西，也就一直没行动。碰巧去年发生了可能让我终生无法忘记，无比痛苦的事情，几个月里都陷入士气低迷的状态，在被那件痛苦的事最后一次打击后，彻底的失望以至绝望，也觉得心太累，该调整下。<br>辞职的两个月，也不知道怎么过来的每天望着天花板，靠游戏打发时间。现在想想那段难堪的岁月，还是心有余悸，虽然现在还是经常会心痛，痛到梦醒，不过对未来的期待已经压过过去的痛苦。<br>荒废了两个月后，开始找工作第一周就拿了几个offer，百度，宜信大数据和朋友推荐的淘世界。不过北京这边最想去的还是美团新成立的基础终端部，rank带队吸引了不少前端大神，不过可惜的是美团是休息了两个月后面试的第一家，有些不在状态，很是遗憾。后面都挺顺利，百度，宜信大数据都拿到了offer，中间想去宜信大数据的（吐槽下宜信的前端面试全问算法，根本不问前端知识。。。），毕竟自己也想在算法大数据方面多些资源去接触，可是中间又出了些小插曲没有去成，最后也不打算继续找，一来不是换工作的好时间，二来也想尽快投入工作中。<br>最终在百度和淘世界中选了半天，考虑上家公司纯技术型驱动的公司，自己在前端技术上其实视野已经很宽，换工作也是希望有更大的挑战。最后选了正在快速发展的创业公司淘世界，几个月过来后，也验证了之前的想法，确实大坑。。。不过做技术的只有填坑多，才能学到更多，而且自己之前对前端工程化比较有心得，前端发展地这么快，很多新的想法与技术方案在小团队更容易实践。<br>之后也是蛮拼的，和同事一起搭新的h5开发框架，连续工作半个月，有一周写了63个小时的代码，每天还要做来回3个多小时的地铁，在按时完成业务需求的同时踩了各种各样的坑。过程虽然痛苦，但结果还是好的，新的技术方案并没有出大问题，开发流程比以前清晰流程了许多，具体的过程后面会一点点总结出来。<br>好久不更新东西，也算是对前几个月的总结。总之新的工作，新的环境，既往不恋，纵情向前，加油！</p>
-
-        
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -214,51 +317,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/23/JavaScript中~的妙用/">
-                JavaScript中~的妙用
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-07-23
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/23/JavaScript中~的妙用/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/23/JavaScript中~的妙用/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/07/23/JavaScript中~的妙用/" itemprop="url">
+                  JavaScript中~的妙用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-07-23T21:16:02+08:00" content="2015-07-23">
+              2015-07-23
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/07/23/JavaScript中~的妙用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/23/JavaScript中~的妙用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -267,7 +393,7 @@
         
           <p>~: JS 中按位取反的一元操作符。在实际工作中，遇到的 JS 的位操作并不是很多，但 <code>~</code> 有些妙用。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/23/JavaScript中~的妙用/#more">
+            <a class="btn" href="/2015/07/23/JavaScript中~的妙用/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -275,7 +401,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -284,51 +410,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/07/19/JavaScript中&&和||的返回值/">
-                JavaScript中'&&'和'||'的返回值
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-07-19
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/07/19/JavaScript中&&和||的返回值/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/19/JavaScript中&&和||的返回值/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/07/19/JavaScript中&&和||的返回值/" itemprop="url">
+                  JavaScript中'&&'和'||'的返回值
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-07-19T12:17:00+08:00" content="2015-07-19">
+              2015-07-19
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/07/19/JavaScript中&&和||的返回值/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/07/19/JavaScript中&&和||的返回值/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -339,7 +488,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(<span class="number">1</span>&amp;&amp;<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 <p>初始觉得结果可能是<code>true</code>吧，任务逻辑运算符的返回值都是 <code>true</code> 或 <code>false</code> ，但结果是 <code>2</code>。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/07/19/JavaScript中&&和||的返回值/#more">
+            <a class="btn" href="/2015/07/19/JavaScript中&&和||的返回值/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -347,7 +496,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -356,51 +505,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/10/《高性能JavaScript编程》读书笔记（3）/">
-                《高性能JavaScript编程》读书笔记（3）
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-10
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/10/《高性能JavaScript编程》读书笔记（3）/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/《高性能JavaScript编程》读书笔记（3）/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/10/《高性能JavaScript编程》读书笔记（3）/" itemprop="url">
+                  《高性能JavaScript编程》读书笔记（3）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-06-10T17:41:43+08:00" content="2015-06-10">
+              2015-06-10
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/10/《高性能JavaScript编程》读书笔记（3）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/10/《高性能JavaScript编程》读书笔记（3）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -409,7 +581,7 @@
         
           <p>正则式表达式是每个工程师都应该熟练掌握的工具，特别是前端包含着很多的数据表单的验证。正则表达式虽然功能强大，但其灵活多变，两个正则表达式匹配相同的文本并不意味着他们具有相同的速度，粗浅地编写正则表达式是造成性能瓶颈的主要原因。<br>《高性能JavaScript编程》中，介绍了正则表达式的优化，非常值得仔细学习。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/10/《高性能JavaScript编程》读书笔记（3）/#more">
+            <a class="btn" href="/2015/06/10/《高性能JavaScript编程》读书笔记（3）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -417,7 +589,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -426,51 +598,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/01/《高性能JavaScript编程》读书笔记（2）/">
-                《高性能JavaScript编程》读书笔记（2）
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-01
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/01/《高性能JavaScript编程》读书笔记（2）/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/01/《高性能JavaScript编程》读书笔记（2）/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/01/《高性能JavaScript编程》读书笔记（2）/" itemprop="url">
+                  《高性能JavaScript编程》读书笔记（2）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-06-01T15:47:25+08:00" content="2015-06-01">
+              2015-06-01
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/01/《高性能JavaScript编程》读书笔记（2）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/01/《高性能JavaScript编程》读书笔记（2）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -479,7 +674,7 @@
         
           <p>第二章 Data Access<br>嵌套层次越深，读取数据负担越重，因此 JavaScript 中，直接量和局部变量的访问速度要快于数组项和对象成员的访问速度。<br>这节介绍了一个 JavaScript 中非常重要的概念–作用域。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/01/《高性能JavaScript编程》读书笔记（2）/#more">
+            <a class="btn" href="/2015/06/01/《高性能JavaScript编程》读书笔记（2）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -487,7 +682,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -496,51 +691,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/06/01/《高性能JavaScript编程》读书笔记（1）/">
-                《高性能JavaScript编程》读书笔记（1）
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-06-01
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/06/01/《高性能JavaScript编程》读书笔记（1）/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/01/《高性能JavaScript编程》读书笔记（1）/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/06/01/《高性能JavaScript编程》读书笔记（1）/" itemprop="url">
+                  《高性能JavaScript编程》读书笔记（1）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-06-01T00:08:34+08:00" content="2015-06-01">
+              2015-06-01
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/06/01/《高性能JavaScript编程》读书笔记（1）/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/06/01/《高性能JavaScript编程》读书笔记（1）/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -551,7 +769,7 @@
 <p>对于 js 的性能问题，其实从工作到现在，一直没有系统的去了解，学习，实践和总结。想起了 PHP 大牛鸟哥关于性能优化的演讲时说的一句话，”优秀的程序员，应该在写代码时就有性能优化的意识”，</p>
 <p>其实书中每章的 summary 总结的非常好，这里我只记录觉得很有用，平时也没注意的内容，外加一些自己的实践体会。</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/06/01/《高性能JavaScript编程》读书笔记（1）/#more">
+            <a class="btn" href="/2015/06/01/《高性能JavaScript编程》读书笔记（1）/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -559,7 +777,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -568,51 +786,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/26/ES6实践/">
-                ES6实践
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-26
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/26/ES6实践/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/26/ES6实践/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/26/ES6实践/" itemprop="url">
+                  ES6实践
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-26T16:02:14+08:00" content="2015-05-26">
+              2015-05-26
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/26/ES6实践/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/26/ES6实践/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -621,7 +862,7 @@
         
           <p>在一个新项目上使用 ES6 语法有一段时间了，自己在学习 React 时，也尝试了不少 ES6 的语法。这里记录一下学习实践的经验。<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/26/ES6实践/#more">
+            <a class="btn" href="/2015/05/26/ES6实践/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -629,7 +870,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -638,51 +879,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/13/杂记-201505/">
-                杂记-201505
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-13
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/13/杂记-201505/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/13/杂记-201505/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/13/杂记-201505/" itemprop="url">
+                  杂记-201505
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-13T23:31:27+08:00" content="2015-05-13">
+              2015-05-13
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/13/杂记-201505/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/13/杂记-201505/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -691,7 +955,7 @@
         
           <p>201505杂记<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/13/杂记-201505/#more">
+            <a class="btn" href="/2015/05/13/杂记-201505/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -699,7 +963,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -708,51 +972,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/05/12/CSS结构性伪类选择器/">
-                CSS结构性伪类选择器
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-05-12
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/05/12/CSS结构性伪类选择器/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/12/CSS结构性伪类选择器/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/12/CSS结构性伪类选择器/" itemprop="url">
+                  CSS结构性伪类选择器
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-05-12T23:42:13+08:00" content="2015-05-12">
+              2015-05-12
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/05/12/CSS结构性伪类选择器/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/05/12/CSS结构性伪类选择器/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -761,7 +1048,7 @@
         
           <p>学习一下CSS结构性伪类选择器<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/05/12/CSS结构性伪类选择器/#more">
+            <a class="btn" href="/2015/05/12/CSS结构性伪类选择器/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -769,7 +1056,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -778,51 +1065,74 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
       
 
-  <div class="post post-type-normal ">
-    <div class="post-header">
+  
+  
 
-      
-      
-        <h1 class="post-title">
-          
-          
-            
-              <a class="post-title-link" href="/2015/04/26/gulp工作流/">
-                gulp工作流
-              </a>
-            
-          
-        </h1>
-      
+  
+  
+  
 
-      <div class="post-meta">
-        <span class="post-time">
-          发表于 2015-04-26
-        </span>
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
 
         
-
         
-          
-            <span class="post-comments-count">
-            &nbsp; | &nbsp;
-            <a href="/2015/04/26/gulp工作流/#comments" >
-              <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/26/gulp工作流/"></span>
-            </a>
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/26/gulp工作流/" itemprop="url">
+                  gulp工作流
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-04-26T16:56:48+08:00" content="2015-04-26">
+              2015-04-26
+            </time>
           </span>
-          
-        
-      </div>
-    </div>
 
-    <div class="post-body">
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/04/26/gulp工作流/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/04/26/gulp工作流/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -832,7 +1142,7 @@
           <h2 id="前言">前言</h2><p>专职前端一年半了，经历了项目结构的一次一次升级，也逐渐加深了对前端工程化的认识。从最初的jQuery + grunt 的<code>1.0</code>版本，到<code>2.0</code> 引入 MVVM 框架 avalon，CSS 预处理工具 Less，HTML 模板引擎 Jade 以及前端模块化框架 seajs ，再到 gulp + browserify 和 静态资源的 md5 后缀以加强缓存机制。通过不断的改进项目结构，建立一个完善的多页面多模块的 Web 应用，形成了自己的一套前端工程化流程。</p>
 <p>当然这套工作流离不开一个强大的构建工具–gulp<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2015/04/26/gulp工作流/#more">
+            <a class="btn" href="/2015/04/26/gulp工作流/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -840,7 +1150,7 @@
       
     </div>
 
-    <div class="post-footer">
+    <footer class="post-footer">
       
 
       
@@ -849,26 +1159,30 @@
       
         <div class="post-eof"></div>
       
-    </div>
-  </div>
+    </footer>
+  </article>
 
 
     
-  </div>
+
+  </section>
 
   
-  <div class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">&raquo;</a>
-  </div>
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
 
+
+
+          </div>
+          
+
+
+          
 
         </div>
-
         
-      </div>
-
-
-      
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -878,18 +1192,22 @@
     </div>
   </div>
 
-  <div id="sidebar" class="sidebar">
+  <aside id="sidebar" class="sidebar">
     <div class="sidebar-inner">
 
       
 
-      <div class="site-overview">
-        <div class="site-author motion-element">
-          <img class="site-author-image" src="/images/default_avatar.jpg" alt="Peize Rao" />
-          <p class="site-author-name">Peize Rao</p>
+      
+
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/default_avatar.jpg"
+               alt="Peize Rao" />
+          <p class="site-author-name" itemprop="name">Peize Rao</p>
+          <p class="site-description motion-element" itemprop="description">F2E</p>
         </div>
-        <p class="site-description motion-element">F2E</p>
-        <div class="site-state motion-element">
+        <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">17</span>
@@ -898,10 +1216,10 @@
           </div>
 
           <div class="site-state-item site-state-categories">
-            <a href="/categories">
+            
               <span class="site-state-item-count">0</span>
               <span class="site-state-item-name">分类</span>
-              </a>
+              
           </div>
 
           <div class="site-state-item site-state-tags">
@@ -911,7 +1229,7 @@
               </a>
           </div>
 
-        </div>
+        </nav>
 
         
 
@@ -919,27 +1237,43 @@
           
             
               <span class="links-of-author-item">
-              <a href="https://github.com/wizraopeize" target="_blank">GitHub</a>
-            </span>
+                <a href="https://github.com/wizraopeize" target="_blank">
+                  
+                    <i class="fa fa-github"></i> GitHub
+                  
+                </a>
+              </span>
             
               <span class="links-of-author-item">
-              <a href="https://twitter.com/peizerao" target="_blank">Twitter</a>
-            </span>
+                <a href="https://twitter.com/peizerao" target="_blank">
+                  
+                    <i class="fa fa-twitter"></i> Twitter
+                  
+                </a>
+              </span>
             
               <span class="links-of-author-item">
-              <a href="http://weibo.com/godlikerao" target="_blank">Weibo</a>
-            </span>
+                <a href="http://weibo.com/godlikerao" target="_blank">
+                  
+                    <i class="fa fa-weibo"></i> Weibo
+                  
+                </a>
+              </span>
             
               <span class="links-of-author-item">
-              <a href="http://www.zhihu.com/people/rao-pei-ze" target="_blank">ZhiHu</a>
-            </span>
+                <a href="http://www.zhihu.com/people/rao-pei-ze" target="_blank">
+                  
+                    <i class="fa fa-globe"></i> ZhiHu
+                  
+                </a>
+              </span>
             
           
         </div>
 
         
         
-          <div class="cc-license motion-element">
+          <div class="cc-license motion-element" itemprop="license">
             <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
               <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
             </a>
@@ -949,27 +1283,29 @@
         <div class="links-of-author motion-element">
           
         </div>
-        
-      </div>
+
+      </section>
 
       
 
     </div>
-  </div>
+  </aside>
 
 
-    </div>
+        
+      </div>
+    </main>
 
-    <div id="footer" class="footer">
+    <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">
+        <div class="copyright" >
   
-  &copy; &nbsp;  2014 - 
-  2015
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2015</span>
   <span class="with-love">
-    <i class="icon-heart"></i>
+    <i class="icon-next-heart fa fa-heart"></i>
   </span>
-  <span class="author">Peize Rao</span>
+  <span class="author" itemprop="copyrightHolder">Peize Rao</span>
 </div>
 
 <div class="powered-by">
@@ -979,53 +1315,66 @@
 <div class="theme-info">
   主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT
+    NexT.Pisces
   </a>
 </div>
 
 
 
       </div>
-    </div>
+    </footer>
 
     <div class="back-to-top"></div>
   </div>
 
+  
+
+
+  
+
+
+
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
-  
-  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.3"></script>
-
-
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.3"></script>
-  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+
   <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.3" id="motion.global"></script>
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
 
-
-
-  <script type="text/javascript" src="/js/search-toggle.js"></script>
 
   
 
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-    });
-  </script>
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.0"></script>
+
+
 
   
 
   
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.0"></script>
+
+
+
   
 
   
@@ -1037,6 +1386,7 @@
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
       ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
       ds.charset = 'UTF-8';
       (document.getElementsByTagName('head')[0]
@@ -1045,23 +1395,19 @@
   </script>
 
   
+    
+  
+
+
+
 
 
   
   
-  <script type="text/javascript" src="/js/analytics_google-analytics.js?v=0.4.3"></script>
-
 
   
-  <!-- lazyload -->
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-      <script type="text/javascript">
-        jQuery(function() {          
-            jQuery("#posts img").lazyload({
-              placeholder:"http://www.arao.me/loading.gif",  
-                effect:"fadeIn"
-              });
-            });
-    </script>   
+  
+
+
 </body>
 </html>
