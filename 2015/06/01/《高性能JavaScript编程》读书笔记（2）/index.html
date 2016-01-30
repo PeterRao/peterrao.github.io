@@ -274,10 +274,10 @@
       
         <p>第二章 Data Access<br>嵌套层次越深，读取数据负担越重，因此 JavaScript 中，直接量和局部变量的访问速度要快于数组项和对象成员的访问速度。<br>这节介绍了一个 JavaScript 中非常重要的概念–作用域。</p>
 <a id="more"></a>
-<h2 id="作用域">作用域</h2><p>每个 JavaScript 函数都被表示为对象。拥有两个属性：可编程访问的属性，不能被程序访问，仅供 Javascript 引擎使用的内部属性。<strong>其中一个</strong>内部属性是[[Scope]]。<br>内部[[scope]]属性包含一个函数被创建的作用域中对象的集合。此集合称为函数的作用域链(scope chain)，它决定哪些数据可由函数访问。此函数作用域中的每个对象称为一个可变对象，每个可变对象都以”键值对”的形式存在。当一个函数创建后，它的作用域链被填以对象，这些对象代表创建此函数的环境中可访问的数据。<br><img src="/images/high-performance-javascript/scope.jpg" alt="add()函数的作用域链"><br>add 函数的作用域链将会在运行时用到。运行此 add 函数时建立一个内部对象，称作”运行期上下文”(excution context)。一个运行期上下文定义了一个函数运行时的环境。对函数的每次运行而言，每个运行期上下文都是独一的，所以多次调用同一个函数就会导致多次创建运行期上下文。当函数执行完毕，运行期上下文就被销毁。<br>一个运行期上下文有它自己的作用域链，用于标识符解析。当运行期上下文被创建时，它的作用域链被初始化，连同运行函数的[[Scope]]属性中所包含的对象。这些值按照它们出现在函数中的顺序，被复制到 运行期上下文的作用域链中。这项工作一旦完成，一个被称作“激活对象”的新对象就为运行期上下文创建 好了。此激活对象作为函数执行期的一个可变对象，包含访问所有局部变量、命名参数、参数集合和 this 的接口。然后,此对象被推入作用域链的前端。当作用域链被销毁时,激活对象也一同销毁。<br><img src="/images/high-performance-javascript/scope-chain.jpg" alt="运行 add() 时的作用域"><br>在函数运行过程中,每遇到一个变量,标识符识别过程要决定从哪里获得或者存储数据。此过程搜索运 行期上下文的作用域链,查找同名的标识符。搜索工作从运行函数的激活目标之作用域链的前端开始。如 果找到了,那么就使用这个具有指定标识符的变量;如果没找到,搜索工作将进入作用域链的下一个对象。 此过程持续运行,直到标识符被找到,或者没有更多对象可用于搜索,这种情况下标识符将被认为是未定 义的。函数运行时每个标识符都要经过这样的搜索过程,例如前面的例子中,函数访问 sum, num1, num2 时都会产生这样的搜索过程。正是这种搜索过程影响了性能。</p>
+<h2 id="u4F5C_u7528_u57DF"><a href="#u4F5C_u7528_u57DF" class="headerlink" title="作用域"></a>作用域</h2><p>每个 JavaScript 函数都被表示为对象。拥有两个属性：可编程访问的属性，不能被程序访问，仅供 Javascript 引擎使用的内部属性。<strong>其中一个</strong>内部属性是[[Scope]]。<br>内部[[scope]]属性包含一个函数被创建的作用域中对象的集合。此集合称为函数的作用域链(scope chain)，它决定哪些数据可由函数访问。此函数作用域中的每个对象称为一个可变对象，每个可变对象都以”键值对”的形式存在。当一个函数创建后，它的作用域链被填以对象，这些对象代表创建此函数的环境中可访问的数据。<br><img src="/images/high-performance-javascript/scope.jpg" alt="add()函数的作用域链"><br>add 函数的作用域链将会在运行时用到。运行此 add 函数时建立一个内部对象，称作”运行期上下文”(excution context)。一个运行期上下文定义了一个函数运行时的环境。对函数的每次运行而言，每个运行期上下文都是独一的，所以多次调用同一个函数就会导致多次创建运行期上下文。当函数执行完毕，运行期上下文就被销毁。<br>一个运行期上下文有它自己的作用域链，用于标识符解析。当运行期上下文被创建时，它的作用域链被初始化，连同运行函数的[[Scope]]属性中所包含的对象。这些值按照它们出现在函数中的顺序，被复制到 运行期上下文的作用域链中。这项工作一旦完成，一个被称作“激活对象”的新对象就为运行期上下文创建 好了。此激活对象作为函数执行期的一个可变对象，包含访问所有局部变量、命名参数、参数集合和 this 的接口。然后,此对象被推入作用域链的前端。当作用域链被销毁时,激活对象也一同销毁。<br><img src="/images/high-performance-javascript/scope-chain.jpg" alt="运行 add() 时的作用域"><br>在函数运行过程中,每遇到一个变量,标识符识别过程要决定从哪里获得或者存储数据。此过程搜索运 行期上下文的作用域链,查找同名的标识符。搜索工作从运行函数的激活目标之作用域链的前端开始。如 果找到了,那么就使用这个具有指定标识符的变量;如果没找到,搜索工作将进入作用域链的下一个对象。 此过程持续运行,直到标识符被找到,或者没有更多对象可用于搜索,这种情况下标识符将被认为是未定 义的。函数运行时每个标识符都要经过这样的搜索过程,例如前面的例子中,函数访问 sum, num1, num2 时都会产生这样的搜索过程。正是这种搜索过程影响了性能。</p>
 <p>改变运行期上下文的作用域链有两种方式：一是 with 表达式（不建议使用，忘了这个关键字吧），二是 try-catch 表达式的 cathch 子句。当 try 块发生错误时,程序流程自动转入 catch 块，并将异常对象推入作用域链前端的一个可变对象中。在 catch 块中,函数的所有局部变量现在被放在第二个作用域链对象中，<strong>只要 catch 子句执行完毕</strong>，作用域链就会返回到原来的状态。由于延长了一层作用链域，性能势必有些许的增加，可以将错误交给一个专用函数来处理。</p>
 <p>只有在绝对必要时才推荐使用动态作用域。</p>
-<h2 id="闭包">闭包</h2><p>闭包允许函数访问局部范围之外的数据，强大的同时也会带来性能问题。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">assignEvents</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id = <span class="string">"xdi9592"</span>;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"save-btn"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">        saveDocument(id);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="u95ED_u5305"><a href="#u95ED_u5305" class="headerlink" title="闭包"></a>闭包</h2><p>闭包允许函数访问局部范围之外的数据，强大的同时也会带来性能问题。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">assignEvents</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> id = <span class="string">"xdi9592"</span>;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">"save-btn"</span>).onclick = <span class="function"><span class="keyword">function</span>(<span class="params">event</span>)</span>&#123;</span><br><span class="line">        saveDocument(id);</span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>assignEvents()函数为一个 DOM 元素指定了一个事件处理句柄。此事件处理句柄是一个闭包,当 assignEvents()执行时创建,可以访问其范围内部的 id 变量。用这种方法封闭对 id 变量的访问，必须创建 一个特定的作用域链。<br>当 assignEvents()被执行时,一个激活对象被创建,并包含了一些应有的内容,<br>其中包括 id 变量。它将 成为运行期上下文作用域链上的第一个对象,全局对象是第二个。当闭包创建时,[[Scope]]属性与这些对 象一起被初始化<br><img src="/images/high-performance-javascript/closure1.jpg" alt="assignEvents()运行期上下文的作用域链和闭包"><br>由于闭包的[[Scope]]属性包含与运行期上下文作用域链相同的对象引用,会产生副作用。通常,一个函 数的激活对象与运行期上下文一同销毁。当涉及闭包时,激活对象就无法销毁了,因为引用仍然存在于闭包的[[Scope]]属性中。这意味着脚本中的闭包与非闭包函数相比,需要更多内存开销。在大型网页应用中, 这可能是个问题,尤其在 Internet Explorer 中更被关注。IE 使用非本地 JavaScript 对象实现 DOM 对象,闭 包可能导致内存泄露<br><img src="/images/high-performance-javascript/closure2.jpg" alt="闭包运行"><br>注意闭包中使用的两个标识符,id 和 saveDocument,存在于作用域链第一个对象之后的位置上。这是 闭包最主要的性能关注点:你经常访问一些范围之外的标识符,每次访问都导致一些性能损失。可将域外变量存入局部变量，直接访问局部变量。</p>
 
       
@@ -405,7 +405,7 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/wizraopeize" target="_blank">
+                <a href="https://github.com/PeterRao" target="_blank">
                   
                     <i class="fa fa-github"></i> GitHub
                   
@@ -464,7 +464,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用域"><span class="nav-number">1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#闭包"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u4F5C_u7528_u57DF"><span class="nav-number">1.</span> <span class="nav-text">作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u95ED_u5305"><span class="nav-number">2.</span> <span class="nav-text">闭包</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -486,7 +486,7 @@
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

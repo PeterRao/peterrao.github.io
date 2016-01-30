@@ -275,7 +275,7 @@
 <p>对于 js 的性能问题，其实从工作到现在，一直没有系统的去了解，学习，实践和总结。想起了 PHP 大牛鸟哥关于性能优化的演讲时说的一句话，”优秀的程序员，应该在写代码时就有性能优化的意识”，</p>
 <p>其实书中每章的 summary 总结的非常好，这里我只记录觉得很有用，平时也没注意的内容，外加一些自己的实践体会。</p>
 <a id="more"></a>
-<h2 id="第一章_Loading_and_Execution">第一章 Loading and Execution</h2><p>首先得明白，<code>&lt;script&gt;</code> 标签的出现使整个页面因解析、运行而出现等待，阻塞页面解析和用户交互。<br>书中提及一个 <code>&lt;script&gt;</code> 标签在下载外部资源时，不必阻塞其他 <code>&lt;script&gt;</code>，但会阻塞其他资源的下载过程。但我测试了下，在最新版本的 chrome 中 js 并没有阻塞其他资源的下载，而 Firefox，Safari 阻塞了图片资源的下载，没有阻塞 css 的下载，对浏览器所做的优化还是不太明白。（相关<a href="http://www.ravelrumba.com/blog/script-downloading-chrome/" target="_blank" rel="external">资源</a>，后续研究）<br>保证 JavaScript 的加载性能，方法有几种：位置（一般 <code>&lt;script&gt;</code> 紧靠 <code>&lt;/body&gt;</code> 上方），合并压缩（目前主流的构建工具 grunt，gulp都能很好的完成该任务）。<br>当然也有实现非阻塞的方式，有几种方法。</p>
+<h2 id="u7B2C_u4E00_u7AE0_Loading_and_Execution"><a href="#u7B2C_u4E00_u7AE0_Loading_and_Execution" class="headerlink" title="第一章 Loading and Execution"></a>第一章 Loading and Execution</h2><p>首先得明白，<code>&lt;script&gt;</code> 标签的出现使整个页面因解析、运行而出现等待，阻塞页面解析和用户交互。<br>书中提及一个 <code>&lt;script&gt;</code> 标签在下载外部资源时，不必阻塞其他 <code>&lt;script&gt;</code>，但会阻塞其他资源的下载过程。但我测试了下，在最新版本的 chrome 中 js 并没有阻塞其他资源的下载，而 Firefox，Safari 阻塞了图片资源的下载，没有阻塞 css 的下载，对浏览器所做的优化还是不太明白。（相关<a href="http://www.ravelrumba.com/blog/script-downloading-chrome/" target="_blank" rel="external">资源</a>，后续研究）<br>保证 JavaScript 的加载性能，方法有几种：位置（一般 <code>&lt;script&gt;</code> 紧靠 <code>&lt;/body&gt;</code> 上方），合并压缩（目前主流的构建工具 grunt，gulp都能很好的完成该任务）。<br>当然也有实现非阻塞的方式，有几种方法。</p>
 <ol>
 <li>Deferred Script<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'script'</span>);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">defer</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'defer'</span>);</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span>&gt;</span><span class="javascript"></span><br><span class="line">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">'load'</span>)&#125;</span><br><span class="line"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">//script, defer, load</span><br></pre></td></tr></table></figure>
 </li>
@@ -416,7 +416,7 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/wizraopeize" target="_blank">
+                <a href="https://github.com/PeterRao" target="_blank">
                   
                     <i class="fa fa-github"></i> GitHub
                   
@@ -475,7 +475,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一章_Loading_and_Execution"><span class="nav-number">1.</span> <span class="nav-text">第一章 Loading and Execution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u7B2C_u4E00_u7AE0_Loading_and_Execution"><span class="nav-number">1.</span> <span class="nav-text">第一章 Loading and Execution</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -497,7 +497,7 @@
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

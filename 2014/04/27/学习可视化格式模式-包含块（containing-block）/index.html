@@ -282,11 +282,11 @@
 
       
         <p><a href="/2014/04/25/VFM-intro.html">上节</a>简单介绍了包含块的相关概念，这节详细讲解包含块。</p>
-<h2 id="包含块判定及其范围">包含块判定及其范围</h2><p>之前说过一个元素box的定位和尺寸计算，有时候和一个特定的矩形有关，这个矩形称作该元素的<em>containing block</em>。而元素会为它的子元素创建包含块，那么是不是说，元素的包含块就是它的父元素呢？答案是否定的！</p>
+<h2 id="u5305_u542B_u5757_u5224_u5B9A_u53CA_u5176_u8303_u56F4"><a href="#u5305_u542B_u5757_u5224_u5B9A_u53CA_u5176_u8303_u56F4" class="headerlink" title="包含块判定及其范围"></a>包含块判定及其范围</h2><p>之前说过一个元素box的定位和尺寸计算，有时候和一个特定的矩形有关，这个矩形称作该元素的<em>containing block</em>。而元素会为它的子元素创建包含块，那么是不是说，元素的包含块就是它的父元素呢？答案是否定的！</p>
 <p>一个元素包含块的确定，跟元素自身和它的祖先元素的样式等有关系。<br>包含块判定总流程图如下：<br><img src="/images/VFM/judge-containing-block.png" alt="包含块判定总流程图"><br><a id="more"></a></p>
-<h3 id="根元素的包含块">根元素的包含块</h3><p><a href="http://www.w3.org/TR/CSS2/conform.html#root" target="_blank" rel="external">根元素</a>，就是处于文档树最顶端的元素，它没有父节点。</p>
+<h3 id="u6839_u5143_u7D20_u7684_u5305_u542B_u5757"><a href="#u6839_u5143_u7D20_u7684_u5305_u542B_u5757" class="headerlink" title="根元素的包含块"></a>根元素的包含块</h3><p><a href="http://www.w3.org/TR/CSS2/conform.html#root" target="_blank" rel="external">根元素</a>，就是处于文档树最顶端的元素，它没有父节点。</p>
 <p>根元素存在的矩形包含快叫做初始包含块(initial containing block)。对于连续媒介，它的尺寸就是视窗(<a href="http://www.w3.org/TR/CSS2/visuren.html#viewport" target="_blank" rel="external">viewport</a>)，固定在画布的原点上，也就是说在X(HTML)中，根元素是html元素（尽管有的浏览器会不正确地使用body元素）；对于分页媒介，它就是<a href="http://www.w3.org/TR/CSS2/page.html#page-area" target="_blank" rel="external">页面区域</a>。初始包含块的’direction’属性与根元素相同。</p>
-<h3 id="‘relative’和’static’定位的元素">‘relative’和’static’定位的元素</h3><p>对于其它元素：如果该元素的定位（position）为’relative’（相对定位）或者’static’（静态定位），它的包含块由最近的<a href="http://www.w3.org/TR/CSS2/visuren.html#block-boxes" target="_blank" rel="external">块容器</a>祖先元素的内容框边缘产生。</p>
+<h3 id="u2018relative_u2019_u548C_u2019static_u2019_u5B9A_u4F4D_u7684_u5143_u7D20"><a href="#u2018relative_u2019_u548C_u2019static_u2019_u5B9A_u4F4D_u7684_u5143_u7D20" class="headerlink" title="‘relative’和’static’定位的元素"></a>‘relative’和’static’定位的元素</h3><p>对于其它元素：如果该元素的定位（position）为’relative’（相对定位）或者’static’（静态定位），它的包含块由最近的<a href="http://www.w3.org/TR/CSS2/visuren.html#block-boxes" target="_blank" rel="external">块容器</a>祖先元素的内容框边缘产生。</p>
 <p>这里有两个概念：块容器，后面介绍块框会讲。内容框，可以去看CSS的盒模型。</p>
 <p>元素如果未声明’position’属性，那么就会采用’position’的默认值’static’。所以，一般元素都是静态定位的。</p>
 <p>比如：</p>
@@ -319,8 +319,8 @@
 </tbody>
 </table>
 <p>span元素中包含的的文本在div1中的位置可以看出，div1创建的包含块的区域是它的内容边界，也就是内边界。</p>
-<h3 id="‘position:fixed’定位的元素">‘position:fixed’定位的元素</h3><p>如果元素是固定定位（’position:fixed’）元素，那么它的包含块是当前可视窗口（viewport）。</p>
-<h3 id="‘position:absolute’定位的元素。">‘position:absolute’定位的元素。</h3><p>如果元素是绝对定位（’position:absolute’）元素，那么它的包含块由它最近的position属性为’absolute’、’relative’或者’fixed’的祖先元素创建。</p>
+<h3 id="u2018position_3Afixed_u2019_u5B9A_u4F4D_u7684_u5143_u7D20"><a href="#u2018position_3Afixed_u2019_u5B9A_u4F4D_u7684_u5143_u7D20" class="headerlink" title="‘position:fixed’定位的元素"></a>‘position:fixed’定位的元素</h3><p>如果元素是固定定位（’position:fixed’）元素，那么它的包含块是当前可视窗口（viewport）。</p>
+<h3 id="u2018position_3Aabsolute_u2019_u5B9A_u4F4D_u7684_u5143_u7D20_u3002"><a href="#u2018position_3Aabsolute_u2019_u5B9A_u4F4D_u7684_u5143_u7D20_u3002" class="headerlink" title="‘position:absolute’定位的元素。"></a>‘position:absolute’定位的元素。</h3><p>如果元素是绝对定位（’position:absolute’）元素，那么它的包含块由它最近的position属性为’absolute’、’relative’或者’fixed’的祖先元素创建。</p>
 <p>1.如果其祖先元素是行内元素，则包含块取决于其祖先元素的’direction’特性。（我也是刚知道’direction’这个属性）。</p>
 <ul>
 <li>如果’direction’是’ltr’,包含块的顶、左边是祖先元素生成的第一个框的顶、左内边距边界（padding edges），右、下边是祖先元素生成的最后一个框的右、下内边距边界（padding edges）。</li>
@@ -360,7 +360,7 @@
 </blockquote>
 <p>也就是说，此时的包含块应该是第一个行内元素和最后一个行内元素决定的。在CSS2.1中，如果行内元素是多行的，包含块就是未定义的。各个浏览器并没区别多行和单行的概念。可以把下面的例子在浏览器中运行下试试。<br>这里Firefox还是只以第一行来确定包含块，显然是不符合CSS2.1标准的。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;p style=&#34;border:1px solid red; width:200px; padding:20px;&#34;&#62;&#10;    T&#10;    &#60;span style=&#34;background-color:#C0C0C0; position:relative;&#34;&#62;&#10;      &#60;span&#62;&#36825;&#27573;&#25991;&#23383;&#20174;&#24038;&#21521;&#21491;&#25490;&#21015; &#60;/span&#62;&#60;br&#62;&#10;      &#60;span&#62;XX&#37117;&#26159;&#32477;&#23545;&#23450;&#20301;&#60;/span&#62;&#60;br&#62;&#10;      &#60;span&#62;&#24212;&#35813;&#26377;&#21253;&#21547;&#22359;&#60;/span&#62;&#10;      &#60;em style=&#34;position:absolute; color:red; top:0; left:0;&#34;&#62;XX&#60;/em&#62;&#10;      &#60;em style=&#34;position:absolute; color:yellow; top:20px; left:0;&#34;&#62;XX&#60;/em&#62;&#10;      &#60;em style=&#34;position:absolute; color:blue; bottom:0; right:0;&#34;&#62;XX&#60;/em&#62;&#10;    &#60;/span&#62;&#10;&#60;/p&#62;</span><br></pre></td></tr></table></figure>
-<h2 id="资料">资料</h2><p><a href="http://www.w3help.org/zh-cn/kb/008/" target="_blank" rel="external">W3Help-KB008</a></p>
+<h2 id="u8D44_u6599"><a href="#u8D44_u6599" class="headerlink" title="资料"></a>资料</h2><p><a href="http://www.w3help.org/zh-cn/kb/008/" target="_blank" rel="external">W3Help-KB008</a></p>
 
       
     </div>
@@ -487,7 +487,7 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/wizraopeize" target="_blank">
+                <a href="https://github.com/PeterRao" target="_blank">
                   
                     <i class="fa fa-github"></i> GitHub
                   
@@ -546,7 +546,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#包含块判定及其范围"><span class="nav-number">1.</span> <span class="nav-text">包含块判定及其范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#根元素的包含块"><span class="nav-number">1.1.</span> <span class="nav-text">根元素的包含块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#‘relative’和’static’定位的元素"><span class="nav-number">1.2.</span> <span class="nav-text">‘relative’和’static’定位的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#‘position:fixed’定位的元素"><span class="nav-number">1.3.</span> <span class="nav-text">‘position:fixed’定位的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#‘position:absolute’定位的元素。"><span class="nav-number">1.4.</span> <span class="nav-text">‘position:absolute’定位的元素。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#资料"><span class="nav-number">2.</span> <span class="nav-text">资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5305_u542B_u5757_u5224_u5B9A_u53CA_u5176_u8303_u56F4"><span class="nav-number">1.</span> <span class="nav-text">包含块判定及其范围</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u6839_u5143_u7D20_u7684_u5305_u542B_u5757"><span class="nav-number">1.1.</span> <span class="nav-text">根元素的包含块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u2018relative_u2019_u548C_u2019static_u2019_u5B9A_u4F4D_u7684_u5143_u7D20"><span class="nav-number">1.2.</span> <span class="nav-text">‘relative’和’static’定位的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u2018position_3Afixed_u2019_u5B9A_u4F4D_u7684_u5143_u7D20"><span class="nav-number">1.3.</span> <span class="nav-text">‘position:fixed’定位的元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u2018position_3Aabsolute_u2019_u5B9A_u4F4D_u7684_u5143_u7D20_u3002"><span class="nav-number">1.4.</span> <span class="nav-text">‘position:absolute’定位的元素。</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u8D44_u6599"><span class="nav-number">2.</span> <span class="nav-text">资料</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -568,7 +568,7 @@
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

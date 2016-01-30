@@ -271,13 +271,13 @@
 
       
         <p>接下来，介绍一下CSS2.1中可能产生的框的类型。在某种程度上，框的类型影响了它在可视化格式模型中的表现。<a href="http://www.w3.org/TR/CSS2/visuren.html#propdef-display" target="_blank" rel="external"><code>diaplay</code></a>属性用来指定框的类型。<br><a id="more"></a></p>
-<h2 id="块级元素（block-level_elements）和块框（block_boxes）">块级元素（block-level elements）和块框（block boxes）</h2><p>块级元素是源文档中那些在视觉上被格式化为块（如：段落）的元素。以下<code>display</code>的取值会让一个元素成为块级元素：<code>block</code>、<code>list-item</code>、<code>table</code>。</p>
-<p>块级框是参与块格式化上下文（<a href="(http://www.w3.org/TR/CSS2/visuren.html#block-formatting">block formatting context</a>)）的框。每一个块级元素生成一个主要的块级框(principal block-level box)来包含其子框和生成的内容，同时任何定位方案都会与这个主要的框有关。某些块级元素还会在主要框之外产生额外的框：例如<code>list-item</code>元素。这些额外的框会相对于主要框来放置。（个人感觉那些额外的框是用来放置标示的，比如LI元素前面的点）</p>
+<h2 id="u5757_u7EA7_u5143_u7D20_uFF08block-level_elements_uFF09_u548C_u5757_u6846_uFF08block_boxes_uFF09"><a href="#u5757_u7EA7_u5143_u7D20_uFF08block-level_elements_uFF09_u548C_u5757_u6846_uFF08block_boxes_uFF09" class="headerlink" title="块级元素（block-level elements）和块框（block boxes）"></a>块级元素（block-level elements）和块框（block boxes）</h2><p>块级元素是源文档中那些在视觉上被格式化为块（如：段落）的元素。以下<code>display</code>的取值会让一个元素成为块级元素：<code>block</code>、<code>list-item</code>、<code>table</code>。</p>
+<p>块级框是参与块格式化上下文（<a href="/(http://www.w3.org/TR/CSS2/visuren.html#block-formatting">block formatting context</a>)）的框。每一个块级元素生成一个主要的块级框(principal block-level box)来包含其子框和生成的内容，同时任何定位方案都会与这个主要的框有关。某些块级元素还会在主要框之外产生额外的框：例如<code>list-item</code>元素。这些额外的框会相对于主要框来放置。（个人感觉那些额外的框是用来放置标示的，比如LI元素前面的点）</p>
 <p>除了tab框（后面会讲到）和可置换元素（replaced elements），一个块级框（block-level box）同时也是一个块容器框（block container box），一个块容器框要么只包含块级框，要么创建一个行格式化上下文（inline formatting context ）而只包含行内级框（inline-level boxes）。并非所有的块容器框都是块级框：不可置换行内块（non-replaced inline blocks ）和不可置换table cell是块容器但不是块级框。是块级框的块容器称作块框（block boxes）。</p>
 <p>三个术语：块级框（block-level box）、块容器框（block container box）和块框（block box）在意义明确的时候简称为块（block）</p>
 <p>这三个概念感觉和乱麻一样，撸个图更直观：</p>
 <p><img src="/images/VFM/block-box.png" alt=""></p>
-<h3 id="匿名块框（Anonymous_block_boxes）">匿名块框（Anonymous block boxes）</h3><p>有这样一个文档：</p>
+<h3 id="u533F_u540D_u5757_u6846_uFF08Anonymous_block_boxes_uFF09"><a href="#u533F_u540D_u5757_u6846_uFF08Anonymous_block_boxes_uFF09" class="headerlink" title="匿名块框（Anonymous block boxes）"></a>匿名块框（Anonymous block boxes）</h3><p>有这样一个文档：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;div&#62;&#10;    some text&#10;    &#60;p&#62;More text&#60;/p&#62;&#10;&#60;/div&#62;</span><br></pre></td></tr></table></figure>
 <p>（并假定div和p都设置了<code>display:block</code>），div似乎同时包含了行内类型的内容和块类型的内容。为了使格式化简单一些，我们假定有一个<strong>匿名块框</strong>围绕在”Some text”周围。</p>
 <p><img src="/images/VFM/anon-block.png" alt=""></p>
@@ -290,10 +290,10 @@
 <p>当一个元素上设置的属性导致了匿名块框的生成，则该属性依然能应用于该元素生成的框和其内容之上。例如，上面的例子中，如果在p元素上设置了边框，则这个边框画在C1（在最后一行下方开放）和C2（在第一行上方开发）周围。</p>
 <p>一些用户代理用其他方式实现了行内包含块上的边框。例如，将其内嵌的块放入“匿名行框”中，并在这些匿名行框周围绘出行内边框。由于CSS1和CSS2没有定义这些效果，仅支持CSS1和CSS2的用户代理会以其他形式来实现，并可仍旧声称与CSS2.1的特征保持部分一致。对于CSS2.1规范发布之后才发布的用户代理，就不能这么做了。</p>
 <p>当处理百分比值时，应该忽略匿名块框，而以最近的非匿名祖先框来替代。例如，如果一个匿名块框的孩子在div里面需要知道包含块的高度来解析一个百分比高度。那么它将使用div形成的包含块的高度，而不是匿名块框的高度。</p>
-<h2 id="行内级元素（inline-level_element）和行内框（inline_box）">行内级元素（inline-level element）和行内框（inline box）</h2><p>行内级元素（inline-level element）是源文档中那些不为其内容形成新的块，而让其内容分布在多行中的元素（如，段落内着重的文本，行内图片等等）。以下的<code>display</code>属性值产生一个行内级元素：<code>inline</code>、<code>inline-table</code>、<code>inline-block</code>。行内级元素生成行内级框（inline-level box），而这些框会参与某个行格式化上下文（inline formatting context）</p>
+<h2 id="u884C_u5185_u7EA7_u5143_u7D20_uFF08inline-level_element_uFF09_u548C_u884C_u5185_u6846_uFF08inline_box_uFF09"><a href="#u884C_u5185_u7EA7_u5143_u7D20_uFF08inline-level_element_uFF09_u548C_u884C_u5185_u6846_uFF08inline_box_uFF09" class="headerlink" title="行内级元素（inline-level element）和行内框（inline box）"></a>行内级元素（inline-level element）和行内框（inline box）</h2><p>行内级元素（inline-level element）是源文档中那些不为其内容形成新的块，而让其内容分布在多行中的元素（如，段落内着重的文本，行内图片等等）。以下的<code>display</code>属性值产生一个行内级元素：<code>inline</code>、<code>inline-table</code>、<code>inline-block</code>。行内级元素生成行内级框（inline-level box），而这些框会参与某个行格式化上下文（inline formatting context）</p>
 <p>一个行内框（inline box）是行内级框（inline-level box），且其内容参与了包含它的行格式化上下文（inline formatting context）。一个<code>display</code>值是<code>inline</code>的非置换元素会生成一个行内框。那些不是行内框（inline box）的行内级框（inline-level box），例如，可置换的行内级元素（replaced inline-level element），行内块元素（inline-block element），行内表格元素（inline-table）被称为原子行内级框（atomic inline-level box），因为它们是以单一不透明框的形式来参与格式化上下文。</p>
 <p>换句话说，inline-level box分成inline box和atomic inline-level box两种类型，inline box由<code>display</code>值时<code>inline</code>的no-replaced元素产生，atomic inline-level box由replaced inline-level元素、inline-block元素和inline-table元素生成。（这个地方弄的我快疯掉了。。。）</p>
-<h3 id="匿名行内框（Anonymous_inline_box）">匿名行内框（Anonymous inline box）</h3><p>任何直接被包含在一个块容器（block container）元素（而不是行内元素）中的文本必须视为匿名行内元素。</p>
+<h3 id="u533F_u540D_u884C_u5185_u6846_uFF08Anonymous_inline_box_uFF09"><a href="#u533F_u540D_u884C_u5185_u6846_uFF08Anonymous_inline_box_uFF09" class="headerlink" title="匿名行内框（Anonymous inline box）"></a>匿名行内框（Anonymous inline box）</h3><p>任何直接被包含在一个块容器（block container）元素（而不是行内元素）中的文本必须视为匿名行内元素。</p>
 <p>在如下的文档中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#60;p&#62;Some &#60;em&#62;emphasized&#60;/em&#62; text&#60;/p&#62;</span><br></pre></td></tr></table></figure>
 <p>P元素生成一个块框，其中还有几个行内框。”emphasized”的框是由行内元素（em）产生的一个行内框。而其他的框（”Some”和”text”）是块级元素（p）产生的行内框。后者就称为匿名行内框，因为它们没有与之相关的行内级元素。</p>
@@ -301,8 +301,8 @@
 <p>空格内容，如果可被折叠（根据<code>white-space</code>属性），则其不会生成任何匿名行内框。</p>
 <p>在本规范中，如果一个匿名框的类型可根据上下文来清晰界定，则匿名行内框和匿名块框都可被简称为匿名框。</p>
 <p>自格式化<a href="http://www.w3.org/html/ig/zh/wiki/CSS2/tables#anonymous-boxes" target="_blank" rel="external">表格</a>时，还会出现更多类型的匿名框。</p>
-<h3 id="插入框（Run-in_box）">插入框（Run-in box）</h3><p><code>display: run-in</code>是CSS3（Experimental values）的定义，因为我也没有过这个属性，后续用到在学习（可以参考<a href="http://www.w3.org/TR/css3-box" target="_blank" rel="external">CSS基本框模型</a>）。</p>
-<h3 id="‘display’属性">‘display’属性</h3><p><strong>‘display’</strong></p>
+<h3 id="u63D2_u5165_u6846_uFF08Run-in_box_uFF09"><a href="#u63D2_u5165_u6846_uFF08Run-in_box_uFF09" class="headerlink" title="插入框（Run-in box）"></a>插入框（Run-in box）</h3><p><code>display: run-in</code>是CSS3（Experimental values）的定义，因为我也没有过这个属性，后续用到在学习（可以参考<a href="http://www.w3.org/TR/css3-box" target="_blank" rel="external">CSS基本框模型</a>）。</p>
+<h3 id="u2018display_u2019_u5C5E_u6027"><a href="#u2018display_u2019_u5C5E_u6027" class="headerlink" title="‘display’属性"></a>‘display’属性</h3><p><strong>‘display’</strong></p>
 <p>值： block | list-item | inline-block | table | inline-table | table-row-group | table-header-group | table-footer-group | table-row | table-column-group | table-column | table-cell | table-caption | none | inherit<br>初始值： inline<br>适用于： 所有元素<br>可否继承： 否<br>百分比： N/A<br>媒介： 所有</p>
 <p>这里注意的是其实所有元素默认的<code>display</code>都为<code>inline</code>，用户端（对我们来说是浏览器）的缺省样式表可以覆盖它。比如，P 和 DIV 的<code>display</code>特性值是<code>block</code>，TABLE的<code>display</code>特性值是<code>table</code>。</p>
 <p>本属性各取值的意义如下：</p>
@@ -435,7 +435,7 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/wizraopeize" target="_blank">
+                <a href="https://github.com/PeterRao" target="_blank">
                   
                     <i class="fa fa-github"></i> GitHub
                   
@@ -494,7 +494,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#块级元素（block-level_elements）和块框（block_boxes）"><span class="nav-number">1.</span> <span class="nav-text">块级元素（block-level elements）和块框（block boxes）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名块框（Anonymous_block_boxes）"><span class="nav-number">1.1.</span> <span class="nav-text">匿名块框（Anonymous block boxes）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#行内级元素（inline-level_element）和行内框（inline_box）"><span class="nav-number">2.</span> <span class="nav-text">行内级元素（inline-level element）和行内框（inline box）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#匿名行内框（Anonymous_inline_box）"><span class="nav-number">2.1.</span> <span class="nav-text">匿名行内框（Anonymous inline box）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插入框（Run-in_box）"><span class="nav-number">2.2.</span> <span class="nav-text">插入框（Run-in box）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#‘display’属性"><span class="nav-number">2.3.</span> <span class="nav-text">‘display’属性</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#u5757_u7EA7_u5143_u7D20_uFF08block-level_elements_uFF09_u548C_u5757_u6846_uFF08block_boxes_uFF09"><span class="nav-number">1.</span> <span class="nav-text">块级元素（block-level elements）和块框（block boxes）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u533F_u540D_u5757_u6846_uFF08Anonymous_block_boxes_uFF09"><span class="nav-number">1.1.</span> <span class="nav-text">匿名块框（Anonymous block boxes）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#u884C_u5185_u7EA7_u5143_u7D20_uFF08inline-level_element_uFF09_u548C_u884C_u5185_u6846_uFF08inline_box_uFF09"><span class="nav-number">2.</span> <span class="nav-text">行内级元素（inline-level element）和行内框（inline box）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#u533F_u540D_u884C_u5185_u6846_uFF08Anonymous_inline_box_uFF09"><span class="nav-number">2.1.</span> <span class="nav-text">匿名行内框（Anonymous inline box）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u63D2_u5165_u6846_uFF08Run-in_box_uFF09"><span class="nav-number">2.2.</span> <span class="nav-text">插入框（Run-in box）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#u2018display_u2019_u5C5E_u6027"><span class="nav-number">2.3.</span> <span class="nav-text">‘display’属性</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -516,7 +516,7 @@
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>

@@ -280,9 +280,9 @@
 <li>匹配成功或失败</li>
 </ol>
 <p>##回溯<br>回溯是匹配过程的基本组成部分，也是影响整体性能的唯一因素。<br>产生回溯的两种主要方式为量词和分支，量词分为贪婪量词和懒惰量词。<br>可以看到虽然贪婪量词和懒惰量词的结果可以一样，但其过程却是不同的。<br><img src="/images/high-performance-javascript/greedy-lazy-quantifiers.jpg" alt="回溯与贪婪量词和懒惰量词"></p>
-<h3 id="回溯失控">回溯失控</h3><p>看下面的正则表达式<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="tag">&lt;<span class="title">html</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">head</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">title</span>&gt;</span>[\s\S]*?<span class="tag">&lt;/<span class="title">title</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">head</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">body</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">body</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">html</span>&gt;</span>/</span><br></pre></td></tr></table></figure></p>
+<h3 id="u56DE_u6EAF_u5931_u63A7"><a href="#u56DE_u6EAF_u5931_u63A7" class="headerlink" title="回溯失控"></a>回溯失控</h3><p>看下面的正则表达式<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="tag">&lt;<span class="title">html</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">head</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">title</span>&gt;</span>[\s\S]*?<span class="tag">&lt;/<span class="title">title</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">head</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">body</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">body</span>&gt;</span>[\s\S]*?<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">html</span>&gt;</span>/</span><br></pre></td></tr></table></figure></p>
 <p>此正则表达式匹配正常 HTML 字符串时工作良好，但是如果目标字符串缺少一个或多个标签时，它就变得十分糟糕。例如<code>&lt;/html&gt;</code>标签缺失，那么最后一个<code>[\s\S]*?</code>将扩展到字符串的末尾，但那里没有发现<code>&lt;/html&gt;</code>标签，之后正则表达式将查看此前的<code>[\s\S]\*?</code>队列记录的回溯位置，使它们进一步扩大。之后尝试扩展到第二个<code>[\s\S]*?</code>，依次类推，有点像往贪婪的方向进行，进行了大量的回溯。</p>
-<h4 id="解决方法">解决方法</h4><p>具体化，最大化的去限定范围，尽可能具体地指出分隔符之间的字符匹配形式，减少回溯。</p>
+<h4 id="u89E3_u51B3_u65B9_u6CD5"><a href="#u89E3_u51B3_u65B9_u6CD5" class="headerlink" title="解决方法"></a>解决方法</h4><p>具体化，最大化的去限定范围，尽可能具体地指出分隔符之间的字符匹配形式，减少回溯。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/<span class="tag">&lt;<span class="title">html</span>&gt;</span>(?:(?!<span class="tag">&lt;<span class="title">head</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">head</span>&gt;</span>(?:(?!<span class="tag">&lt;<span class="title">title</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">title</span>&gt;</span> (?:(?!<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">title</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">title</span>&gt;</span>(?:(?!<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">head</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">head</span>&gt;</span> (?:(?!<span class="tag">&lt;<span class="title">body</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">body</span>&gt;</span>(?:(?!<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">body</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">body</span>&gt;</span> (?:(?!<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">html</span>&gt;</span>)[\s\S])*<span class="tag">&lt;<span class="title">\</span>/<span class="attribute">html</span>&gt;</span>/</span><br></pre></td></tr></table></figure>
 <p>虽然上面使用了非捕获组、负向前瞻（<code>(?!exp)</code>匹配后面不是exp的位置）来消除潜在的回溯失控，并允许正则表达式匹配不完整的HTML字符串失败时，其使用时间与文本长度呈线性关系，但是其效率并没有提高。当匹配一个HTML 文件可能需要前瞻并测试上千次。</p>
 <p>使用前瞻和后向引用列举原子组。一些正则表达式一种称作支持原子组（<code>(?&gt;...)</code>）的属性，该属性可以丢弃原子组中正则表达式组中的任何回溯点。但 JavaScript 不支持该属性，不过你可以利用前瞻过程中一项鲜为人知的行为来模拟原子组：前瞻也是原子组。不同的是,前瞻在整个匹配过 程中,不消耗字符;它只是检查自己包含的模板是否能在当前位置匹配。然而,你可以避开这点,在捕获 组中包装一个前瞻模板,在前瞻之外向它添加一个后向引用。它看起来是下面这个样子:</p>
@@ -436,7 +436,7 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/wizraopeize" target="_blank">
+                <a href="https://github.com/PeterRao" target="_blank">
                   
                     <i class="fa fa-github"></i> GitHub
                   
@@ -495,7 +495,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#回溯失控"><span class="nav-number">1.</span> <span class="nav-text">回溯失控</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方法"><span class="nav-number">1.1.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#u56DE_u6EAF_u5931_u63A7"><span class="nav-number">1.</span> <span class="nav-text">回溯失控</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#u89E3_u51B3_u65B9_u6CD5"><span class="nav-number">1.1.</span> <span class="nav-text">解决方法</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
@@ -517,7 +517,7 @@
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
